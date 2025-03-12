@@ -1,0 +1,49 @@
+{
+    "name": "eren/lms",
+    "description": "It provides the user to create, maintain and upload the video based coures  on their website",
+    "type": "project",
+    "require": {
+        "cocur/slugify": "^4.0",
+        "dragon-code/laravel-migration-actions": "^2.9",
+        "fruitcake/laravel-cors": "^2.0",
+        "guzzlehttp/guzzle": "^7.0.1",
+        "intervention/image": "^2.5",
+        "james-heinrich/getid3": "^1.9",
+        "laravel/cashier": "^12.12",
+        "laravel/jetstream": "^1.6",
+        "laravel/sanctum": "^2.6",
+        "laravel/framework": "9.52.17",
+        "laravel/slack-notification-channel": "^3.5",
+        "laravel/socialite": "^5.2",
+        "laravel/telescope": "^5.5",
+        "laravel/tinker": "^2.5",
+        "league/flysystem-aws-s3-v3": "^3.0",
+        "livewire/livewire": "^2.0",
+        "paypal/paypal-checkout-sdk": "1.0.1",
+        "paypal/rest-api-sdk-php": "^1.14",
+        "phpunit/phpunit": "^9.6",
+        "spatie/laravel-health": "^1.32",
+        "spatie/laravel-ignition": "^1.0",
+        "spatie/laravel-schedule-monitor": "^3.10",
+        "spatie/laravel-sluggable": "^3.4"
+    },
+    "license": "Apache",
+    "autoload": {
+        "psr-4": {
+            "Eren\\Lms\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Eren\\Lms\\Providers\\LmsServiceProvider"
+            ]
+        }
+    },
+    "authors": [
+        {
+            "name": "Eren",
+            "email": "nouman.laravel@outlook.com"
+        }
+    ]
+}
