@@ -27,7 +27,7 @@
     "spatie/laravel-schedule-monitor": "^3.10",
     "spatie/laravel-sluggable": "^3.4"
   },
-  "license": "Apache",
+  "license": "MIT",
   "autoload": {
     "psr-4": {
       "Eren\\Lms\\": "src/"
