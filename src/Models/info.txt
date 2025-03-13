@@ -1,0 +1,9 @@
+replace view(" with view("lms::
+replace App\Models with Eren\Lms\Models
+repalce LyskillsCarbon with LmsCarbon
+replace asset('css/ with asset('vendor/lms/css/
+replace asset('js/ with asset('vendor/lms/js/
+replace __(" with __("lms::
+replace any lyskills keyword with lms
+replace extends(" with extends extends("lms::
+

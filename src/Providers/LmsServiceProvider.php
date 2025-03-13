@@ -2,27 +2,76 @@
 
 namespace Eren\Lms\Providers;
 
+use Eren\Lms\Http\Middleware\Admin;
 use Illuminate\Support\ServiceProvider;
+use Eren\Lms\Http\Middleware\Authenticate;
 
 class LmsServiceProvider extends ServiceProvider
 {
     public function boot()
     {
         // Load routes
-        $this->loadRoutesFrom(__DIR__.'/../../routes/web.php');
+        $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
 
         // Load views
-        $this->loadViewsFrom(__DIR__.'/../../resources/views', 'lms');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'lms');
+
+        // load middlewares
+        $this->app['router']->aliasMiddleware(
+            'admin',
+            Admin::class,
+        );
+
+        // Load translations
+        $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'lms');
 
         // Load migrations
-        $this->loadMigrationsFrom(__DIR__.'/../../database/migrations');
+        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
         // Publish configuration file (if needed)
         $this->publishes([
-            __DIR__.'/../../config/lms.php' => config_path('lms.php'),
-        ], 'config');
-    }
+            __DIR__ . '/../../config/lms.php' => config_path('lms.php'),
+            __DIR__ . '/../../config/setting.php' => config_path('setting.php'),
+        ], 'lms_config');
 
+        $this->publishes([
+            __DIR__ . '/../../resources/views' => resource_path('views/vendor/lms'),
+        ], 'lms_views');
+
+        // Publish assets so they can be used in an external Laravel app
+        $this->publishes([
+            __DIR__ . '/../../resources/css' => public_path('vendor/lms/css'),
+            __DIR__ . '/../../resources/js' => public_path('vendor/lms/js'),
+        ], 'lms_assets');
+
+        $this->publishes([
+            __DIR__ . '/../../lang' => resource_path('lang/vendor/lms'),
+        ], 'lms_lang');
+
+        $this->publishes([
+            __DIR__ . '/../Middleware/Admin.php' => app_path('Http/Middleware'),
+        ], 'lms_admin');
+
+        // Publish Request classes
+        $this->publishes([
+            __DIR__ . '/../src/Http/Requests' => app_path('Http/Requests/lms'),
+        ], 'lms_requests');
+
+        $this->publishes([
+            __DIR__ . '/../src/Rules' => app_path('Rules/lms'),
+        ], 'lms_rules');
+
+        //  import only header footer and sidebars
+        $this->publishes([
+            __DIR__ . '/../../resources/views\admin\header.blade.php' => resource_path('views/vendor/lms/admin/header.blade.php'),
+            __DIR__ . '/../../resources/views\admin\footer.blade.php' => resource_path('views/vendor/lms/admin/footer.blade.php'),
+            __DIR__ . '/../../resources/views\layouts\guest.blade.php' => resource_path('views/vendor/lms/layouts/guest.blade.php'),
+            __DIR__ . '/../../resources/views\layouts\guest_user.blade.php' => resource_path('views/vendor/lms/layouts/guest_user.blade.php'),
+            __DIR__ . '/../../resources/views\layouts\dashboard_header.blade.php' => resource_path('views/vendor/lms/layouts/dashboard_header.blade.php'),
+            __DIR__ . '/../../resources/views\courses\dashboard_header.blade.php' => resource_path('views/vendor/lms/courses/dashboard_header.blade.php'),
+            __DIR__ . '/../../resources/views\courses\dashboard_footer.blade.php' => resource_path('views/vendor/lms/courses/dashboard_footer.blade.php'),
+        ], 'lms_only_header_footer_sidebar');
+    }
     public function register()
     {
         // Register bindings or services
