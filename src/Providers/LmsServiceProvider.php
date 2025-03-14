@@ -22,6 +22,8 @@ class LmsServiceProvider extends ServiceProvider
             Admin::class,
         );
 
+        Validator::extend('custom_rule', CustomRule::class);
+
         // Load translations
         $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'lms');
 
