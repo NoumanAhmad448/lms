@@ -2,7 +2,7 @@
 
 @section('title', __('Forbidden'))
 @section('img')
- <img src="{{asset('img/403.jpg')}}" alt="lms-403 forbidden" class="img-fluid w-50"/>
+ <img src="{{asset('vendor/lms/img/403.jpg')}}" alt="lms-403 forbidden" class="img-fluid w-50"/>
  @endsection
 
 @section('code')

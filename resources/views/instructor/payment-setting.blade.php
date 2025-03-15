@@ -51,7 +51,7 @@
             <section>
                 <h2> Bank </h2>
                 <hr />
-                @include('session_msg')
+                @include('lms::session_msg')
                 <form action="{{route('i_bank_payment')}}" method="post">
                     @csrf
                     <div class="row my-5">
@@ -173,7 +173,7 @@
             <section>
                 <h2> Paypal </h2>
                 <hr />
-                @include('session_msg')
+                @include('lms::session_msg')
                 <form action="{{route('i_paypal_payment_withdraw')}}" method="post">
                     @csrf
                     <div class="row mt-4">
@@ -214,7 +214,7 @@
             <section>
                 <h2> Payoneer </h2>
                 <hr />
-                @include('session_msg')
+                @include('lms::session_msg')
                 <form action="{{route('i_payoneer_payment_withdraw')}}" method="post">
                     @csrf
 
@@ -257,7 +257,7 @@
             <section>
                 <h2> Jazzcash </h2>
                 <hr />
-                @include('session_msg')
+                @include('lms::session_msg')
                 <form action="{{route('i_jazzcash_payment_withdraw')}}" method="post">
                     @csrf
                     <div class="row mt-4">
@@ -300,7 +300,7 @@
             <section>
                 <h2> Easypaisa </h2>
                 <hr />
-                @include('session_msg')
+                @include('lms::session_msg')
                 <form action="{{route('i_easypaisa_payment_withdraw')}}" method="post">
                     @csrf
 

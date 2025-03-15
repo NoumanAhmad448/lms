@@ -4,12 +4,16 @@ namespace Eren\Lms\Providers;
 
 use Eren\Lms\Http\Middleware\Admin;
 use Illuminate\Support\ServiceProvider;
-use Eren\Lms\Http\Middleware\Authenticate;
+use Laravel\Fortify\Fortify;
+use Eren\Lms\Helpers\AssetHelper;
 
 class LmsServiceProvider extends ServiceProvider
 {
     public function boot()
     {
+        Fortify::loginView(function () {
+            return view('auth.login');
+        });
         // Load routes
         $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
 
@@ -20,6 +24,17 @@ class LmsServiceProvider extends ServiceProvider
         $this->app['router']->aliasMiddleware(
             'admin',
             Admin::class,
+        );
+
+        $this->app['router']->aliasMiddleware(
+            'ineria',
+            \Inertia\Middleware::class,
+        );
+
+        $this->app['router']->aliasMiddleware(
+            'NoCaptcha',
+             \Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
+
         );
 
         // Load translations
@@ -40,8 +55,10 @@ class LmsServiceProvider extends ServiceProvider
 
         // Publish assets so they can be used in an external Laravel app
         $this->publishes([
-            __DIR__ . '/../../resources/css' => public_path('vendor/lms/css'),
-            __DIR__ . '/../../resources/js' => public_path('vendor/lms/js'),
+            __DIR__ . '/../../resources/css' => resource_path('vendor/lms/css'),
+            __DIR__ . '/../../resources/js' => resource_path('vendor/lms/js'),
+            __DIR__ . '/../../public/css' => public_path('vendor/lms/css'),
+            __DIR__ . '/../../public/js' => public_path('vendor/lms/js'),
         ], 'lms_assets');
 
         $this->publishes([
@@ -71,6 +88,20 @@ class LmsServiceProvider extends ServiceProvider
             __DIR__ . '/../../resources/views\courses\dashboard_header.blade.php' => resource_path('views/vendor/lms/courses/dashboard_header.blade.php'),
             __DIR__ . '/../../resources/views\courses\dashboard_footer.blade.php' => resource_path('views/vendor/lms/courses/dashboard_footer.blade.php'),
         ], 'lms_only_header_footer_sidebar');
+
+        $this->publishes([
+        __DIR__ . '/../../database/migrations' => database_path('migrations'),
+        ], 'lms_migrations');
+
+        $this->publishes([
+            __DIR__ . '/../View/Components' => app_path('View/Components'),
+            __DIR__ . '/../../resources/css' => resource_path('vendor/lms/css'),
+            __DIR__ . '/../../resources/js' => resource_path('vendor/lms/js'),
+            __DIR__ . '/../../public/css' => public_path('vendor/lms/css'),
+            __DIR__ . '/../../public/js' => public_path('vendor/lms/js'),
+            __DIR__ . '/../../config/lms.php' => config_path('lms.php'),
+            __DIR__ . '/../../config/setting.php' => config_path('setting.php'),
+        ], 'lms_auth_views');
     }
     public function register()
     {

@@ -1,4 +1,4 @@
-@include('courses.dashboard_header')
+@include('lms::courses.dashboard_header')
 
 @php
 use Eren\Lms\Models\CourseStatus;
@@ -171,4 +171,4 @@ $course_id = $course->id;
 </div>
 
 
-@include('courses.dashboard_footer')
+@include('lms::courses.dashboard_footer')

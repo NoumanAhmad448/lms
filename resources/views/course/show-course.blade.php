@@ -3,7 +3,7 @@
     use Eren\Lms\Models\User;
     use Eren\Lms\Models\WishList;
     use Eren\Lms\Models\CourseEnrollment;
-    use App\Classes\LmsCarbon;
+    use Eren\Lms\Classes\LmsCarbon;
 @endphp
 @extends(config('setting.guest_blade'))
 
@@ -11,7 +11,7 @@
     <meta property="og:url" content="{{ route('user-course', ['slug' => $course->slug]) }}" />
     <meta property="og:type" content="website" />
     <meta property="og:image"
-        content="@if (empty($c_img)) {{ asset('img/logo.jpg') }} @else  {{ config('setting.s3Url') . $c_img }} @endif" />
+        content="@if (empty($c_img)) {{ asset('vendor/lms/img/logo.jpg') }} @else  {{ config('setting.s3Url') . $c_img }} @endif" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack/styles/defaults.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vidstack/styles/community-skin/video.min.css" />
     <script type="module" src="https://cdn.jsdelivr.net/npm/vidstack/dist/cdn/prod.js"></script>
@@ -23,7 +23,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-md-10 p-4 py-5">
-                        @include('session_msg')
+                        @include('lms::session_msg')
                         @if (config('setting.course_nav'))
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb bg-white text-dark">
@@ -470,7 +470,7 @@
                     <div class="row">
                         <div class="col-1 mr-3 mb-1">
                             <img height="50" width="50" class="rounded-circle object-cover"
-                                src="@include('modals.course_user_profile')" alt="{{ $course->user->name ?? '' }}" />
+                                src="@include('lms::modals.course_user_profile')" alt="{{ $course->user->name ?? '' }}" />
                         </div>
                         <div class="col-7">
                             <div class="text-uppercase"> {{ $course->user->name ?? '' }} </div>

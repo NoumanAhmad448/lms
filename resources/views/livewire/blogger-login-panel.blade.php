@@ -3,12 +3,12 @@
     <div class="d-flex justify-content-center">
         <div class="card mt-5" style="width: 30rem;padding: 11rem 0px" >            
             <a href="{{route('index')}}" class="bg-white card-img-top text-center">
-                <img src="{{asset('img/logo.jpg')}}" alt="lms" class="img-fluid" width="100"/>
+                <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="lms" class="img-fluid" width="100"/>
             </a>            
             <div class="card-body">
               <h3 class="card-title text-center"> Blogger Login </h3>
               
-        @include('session_msg')
+        @include('lms::session_msg')
             <div class="mt-5 d-flex justify-content-center">
                 <form action="{{route('blogger_login_post')}}" method="post" style="width: 20rem">
                 @csrf

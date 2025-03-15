@@ -10,7 +10,7 @@
     <section class="setting">
         <h1> Setting</h1>
         <hr>
-        @include('session_msg')
+        @include('lms::session_msg')
         <div class="row">
             <div class="col-4">
                 <form action="{{route('post_setting',compact('course'))}}" method="post">

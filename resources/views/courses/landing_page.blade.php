@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Storage;
 
 <div class="border bg-white col-md-9 mt-3">
     <section class="container p-3">
-        @include('session_msg')
+        @include('lms::session_msg')
         <div class=" page-heading ">
             <h1> Landing Page </h1>
             <hr />
@@ -109,7 +109,7 @@ use Illuminate\Support\Facades\Storage;
                 $path = $course_img->image_path;
                 }
                 @endphp
-                <img src="@if($path) {{config('setting.s3Url').$path}} @else {{asset('img/thumbnail.jpg')}} @endif"
+                <img src="@if($path) {{config('setting.s3Url').$path}} @else {{asset('vendor/lms/img/thumbnail.jpg')}} @endif"
                     alt="Course Thumbnail" class="img-fluid course_img" width="750" height="450" />
             </div>
             <div class="col-md-6">
@@ -155,7 +155,7 @@ use Illuminate\Support\Facades\Storage;
                     <source src="{{config('setting.s3Url')}}{{$vid_path}}" type="{{$course_vid->video_type}}">
                 </video>
                 @else
-                <img src="{{asset('img/thumbnail.jpg')}}" alt="Course Thumbnail" class="img-fluid video_img" width="750"
+                <img src="{{asset('vendor/lms/img/thumbnail.jpg')}}" alt="Course Thumbnail" class="img-fluid video_img" width="750"
                     height="450" />
                 @endif
             </div>

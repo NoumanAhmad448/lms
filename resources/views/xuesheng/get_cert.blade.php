@@ -1,5 +1,5 @@
 @php 
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 
 @endphp
 <style type="text/css" media="print">
@@ -16,7 +16,7 @@ use App\Classes\LmsCarbon;
     
     <section class="col-md-8 offset-md-2"  style="display: flex;justify-content: center;align-items: center;margin-top: 1rem; margin-bottom: 1rem; ">
    
-        <div style="padding:2px; text-align:center; background-color: #FFFFFF;border: 0.2rem solid #000066;background-image: url('{{asset("img/bg-cert.jpg")}}')">
+        <div style="padding:2px; text-align:center; background-color: #FFFFFF;border: 0.2rem solid #000066;background-image: url('{{asset("vendor/lms/img/bg-cert.jpg")}}')">
             
             <div style="width:750px; padding:20px; >
                 <div class="float-right">    </div>
@@ -32,13 +32,13 @@ use App\Classes\LmsCarbon;
                 <!--<div style="font-size:25px">on  </div> <br/><br/>-->
                 <!--<div style="font-size:30px"> lms.com </div><br>-->
                 <div style="display: flex;justify-content: center;">
-                    <img src="{{asset('img/logo.jpg')}}" alt="company logo" style="width: 150px;"  />
+                    <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="company logo" style="width: 150px;"  />
                 </div>
                 <div style="font-size:25px;"><i>Dated</i></div>
                 <div style="font-size:30px;color: #000">  @php echo LmsCarbon::now(true); @endphp </div>
                 <div style="display: flex;justify-content: between !important; margin-left: 1rem">
                 <div> Ref no @php echo rand();  @endphp  </div>
-                    <img src="{{asset('img/sign.JPG')}}" alt="signature" style="width: 150px; margin-left: auto"  />
+                    <img src="{{asset('vendor/lms/img/sign.JPG')}}" alt="signature" style="width: 150px; margin-left: auto"  />
                 </div>
                 
             </div>

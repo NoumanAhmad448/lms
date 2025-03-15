@@ -10,7 +10,7 @@
     <div class="d-flex justify-content-end">
         <a href="{{route('admin_v_p')}}" class="btn btn-lg btn-info"> View Posts </a>
     </div>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form method="POST" action="{{route('admin_s_p')}}" enctype="multipart/form-data"    >
         @csrf
         <div class="form-group">

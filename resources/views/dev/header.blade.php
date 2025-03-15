@@ -7,10 +7,10 @@
     <title> @if(isset($title)){{ __('messages.'.$title) }} @else {{ __("lms::messages.admin") }} @endif </title>
     <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
     <link rel="canonical" href="{{ url()->current() }}">
-    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.min.css">
-    @include("lib.custom_lib")
+    @include("lms::lib.custom_lib")
 
     @yield('page-css')
 </head>

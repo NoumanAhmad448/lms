@@ -11,7 +11,7 @@
         <div class="row">           
         
         @foreach ($media as $m)
-            @php $path = asset('storage/'.$m->lec_name);            
+            @php $path = asset('vendor/lms/storage/'.$m->lec_name);            
             @endphp
                 
             <div class="col-md-4">

@@ -7,7 +7,7 @@
         Course Delete History
     </h1>      
     @if (isset($history) && $history->count())
-    @include('session_msg')
+    @include('lms::session_msg')
     <div class="table-responsive">
         <table class="table table-hover"  id="example">
             <thead>
@@ -39,7 +39,7 @@
     
     @else
         <div class="jumbotron bg-light text-center">
-            <img src="{{asset('img/not_found.png')}}" alt="lms" class="img-fluid img-thumbnail rounded-pill" width="100"/>
+            <img src="{{asset('vendor/lms/img/not_found.png')}}" alt="lms" class="img-fluid img-thumbnail rounded-pill" width="100"/>
             <div> Nothing to show here </div>
         </div>
     @endif  

@@ -10,7 +10,7 @@
         <meta property="og:title" content=" {{ trans('messages.blogger_login') }}">
         <meta property="og:description" content="{{ __('description.default') }}">
         <link rel="canonical" href="{{ url()->current() }}">
-        <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+        <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet">
 

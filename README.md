@@ -11,10 +11,10 @@ The `Eren\Lms` package is a Laravel-based Learning Management System (LMS) that 
 - **Middleware Support**: Includes `admin` and `authenticate` middleware for access control.
 - **Publishable Assets**: Provides configuration files, views, translations, migrations, and other resources.
 
-## Installation
+## Installation (Recommended)
 
 1. **Install the package via Composer**:
-   ```sh
+   ```
    composer require eren/lms
    ```
 
@@ -28,10 +28,69 @@ The `Eren\Lms` package is a Laravel-based Learning Management System (LMS) that 
    php artisan vendor:publish --tag=lms_requests
    php artisan vendor:publish --tag=lms_rules
    php artisan vendor:publish --tag=lms_only_header_footer_sidebar
+   php artisan vendor:publish --tag=lms_migrations
+   ```
+3. **Run migrations**:
+   ```
+   php artisan migrate
    ```
 
-3. **Run migrations**:
-   ```sh
+
+## Installation(Personlized)
+### **Step 1: Install the `anhskohbo/no-captcha` Package**
+1. **Install the Package**:
+   Run the following Composer command to install the package:
+   ```bash
+   composer require anhskohbo/no-captcha
+   ```
+
+2. **Publish the Configuration File**:
+   Publish the package's configuration file to customize reCAPTCHA settings:
+   ```bash
+   php artisan vendor:publish --provider="Anhskohbo\NoCaptcha\NoCaptchaServiceProvider"
+   ```
+
+   This will create a `nocaptcha.php` file in the `config` directory.
+
+---
+
+### **Step 2: Set Up Google reCAPTCHA Keys**
+1. **Get reCAPTCHA Keys**:
+   - Go to the [Google reCAPTCHA Admin Console](https://www.google.com/recaptcha/admin/).
+   - Register your site and get the **Site Key** and **Secret Key**.
+
+2. **Add Keys to `.env`**:
+   Add the keys to your `.env` file:
+   ```env
+   NOCAPTCHA_SITEKEY=your_site_key_here
+   NOCAPTCHA_SECRET=your_secret_key_here
+   ```
+
+3. **Update `config/nocaptcha.php`**:
+   Ensure the `nocaptcha.php` configuration file uses the keys from the `.env` file:
+   ```php
+   return [
+       'sitekey' => env('NOCAPTCHA_SITEKEY', ''),
+       'secret' => env('NOCAPTCHA_SECRET', ''),
+   ];
+   ```
+
+---
+
+### **Step 3: Publish Auth Views**
+If you want to customize the login page, publish the authentication views using the `lms_auth_views` tag.
+
+1. **Publish Auth Views**:
+   Run the following Artisan command:
+   ```bash
+   php artisan vendor:publish --tag=lms_auth_views
+   ```
+
+   This will copy the authentication views (e.g., `login.blade.php`, `register.blade.php`) to your `resources/views/vendor/lms` directory.
+
+   **Run migrations**:
+   ```
+   php artisan vendor:publish --tag=lms_migrations
    php artisan migrate
    ```
 

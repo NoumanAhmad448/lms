@@ -11,7 +11,7 @@ use Eren\Lms\Models\User;
 use Eren\lms\Rules\IsScriptAttack;
 use Exception;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 
 class CourseExController extends Controller
 {
@@ -61,7 +61,7 @@ class CourseExController extends Controller
 
         $d = ['course' => $course_name, 'cert_no' => $cert_no, 'date' => $date, 'name' => auth()->user()->name];
 
-        $path = asset('img/certificate.jpg');
+        $path = asset('vendor/lms/img/certificate.jpg');
 
         $type = pathinfo($path, PATHINFO_EXTENSION);
         $data = file_get_contents($path);

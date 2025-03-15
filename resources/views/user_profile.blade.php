@@ -15,7 +15,7 @@
 
             <span class="h-12 w-12 rounded-full">
                 <img class="rounded-full object-contain hover:object-scale-down w-96"
-                    src="@include('modals.profile_logo')"
+                    src="@include('lms::modals.profile_logo')"
                     alt="{{ $user->name }}" />
             </span>
             @include(config('files.components') . '.angle_svg')

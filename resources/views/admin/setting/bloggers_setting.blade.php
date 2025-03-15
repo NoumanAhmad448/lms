@@ -8,7 +8,7 @@
     {{-- <p> This Page is displaying the LMS setting of the website </p> --}}
     <hr/>
 
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('blogger-setting-post')}}" method="POST">
         @csrf        
         <div class="row">

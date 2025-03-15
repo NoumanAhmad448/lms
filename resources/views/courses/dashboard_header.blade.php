@@ -27,7 +27,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
 
-    @include("lib.custom_lib")
+    @include("lms::lib.custom_lib")
     <script>
     $(function () {
         $('.date-picker').datepicker({
@@ -42,7 +42,7 @@
 </script>
 </head>
 <body class="min-vh-100 d-flex flex-column">
-    @include("modals.modal")
+    @include("lms::modals.modal")
     <nav class="navbar navbar-dark bg-website text-white d-flex justify-content-between p-3">
         <div class="d-flex">
             <a href="{{route('dashboard')}}" class="text-white"> <i class="las la-angle-left"></i> <span class="d-none d-md-inline"> back to dashboard </span> </a>

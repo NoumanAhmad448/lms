@@ -101,7 +101,7 @@
                 all of them mentioned above in @page-css
              -->
             <media-player
-                src="@if(file_exists(public_path('storage/'.$media->lec_name))){{asset('storage/'.$media->lec_name)}}@else{{config('setting.s3Url')}}{{$media->lec_name}}@endif"
+                src="@if(file_exists(public_path('storage/'.$media->lec_name))){{asset('vendor/lms/storage/'.$media->lec_name)}}@else{{config('setting.s3Url')}}{{$media->lec_name}}@endif"
                 aspect-ratio="16/9"
                 type="{{$media->f_mimetype ?? '' }}"
                 @if(empty($media->is_download))
@@ -224,7 +224,7 @@
                     <h3 class="mb-2">
                         Recommended Material to read offline
                     </h3>
-                    <a href="{{asset('storage/'.$other_file->f_path)}}" download="download"
+                    <a href="{{asset('vendor/lms/storage/'.$other_file->f_path)}}" download="download"
                         class="btn btn-website mt-2">
                         {{$other_file->f_name}}
                     </a>

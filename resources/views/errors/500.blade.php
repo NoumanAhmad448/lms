@@ -2,7 +2,7 @@
 
 @section('title', __('500 Server Error'))
 @section('img')
-    <img src="{{asset('img/500.jpg')}}" alt="lms" class="img-fluid w-50"/>
+    <img src="{{asset('vendor/lms/img/500.jpg')}}" alt="lms" class="img-fluid w-50"/>
 @endsection 
 @section('code')
     <div class="display-3" > Server Error  </div>

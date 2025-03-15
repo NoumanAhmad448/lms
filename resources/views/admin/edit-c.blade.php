@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-end mb-1">
         <a href="{{route('admin_main_categories')}}" class="btn website-btn btn-lg"> View Category </a>
     </div>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('admin_update_main_c',compact('c'))}}" method="post" class="mt-2">
         @csrf
         @method('patch')

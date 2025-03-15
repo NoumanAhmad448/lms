@@ -213,7 +213,7 @@ class AssignmentController extends Controller
 
             $file = $assign->ass_f_path;
             if ($file) {
-                $f_name = asset('storage/' . $file);
+                $f_name = asset('vendor/lms/storage/' . $file);
                 Storage::delete($f_name);
                 $assign->ass_f_name = "";
                 $assign->ass_f_path = "";
@@ -235,7 +235,7 @@ class AssignmentController extends Controller
 
             $file = $assign->ass_ans_f_path;
             if ($file) {
-                $f_name = asset('storage/' . $file);
+                $f_name = asset('vendor/lms/storage/' . $file);
                 Storage::delete($f_name);
                 $assign->ass_ans_f_name = "";
                 $assign->ass_ans_f_path = "";

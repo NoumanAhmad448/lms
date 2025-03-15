@@ -11,7 +11,7 @@
     @if (isset($user) && $user)
         
     
-        @include('session_msg')
+        @include('lms::session_msg')
         <form action="{{route('update_blogger___',compact('user'))}}" method="POST">
             @csrf
             @method('put')

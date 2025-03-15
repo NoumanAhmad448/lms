@@ -4,6 +4,7 @@
   "type": "project",
   "require": {
     "cocur/slugify": "^4.0",
+    "anhskohbo/no-captcha": "^3.7",
     "dragon-code/laravel-migration-actions": "^2.9",
     "fruitcake/laravel-cors": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
@@ -27,6 +28,9 @@
     "spatie/laravel-schedule-monitor": "^3.10",
     "spatie/laravel-sluggable": "^3.4"
   },
+  "require-dev": {
+    "inertiajs/inertia-laravel": "^0.5.2"
+  },
   "license": "MIT",
   "autoload": {
     "psr-4": {
@@ -49,6 +53,6 @@
       "email": "nouman.laravel@outlook.com"
     }
   ],
-  "version": "1.1",
+  "version": "1.2",
   "minimum-stability": "stable"
 }

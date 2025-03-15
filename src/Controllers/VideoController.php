@@ -8,7 +8,7 @@ use Eren\Lms\Models\CourseStatus;
 use Eren\Lms\Models\Media;
 use Eren\Lms\Models\Lecture;
 use Eren\Lms\Models\ResVideo;
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;

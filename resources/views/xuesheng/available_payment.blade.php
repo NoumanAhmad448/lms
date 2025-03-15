@@ -18,7 +18,7 @@
     </section>
 @endauth
 <div class="container my-5">
-    @include('session_msg')
+    @include('lms::session_msg')
     <div class="row">
         <div class="col-12">
             <div class="jumbotron bg-light border">

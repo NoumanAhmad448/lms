@@ -31,7 +31,7 @@
         <section>
           <h2> Bank </h2>
           <hr/>
-          @include('session_msg')
+          @include('lms::session_msg')
           <form action="{{route('a_withdraw_bank')}}" method="post">
             @csrf
             <div class="row">
@@ -73,7 +73,7 @@
         <section>
             <h2> Paypal </h2>
             <hr/>
-            @include('session_msg')
+            @include('lms::session_msg')
             <form action="{{route('a_withdraw_paypal')}}" method="post">
               @csrf
               <div class="row">
@@ -115,7 +115,7 @@
         <section>
             <h2> JazzCash </h2>
             <hr/>
-            @include('session_msg')
+            @include('lms::session_msg')
             <form action="{{route('a_withdraw_jazz')}}" method="post">
               @csrf
               <div class="row">
@@ -157,7 +157,7 @@
         <section>
             <h2> Easypaisa </h2>
             <hr/>
-            @include('session_msg')
+            @include('lms::session_msg')
             <form action="{{route('a_withdraw_easypaisa')}}" method="post">
               @csrf
               <div class="row">

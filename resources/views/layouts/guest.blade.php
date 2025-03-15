@@ -16,7 +16,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
     <meta id="seo_fb" property="og:description"
         content="@if(isset($desc) && $desc !== '') {{ $desc }} @else {{__('description.default')}}  @endif">
     <link rel="canonical" href="{{ url()->current() }}">
-    @include("lib.custom_lib")
+    @include("lms::lib.custom_lib")
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-185115352-1"></script>
     <script>
@@ -35,7 +35,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
 </head>
 
 <body style="min-height: 100vh !important" class="d-flex flex-column ">
-    @include("modals.modal")
+    @include("lms::modals.modal")
     @if(isset($ann) && $ann->count() && config("setting.user_notification"))
     <div class="container-fluid font-bold text-center">
         <div class="row">
@@ -59,7 +59,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
                 <div class="col-md-2">
                     <div class="d-md-flex align-items-md-center">
                         @if(config("setting.show_site_log"))
-                        <a href="{{route('index')}}" class=""> <img src="{{asset('img/logo.jpg')}}" alt="lms"
+                        <a href="{{route('index')}}" class=""> <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="lms"
                         width="80" class="img-fluid" /> </a>
                         @endif
                 @if(config("setting.category_menu"))
@@ -125,7 +125,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
                                 <div class="cursor_pointer text-center  pt-2" id="user_menu" data-toggle="dropdown"
                                     aria-haspopup="true" aria-expanded="false">
                                     <img height="40" width="40" class="rounded-circle object-cover"
-                                    src="@include("modals.profile_logo")" alt="{{ Auth::user()->name }}" />
+                                    src="@include("lms::modals.profile_logo")" alt="{{ Auth::user()->name }}" />
                                 </div>
                             @endif
                             <div class="dropdown-menu dropdown-menu-right  w-55 mr-4 border"
@@ -183,7 +183,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
 
 
     @if(config('setting.guest_footer'))
-        @include('footer')
+        @include('lms::footer')
     @endif
 </body>
 

@@ -81,7 +81,7 @@ use Eren\Lms\Models\RatingModal;
             </div>
         @else 
             <section class="d-flex justify-content-center flex-column align-items-center">
-                <img src="{{asset('img/record.jpg')}}" alt="record" class="img-fluid w-50"/>
+                <img src="{{asset('vendor/lms/img/record.jpg')}}" alt="record" class="img-fluid w-50"/>
                 <div class="display-3"> No Course Found </div>
             </section>  
         @endif

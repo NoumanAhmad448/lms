@@ -1,0 +1,1 @@
+$((function(){setTimeout((function(){var t=$(".alert");t&&t.fadeOut()}),5e3)}));

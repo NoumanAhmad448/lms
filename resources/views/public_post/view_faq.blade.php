@@ -6,7 +6,7 @@
     }
     </style>
     <meta property="og:type"  content="website" />
-    <meta property="og:image" content="@if(isset($c_img) && empty($c_img))  {{asset('img/logo.jpg')}} @else {{ asset('storage/'.$c_img) }} @endif" />
+    <meta property="og:image" content="@if(isset($c_img) && empty($c_img))  {{asset('vendor/lms/img/logo.jpg')}} @else {{ asset('vendor/lms/storage/'.$c_img) }} @endif" />
 @endsection
 @section('content')
 

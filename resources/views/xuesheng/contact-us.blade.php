@@ -36,7 +36,7 @@
     <div class="container my-5">
         <div class="row">
             <div class="col-md-8 offset-md-2">
-                @include('session_msg')
+                @include('lms::session_msg')
                 <h2 class="text-center">
                     Directly Contact Us
                 </h2>

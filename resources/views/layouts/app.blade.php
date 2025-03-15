@@ -10,12 +10,9 @@
         <meta property="og:title" content="@if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif">
         <meta property="og:description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
         <link rel="canonical" href="{{ url()->current() }}">
-        <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+        <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&amp;display=swap" rel="stylesheet">
-
-        <!-- Styles -->
-        <link rel="stylesheet" href="{{ asset('vendor/lms/css/app.css') }}">
 
         <!-- bootstrap 4.5.3 -->
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">

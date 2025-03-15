@@ -5,7 +5,7 @@
     <h1> Categories </h1> 
     <p> Create,edit, update, and delete your category </p>
 
-    @include('session_msg')
+    @include('lms::session_msg')
    <div class="d-flex justify-content-end">
        <a href="{{route('admin_create_main_c')}}" class="btn btn-lg website-outline"> <i class="fa fa-hand-o-up" aria-hidden="true"></i>
         Create Category </a>

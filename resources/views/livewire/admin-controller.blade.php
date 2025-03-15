@@ -7,7 +7,7 @@
         <a href="{{route('create_admin')}}" class="btn btn-info btn-lg">Create Admin Account</a>
     </div>
 
-    @include('session_msg')
+    @include('lms::session_msg')
     @if(isset($users) && $users->count())
     <div class="table-responsive mt-4
     ">

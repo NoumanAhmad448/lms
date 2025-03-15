@@ -1,15 +1,8 @@
 <x-guest-layout>
-    @section('page-css')
-        <link rel="stylesheet" href="{{asset('vendor/lms/css/app.css')}}">
-    @endsection
     @section('content')
     <x-jet-authentication-card>
-        {{-- <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot> --}}
-        
         <x-slot name="logo">
-            <img src="{{asset('img/logo.jpg')}}" alt="lms" class="img-fluid" width="150"/>
+            <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="lms" class="img-fluid" width="150"/>
         </x-slot>
 
         <x-jet-validation-errors class="mb-4" />

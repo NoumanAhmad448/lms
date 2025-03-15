@@ -11,7 +11,7 @@
         <a href="{{route('admin_v_faq')}}" class="btn btn-lg btn-info"> View FAQs </a>
     </div>
 
-    @include('session_msg')
+    @include('lms::session_msg')
 
     <form method="POST" action="{{route('admin_update_faq',compact('faq'))}}" enctype="multipart/form-data">
         @csrf

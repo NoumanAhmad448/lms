@@ -87,7 +87,7 @@
     </div>
     @else
         <div class="jumbotron bg-light text-center">
-            <img src="{{asset('img/not_found.png')}}" alt="lms" class="img-fluid img-thumbnail rounded-pill" width="100"/>
+            <img src="{{asset('vendor/lms/img/not_found.png')}}" alt="lms" class="img-fluid img-thumbnail rounded-pill" width="100"/>
             <div> Sorry, no assignments were found. </div>
         </div>
     @endif

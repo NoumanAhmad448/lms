@@ -18,10 +18,6 @@
             <li class="mt-2"><a class="text-white" href="{{route('register')}}"> Register </a></li>
             <li class="mt-2"><a class="text-white" href="{{url('forgot-password')}}"> Forget Password </a></li>
             <li class="mt-2"><a class="text-white" href="{{route('index')}}"> Home </a></li>
-            <li class="mt-2"><a class="text-white" href="{{route('public_faq')}}">FAQs</a></li>
-            <li class="mt-2"><a class="text-white" href="{{route('all_public_posts')}}">Posts</a></li>
-            <li class="mt-2"><a class="text-white" href="{{route('dashboard')}}">Instructor Dashboard </a></li>
-            <li class="mt-2"><a class="text-white" href="{{route('contact-us')}}">Contact Us </a></li>
           </ul>
 
         </div>
@@ -40,7 +36,6 @@
         <div class="col-md-3 mt-3 mt-md-0">
           <h3 class="mb-3">Our Office </h3>
           <div>
-            Ground floor Akram Plaza, Muslim Town, Ferozepur Road, near Baba Qulfi wala, Lahore
           </div>
 
           <h3 class="my-3">Follow Us</h3>

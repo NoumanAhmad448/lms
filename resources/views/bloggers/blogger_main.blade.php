@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>  @if(isset($title)) {{ $title }} @else {{ __('Blogger') }} @endif </title>            
     <link rel="canonical" href="{{ url()->current() }}">
-    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
 
     
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
@@ -22,7 +22,7 @@
 <body style="font-family: 'Roboto', sans-serif;'">
     <nav class="navbar bg-info">
         <a class="navbar-brand text-white" href="{{route('blogger_home')}}"> 
-            {{-- <img src="{{asset('img/logo.jpg')}}" alt="lms" class="img-fluid" width="60"/> --}}
+            {{-- <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="lms" class="img-fluid" width="60"/> --}}
             lms
          </a>            
         <ul class="navbar-nav ml-auto">

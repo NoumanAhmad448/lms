@@ -14,16 +14,16 @@
 
         <!-- line awesome  -->
         <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-        @include("lib.custom_lib")
+        @include("lms::lib.custom_lib")
         @yield('page-css')
     </head>
     <body>
-    @include("modals.modal")
+    @include("lms::modals.modal")
         <div class="d-flex justify-content-between align-items-center px-4 pt-4">
                 {{-- @livewire('navigation-dropdown') --}}
                 @if(config("setting.show_site_log"))
                     <a href="{{ route('index') }}">
-                        <img src="{{asset('img/logo.jpg')}}" alt="lms" class="img-fluid" width="80"/>
+                        <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="lms" class="img-fluid" width="80"/>
                     </a>
                 @endif
                 <section class="d-flex align-items-center">
@@ -36,7 +36,7 @@
                         <div class="cursor_pointer text-center  pt-2" id="user_menu" data-toggle="dropdown"
                             aria-haspopup="true" aria-expanded="false">
                             <img height="40" width="40" class="rounded-circle object-cover"
-                                src="@include("modals.profile_logo")" />
+                                src="@include("lms::modals.profile_logo")" />
                         </div>
                      @endif
                     <div class="dropdown-menu dropdown-menu-right  w-55 mr-4 border"

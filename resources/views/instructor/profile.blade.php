@@ -12,7 +12,7 @@
         <div class="container mb-5">
             <div class="row">
                 <div class="col-md-10">
-                    @include('session_msg')
+                    @include('lms::session_msg')
                     <form method="POST" action="{{route('i-profile-post')}}">
                         @csrf
                         <div class="row">
@@ -106,7 +106,7 @@
             <hr/>
             <div class="d-flex justify-content-center my-5">
                 <img
-                src="@include("modals.profile_logo")"
+                src="@include("lms::modals.profile_logo")"
                  alt="profile" class="img-fluid" width="200" >
             </div>
             <div class="d-flex justify-content-center">

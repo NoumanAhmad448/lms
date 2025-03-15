@@ -19,7 +19,7 @@
     <meta property="og:title" content="@if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif">
     <meta property="og:description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
     <link rel="canonical" href="{{ url()->current() }}">
-    <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+    <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
 
     
     @yield('course_css')

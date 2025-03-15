@@ -21,7 +21,7 @@
           <a href="{{route('user-course', ['slug' => $course->slug])}}" class="btn btn-website"> Visit Course </a>
         </div>
         {{-- <h1> Credit Card </h1> --}}
-        @include('session_msg')
+        @include('lms::session_msg')
 
           <form action="{{ route('credit_card_pay_post', ['slug' => $slug ] )}}" method="POST" class="my-3" id="paymentForm">
             @csrf

@@ -19,7 +19,7 @@
         </x-slot>
         
         <x-slot name="instructors">
-            @include('session_msg')
+            @include('lms::session_msg')
             @if(isset($users) && $users->count())
                 <table class="table">
                     <thead>

@@ -15,9 +15,9 @@
     <meta name="description"
         content="@if (isset($desc)) {{ $desc }} @else {{ __('description.default') }} @endif">
     <link rel="canonical" href="{{ url()->current() }}">
-    <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
+    <link rel="shortcut icon" href="{{ asset('vendor/lms/img/favicon.png') }}">
 
-    @include('lib.custom_lib')
+    @include('lms::lib.custom_lib')
 
     @yield('page-css')
 </head>
