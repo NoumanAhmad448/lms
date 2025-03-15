@@ -1,7 +1,7 @@
 @php
 
-    $title = $title ?? __('messages.PersonalDetails');
-    $desc = $desc ?? __('messages.PersonalDetails_desc');
+    $title = $title ?? __('lms::messages.PersonalDetails');
+    $desc = $desc ?? __('lms::messages.PersonalDetails_desc');
     $user = $data[config("vars.user")] ?? "";
     debug_logs($user);
 @endphp

@@ -13,6 +13,6 @@ class GuestLayout extends Component
      */
     public function render()
     {
-        return view(config('lms.guest_blade') ?? "lms::layouts.guest");
+        return view(config('lms.guest_blade') ?? "llms::layouts.guest");
     }
 }

@@ -5,7 +5,7 @@ namespace Eren\Lms\Controllers;
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\Sayonara;
 use Illuminate\Support\Facades\Auth;
-use Eren\lms\HttpRequests\SayonaraRequest;
+use Eren\Lms\Http\Requests\SayonaraRequest;
 use Eren\Lms\Models\CourseStatus;
 
 class SayonaraController extends Controller

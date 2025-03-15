@@ -2,7 +2,7 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\ContactUsRequest;
+use Eren\Lms\Http\Requests\ContactUsRequest;
 use App\Mail\ContactUsMail;
 use Eren\Lms\Models\Categories;
 use Eren\Lms\Models\Course;
@@ -26,8 +26,8 @@ class HomeController extends Controller
     public function index()
     {
         try {
-            $title = __('messages.site_title');
-            $desc = __('description.home');
+            $title = __('lms::messages.site_title');
+            $desc = __('lms::description.home');
             $cs = Categories::select('id', 'name', 'value')->get();
             $post = Post::where('status', 'published')->select('id', 'title', 'message', 'upload_img', 'f_name', 'slug')->orderByDesc('created_at')->first();
             $faq = Faq::where('status', 'published')->select('id', 'title', 'message', 'upload_img', 'f_name', 'slug')->orderByDesc('created_at')->first();
@@ -75,13 +75,13 @@ class HomeController extends Controller
             $desc = "";
             switch ($slug) {
                 case 'privacy-policy':
-                    $desc = __('description.privacy');
+                    $desc = __('lms::description.privacy');
                     break;
                 case 'terms-and-conditions':
-                    $desc = __('description.terms');
+                    $desc = __('lms::description.terms');
                     break;
                 case 'about-us':
-                    $desc = __('description.about_us');
+                    $desc = __('lms::description.about_us');
                     break;
             }
 
@@ -140,8 +140,8 @@ class HomeController extends Controller
     public function posts()
     {
         try {
-            $title = __('messages.post');
-            $desc = __('description.posts');
+            $title = __('lms::messages.post');
+            $desc = __('lms::description.posts');
             $posts = Post::where('status', 'published')->orderByDesc('created_at')->simplePaginate(15);
             return view('lms::public_post.posts', compact('title', 'posts', 'desc'));
         } catch (Exception $th) {
@@ -152,7 +152,7 @@ class HomeController extends Controller
     {
         try {
             $title = "contact us";
-            $desc = __('description.contact_us');
+            $desc = __('lms::description.contact_us');
 
             return view('lms::xuesheng.contact-us', compact('title', 'desc'));
         } catch (\Throwable $th) {

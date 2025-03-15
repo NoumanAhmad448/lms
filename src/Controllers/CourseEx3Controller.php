@@ -4,8 +4,8 @@ namespace Eren\Lms\Controllers;
 
 use Illuminate\Http\Request;
 use App\Actions\Nouman\LyskillsPayment;
-use App\Events\CourseStatusEmail;
-use Eren\lms\HttpRequests\CourseAnnRequest;
+use Eren\Lms\Events\CourseStatusEmail;
+use Eren\Lms\Http\Requests\CourseAnnRequest;
 use App\Mail\PublicAnnByIns;
 use App\Mail\StudentEmail;
 use Eren\Lms\Models\Categories;

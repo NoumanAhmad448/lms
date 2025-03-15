@@ -332,10 +332,10 @@ use Eren\Lms\Models\ResVideo;
                                 @if($ass_desc) <i class="las la-caret-down"></i> @else <i class="las la-plus"></i> @endif Description
                             </div>
                             <div class="btn website-outline @if($assign->ass_f_name) add_assign_show @else add_assign @endif  ml-2" assign_url="{{route('add_ass',['assign' => $assign ])}}">
-                                @if($assign->ass_f_name) {!! __('<i class="las la-caret-down"></i>') !!} @else {!! __('<i class="las la-plus"></i>') !!} @endif Assignment
+                                @if($assign->ass_f_name) {!! __('lms::<i class="las la-caret-down"></i>') !!} @else {!! __('lms::<i class="las la-plus"></i>') !!} @endif Assignment
                             </div>
                             <div class=" @if($assign->ass_ans_f_name) add_sol_show @else add_sol @endif btn website-outline ml-md-2 mt-2 mt-md-0 " sol_url="{{route('add_sol',['assign' => $assign ])}}">
-                                @if($assign->ass_ans_f_name) {!! __('<i class="las la-caret-down"></i>') !!} @else {!! __('<i class="las la-plus"></i>') !!} @endif Solution
+                                @if($assign->ass_ans_f_name) {!! __('lms::<i class="las la-caret-down"></i>') !!} @else {!! __('lms::<i class="las la-plus"></i>') !!} @endif Solution
                             </div>
                         </div>
                     </div>
@@ -629,7 +629,7 @@ use Eren\Lms\Models\ResVideo;
                      <div class="show_message show_message-danger d-none mt-1 err_msg">  </div>
                      <div class="d-flex justify-content-end mt-1">
                         <div class="btn website-outline mr-2 cancel"  onclick="cancel(event)" prev_val="${parent_text}" > cancel </div>
-                        <button type="submit" class="btn website add_sec_title" > {{ __('Save') }} </button>
+                        <button type="submit" class="btn website add_sec_title" > {{ __('lms::Save') }} </button>
                     <div>
                      </form>`);
         });

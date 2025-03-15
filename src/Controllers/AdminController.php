@@ -6,8 +6,8 @@ use App\Actions\Nouman\LyskillsPayment;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
-use Eren\lms\HttpRequests\AdminRequest;
-use Eren\lms\HttpRequests\AdminSendEmailRequest;
+use Eren\Lms\Http\Requests\AdminRequest;
+use Eren\Lms\Http\Requests\AdminSendEmailRequest;
 use App\Mail\PublicAnn;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -33,7 +33,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Intervention\Image\ImageManager;
-use App\Helpers\UploadData;
+use Eren\Lms\Helpers\UploadData;
 
 class AdminController extends Controller
 {
@@ -630,9 +630,9 @@ class AdminController extends Controller
                     'max:5000'
                 ]
             ], [
-                'homepage_photo.image' => __('homepage.validation.photo.image'),
-                'homepage_photo.mimes' => __('homepage.validation.photo.mimes'),
-                'homepage_photo.max' => __('homepage.validation.photo.max')
+                'homepage_photo.image' => __('lms::homepage.validation.photo.image'),
+                'homepage_photo.mimes' => __('lms::homepage.validation.photo.mimes'),
+                'homepage_photo.max' => __('lms::homepage.validation.photo.max')
             ]);
 
             $settings = Setting::first() ?? new Setting();

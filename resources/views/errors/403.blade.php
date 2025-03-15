@@ -1,6 +1,6 @@
 @extends('lms::errors::minimal')
 
-@section('title', __('Forbidden'))
+@section('title', __('lms::Forbidden'))
 @section('img')
  <img src="{{asset('vendor/lms/img/403.jpg')}}" alt="lms-403 forbidden" class="img-fluid w-50"/>
  @endsection

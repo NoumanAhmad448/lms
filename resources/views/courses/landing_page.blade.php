@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Storage;
                 <label for="course_title">Course Title</label>
                 <input type="text" class="form-control" id="course_title" title="Input your course title"
                     placeholder="Course Title" name="course_title" value="{{$course->course_title ?? ''}}"
-                    {{-- @if($course->status == 'published') {{ __('disabled')}} @endif --}}>
+                    {{-- @if($course->status == 'published') {{ __('lms::disabled')}} @endif --}}>
                 <div id="title_err" class="form-text text-danger"></div>
             </div>
             <div class="form-group">
@@ -38,12 +38,12 @@ use Illuminate\Support\Facades\Storage;
                     <select class="js-example-responsive js-states form-control" id="select_level" name="select_level">
                         <option value="">Select Level </option>
                         @php $c_level = $course->c_level; @endphp
-                        <option value="beginner" @if($c_level==='beginner' ) {{ __('selected')}} @endif> Beginner
+                        <option value="beginner" @if($c_level==='beginner' ) {{ __('lms::selected')}} @endif> Beginner
                         </option>
-                        <option value="intermediate" @if($c_level==='intermediate' ) {{ __('selected')}} @endif>
+                        <option value="intermediate" @if($c_level==='intermediate' ) {{ __('lms::selected')}} @endif>
                             Intermediate </option>
-                        <option value="advance" @if($c_level==='advance' ) {{ __('selected')}} @endif> Advance </option>
-                        <option value="all_level" @if($c_level==='all_level' ) {{ __('selected')}} @endif> All level
+                        <option value="advance" @if($c_level==='advance' ) {{ __('lms::selected')}} @endif> Advance </option>
+                        <option value="all_level" @if($c_level==='all_level' ) {{ __('lms::selected')}} @endif> All level
                         </option>
                     </select>
                     <div id="c_level" class="form-text text-danger"></div>
@@ -55,7 +55,7 @@ use Illuminate\Support\Facades\Storage;
                         @php $c_category = $course->categories_selection; @endphp
                         @if(isset($categories) && $categories)
                         @foreach ($categories as $c)
-                        <option value="{{$c->value ?? null}}" @if($c_category===$c->value) {{ __('selected')}} @endif >
+                        <option value="{{$c->value ?? null}}" @if($c_category===$c->value) {{ __('lms::selected')}} @endif >
                             {{$c->name ?? null}} </option>
                         @endforeach
                         @endif
@@ -75,7 +75,7 @@ use Illuminate\Support\Facades\Storage;
                             @if(isset($langs) && $langs)
                             @foreach ($langs as $lang)
                             <option value="{{$lang->id ?? null}}" @if(isset($course) && $course->lang_id === $lang->id)
-                                {{ __('selected')}} @endif >
+                                {{ __('lms::selected')}} @endif >
                                 {{$lang->name ?? null}} </option>
                             @endforeach
                             @endif
@@ -89,7 +89,7 @@ use Illuminate\Support\Facades\Storage;
 
             <div class="row mt-3">
                 <div class="col-12">
-                    {{-- @if($course->status === "published") {{ __('disabled')}} @endif --}}
+                    {{-- @if($course->status === "published") {{ __('lms::disabled')}} @endif --}}
                     <button type="submit" class="float-right btn btn-lg btn-info"> <i class="las la-save"></i> Save
                     </button>
                 </div>

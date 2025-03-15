@@ -2,9 +2,9 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\AdminRequest;
-use Eren\lms\HttpRequests\BloggerRequest;
-use Eren\lms\HttpRequests\UpdateBloggerProfile;
+use Eren\Lms\Http\Requests\AdminRequest;
+use Eren\Lms\Http\Requests\BloggerRequest;
+use Eren\Lms\Http\Requests\UpdateBloggerProfile;
 use Eren\Lms\Models\User;
 use Exception;
 use Illuminate\Http\Request;

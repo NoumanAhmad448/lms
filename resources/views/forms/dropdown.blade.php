@@ -3,7 +3,7 @@ use Eren\Lms\Models\Country;
 use Eren\Lms\Models\City;
 use Eren\Lms\Models\Job;
 
-$text = !empty($text) ? $text : __('messages.create_land_btn');
+$text = !empty($text) ? $text : __('lms::messages.create_land_btn');
 
 $id = $prop['id'] ?? 'c_password';
 $include_star = $prop['include_star'] ?? true;

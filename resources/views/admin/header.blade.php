@@ -7,13 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>
         @if (isset($title))
-            {{ __('messages.' . $title) }}
+            {{ __('lms::messages.' . $title) }}
         @else
-            {{ __('messages.admin') }}
+            {{ __('lms::messages.admin') }}
         @endif
     </title>
     <meta name="description"
-        content="@if (isset($desc)) {{ $desc }} @else {{ __('description.default') }} @endif">
+        content="@if (isset($desc)) {{ $desc }} @else {{ __('lms::description.default') }} @endif">
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="shortcut icon" href="{{ asset('vendor/lms/img/favicon.png') }}">
 
@@ -63,6 +63,12 @@
                         <a class="nav-link text-dark " href="{{ route('i_new_courses') }}" id="i_new_courses"> <i
                                 class="fa fa-video-camera" aria-hidden="true"></i>
                             New Courses </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark " href="{{ route('admin_view_categories') }}" id="a_c">
+                            <i class="fa fa-filter" aria-hidden="true"></i>
+                            Categories
+                        </a>
                     </li>
                 </ul>
             </div>

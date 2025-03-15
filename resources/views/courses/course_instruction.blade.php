@@ -34,7 +34,7 @@
                     <section class="row">
                         <div class="col-md-4 offset-md-2 bg-white">
                             <div>
-                                <div class=" p1  jumbotron bg-white @if($course_type === 'course') {{__('text-primary')}}@endif" >
+                                <div class=" p1  jumbotron bg-white @if($course_type === 'course') {{__('lms::text-primary')}}@endif" >
                                     <i class="las la-file-video"></i>
                                     <h5 class="card-title">Course</h5>
                                     <p class="card-text">
@@ -52,7 +52,7 @@
                         <div class="col-md-4 bg-white ml-md-3">
                             <div class="">
 
-                                <div class="p2 jumbotron bg-white @if($course_type === 'practice') {{__('text-primary')}}@endif">
+                                <div class="p2 jumbotron bg-white @if($course_type === 'practice') {{__('lms::text-primary')}}@endif">
                                     <i class="las la-notes-medical"></i>
                                     <h5 class="card-title">Practice Test </h5>
                                     <p class="card-text">Help students prepare for certification exams by providing
@@ -77,15 +77,15 @@
                 <form action="{{ route('courses_instructions', ['id' => $id, 'course_id' => $course_id])  }}" method="POST">
                     @csrf
                     <div class="form-check">
-                        <input type="hidden" value="@if($course_type === 'practice'){{__('practice')}}@endif" name="practice" id="practice">
+                        <input type="hidden" value="@if($course_type === 'practice'){{__('lms::practice')}}@endif" name="practice" id="practice">
                     </div>
                     
                     <div class="form-check">
-                        <input type="hidden" value="@if($course_type === 'course'){{__('course')}}@endif" name="course" id="course">
+                        <input type="hidden" value="@if($course_type === 'course'){{__('lms::course')}}@endif" name="course" id="course">
                     </div>
 
                     <button id="nextbtn" type="submit" class="btn btn-primary btn-lg next"
-                        @if(!$course_type) {{ __('disabled')}} @endif> 
+                        @if(!$course_type) {{ __('lms::disabled')}} @endif> 
                         Next
                     </button>
                 </form>

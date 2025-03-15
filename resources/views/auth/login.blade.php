@@ -33,14 +33,14 @@
                 @csrf
 
                 <div class="form-group">
-                    <x-jet-label for="email" value="{{ __('Email') }}" />
+                    <x-jet-label for="email" value="{{ __('lms::Email') }}" />
                     {{-- <x-jet-input id="email" class="block mt-1 w-full" --}}
                     <x-jet-input id="email" class="" placeholder="Email address" type="email" name="email"
                         value="{{ old('email') }}" required autofocus />
                 </div>
 
                 <div class="form-group">
-                    <x-jet-label for="password" value="{{ __('Password') }}" />
+                    <x-jet-label for="password" value="{{ __('lms::Password') }}" />
                     <div class="flex input-group">
                         <x-jet-input id="password" class="block mt-1 w-full" placeholder="password min 8 digits"
                             type="password" name="password" required autocomplete="new-password" />
@@ -55,7 +55,7 @@
                 <div class="form-group">
                     <label for="remember_me" class="flex items-center">
                         <input id="remember_me" type="checkbox" class="form-checkbox" name="remember">
-                        <span class="ml-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
+                        <span class="ml-2 text-sm text-gray-600">{{ __('lms::Remember me') }}</span>
                     </label>
                 </div>
                 <div class="form-group mt-3">
@@ -71,12 +71,12 @@
                         @if (Route::has('password.request'))
                             <a class="underline text-sm text-gray-600 hover:text-gray-900"
                                 href="{{ route('password.request') }}">
-                                {{ __('Forgot your password?') }}
+                                {{ __('lms::Forgot your password?') }}
                             </a>
                         @endif
 
                         <x-jet-button class="ml-4 bg-website">
-                            {{ __('Login') }}
+                            {{ __('lms::Login') }}
                         </x-jet-button>
                     </div>
                 </div>

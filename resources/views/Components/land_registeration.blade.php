@@ -1,7 +1,7 @@
 @php
 
-    $title = $title ?? __('messages.land_registeration');
-    $desc = $desc ?? __('messages.wel_desc');
+    $title = $title ?? __('lms::messages.land_registeration');
+    $desc = $desc ?? __('lms::messages.wel_desc');
     debug_logs($land);
 @endphp
 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 my-4">

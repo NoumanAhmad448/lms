@@ -18,7 +18,7 @@
             
             <div class="col-md-6">
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="blog_e_d" name="blog_e_d" @if(isset($s) && $s->isBlog) {{ __('checked')}} @endif >
+                    <input type="checkbox" class="custom-control-input" id="blog_e_d" name="blog_e_d" @if(isset($s) && $s->isBlog) {{ __('lms::checked')}} @endif >
                     <label class="custom-control-label" for="blog_e_d"> Enable/Disable </label>
                   </div>
                 
@@ -32,7 +32,7 @@
             
             <div class="col-md-6">
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="faq" name="faq" @if(isset($s) && $s->isFaq) {{ __('checked')}} @endif >
+                    <input type="checkbox" class="custom-control-input" id="faq" name="faq" @if(isset($s) && $s->isFaq) {{ __('lms::checked')}} @endif >
                     <label class="custom-control-label" for="faq"> Enable/Disable </label>
                   </div>
                 

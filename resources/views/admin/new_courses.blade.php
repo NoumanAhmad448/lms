@@ -57,8 +57,8 @@
                             <td>
                                 @if ($s)
                                     <div
-                                        class="badge @if ($s == 'block') {{ __('badge-danger') }} 
-                        @elseif($s == 'pending') {{ __('badge-warning') }} @else {{ __('badge-info') }} @endif">
+                                        class="badge @if ($s == 'block') {{ __('lms::badge-danger') }} 
+                        @elseif($s == 'pending') {{ __('lms::badge-warning') }} @else {{ __('lms::badge-info') }} @endif">
                                         {{ $s ?? '' }} </div>
                                 @endif
                             </td>

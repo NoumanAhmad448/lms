@@ -18,7 +18,7 @@
             
             <div class="col-md-6">
                 <div class="custom-control custom-switch">
-                    <input type="checkbox" class="custom-control-input" id="discussion" name="discussion" @if(isset($s) && $s->isDisscussion) {{ __('checked')}} @endif >
+                    <input type="checkbox" class="custom-control-input" id="discussion" name="discussion" @if(isset($s) && $s->isDisscussion) {{ __('lms::checked')}} @endif >
                     <label class="custom-control-label" for="discussion"> Enable/Disable </label>
                   </div>
                 

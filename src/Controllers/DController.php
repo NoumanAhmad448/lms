@@ -41,7 +41,7 @@ class DController extends Controller
             $courses = Course::with(['course_image'])->where('user_id', Auth::id())->whereNull('is_deleted')
             ->select('id','user_id','course_title','status','slug')->
             orderByDesc('created_at')->paginate(10);
-            $title = __('messages.dashboard');
+            $title = __('lms::messages.dashboard');
 
             return view('lms::dashboard', compact('courses', 'title', 'ann'));
         } catch (Exception $th) {

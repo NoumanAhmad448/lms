@@ -1,5 +1,5 @@
 @php
-    $text = !empty($text) ? $text : __('messages.create_land_btn');
+    $text = !empty($text) ? $text : __('lms::messages.create_land_btn');
     can_call_fun(debug_logs($prop));
 
     $id = $prop[config('vars.id')] ?? 'c_password';

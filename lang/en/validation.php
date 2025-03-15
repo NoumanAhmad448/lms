@@ -130,7 +130,7 @@ return [
     |
     */
 
-    'custom' => [        
+    'custom' => [
         'quiz_title' => [
             'required' => 'Please enter the title of quiz',
             'max' => 'Only 255 characters are allowed. Please make short the length of quiz title'
@@ -139,12 +139,12 @@ return [
             'mimetypes' => 'Only MP4, OGG, WEBM formats are allowed. Please choose one of them',
             'max' => 'Video size must not exceed than 4GB'
         ],
-        
+
         'upload_b_vid' => [
             'mimetypes' => 'Only MP4, OGG, WEBM formats are allowed. Please choose one of them',
             'max' => 'Video size must not exceed than 4GB'
         ],
-        
+
     ],
 
     /*
@@ -170,9 +170,9 @@ return [
         'ass_title' => 'title',
         'upload_b_vid' => 'video',
         'upload_img' => 'Upload Image',
-        'title' => 'Title',       
-        'pages' => 'Pages',       
-        
+        'title' => 'Title',
+        'pages' => 'Pages',
+
     ],
 
 ];

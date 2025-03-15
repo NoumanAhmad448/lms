@@ -43,7 +43,7 @@ class DashboardController extends Controller
             $ann = InstructorAnn::orderByDesc('created_at')->simplePaginate(3);
             $courses = Course::with(['course_image'])->where('user_id', Auth::id())->whereNull('is_deleted')
                 ->select('id', 'user_id', 'course_title', 'status', 'slug', 'updated_at')->orderByDesc('created_at')->simplePaginate();
-            $title = __('messages.dashboard');
+            $title = __('lms::messages.dashboard');
             return view('lms::dashboard', compact('courses', 'title', 'ann'));
         } catch (Exception $th) {
             debug_logs($th->getMessage());

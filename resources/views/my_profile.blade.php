@@ -2,7 +2,7 @@
     <div class="bg-gray-100 flex items-center justify-center">
         <div class="">
             <section class="mt-20">
-                <h1 class="pb-5 font-semibold text-xl text-gray-600">{{ __('messages.mprofile') }}</h1>
+                <h1 class="pb-5 font-semibold text-xl text-gray-600">{{ __('lms::messages.mprofile') }}</h1>
                 <div class="bg-white rounded shadow-lg p-4 px-4 md:p-8 mb-6">
                     @include(config('files.forms') . 'my_profile')
                     @cannot (config("policy.is_super_admin"))
@@ -16,7 +16,7 @@
                         @endcan
                     @else
                         <div class="md:col-span-2">
-                            <div class="text-white bg-red-500"> {{ __('messages.prob_action') }} </div>
+                            <div class="text-white bg-red-500"> {{ __('lms::messages.prob_action') }} </div>
                         </div>
                     @endcannot
                 </div>

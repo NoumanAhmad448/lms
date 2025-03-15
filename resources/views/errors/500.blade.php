@@ -1,6 +1,6 @@
 @extends('lms::errors::minimal')
 
-@section('title', __('500 Server Error'))
+@section('title', __('lms::500 Server Error'))
 @section('img')
     <img src="{{asset('vendor/lms/img/500.jpg')}}" alt="lms" class="img-fluid w-50"/>
 @endsection 

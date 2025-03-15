@@ -39,7 +39,7 @@ use Eren\Lms\Models\RatingModal;
                             <h5 class="card-title font-bold text-capitalize"> {{ $course->course_title ?? ''}} </h5>
                             <p class="card-text text-capitalize mt-1"> By <span class="font-bold"> {{ $course->user->name ?? '' }} </span> </p>
                             <p class="card-text text-capitalize mt-1"> Category {{ $course->categories_selection ?? '' }} </p>                            
-                            <p class="card-text text-capitalize mt-1"> @if($course->price->is_free)  {{ __('free') }} @else ${{ $course->price->pricing ?? '' }} @endif </p>                    
+                            <p class="card-text text-capitalize mt-1"> @if($course->price->is_free)  {{ __('lms::free') }} @else ${{ $course->price->pricing ?? '' }} @endif </p>                    
                         </div> --}}
                         <div class="card-body" style="height: 150px">
                             <h5 class="card-title font-bold text-capitalize" style="font-size: 1.1rem;font-weight:bold"> {{ reduceCharIfAv($course->course_title ?? '', 40)}} </h5>
@@ -61,7 +61,7 @@ use Eren\Lms\Models\RatingModal;
                             </div>                    
                             @endif
                             <p class="card-text text-capitalize  mb-0  mt-1 d-flex font-bold"> @if($course->price->is_free)
-                                {{ __('free') }}
+                                {{ __('lms::free') }}
                                 @else <span style="font-weight:bold"> ${{ $course->price->pricing ?? '' }} </span>
                                 @php $total_p = ((int)$course->price->pricing)+20 @endphp
                                 <del class="ml-2"> ${{ $total_p }} </del>

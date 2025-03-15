@@ -15,9 +15,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     
     <title> @if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif </title>        
-    <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
+    <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{__('lms::description.default')}}  @endif">
     <meta property="og:title" content="@if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif">
-    <meta property="og:description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
+    <meta property="og:description" content="@if(isset($desc)) {{ $desc }} @else {{__('lms::description.default')}}  @endif">
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
 

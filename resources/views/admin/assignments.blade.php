@@ -10,10 +10,10 @@
                 <div class="form-group">
                    <select class="custom-select custom-select mb-3" id="sorting" name="sorting">
                         <option value=""> Sorting ... </option>
-                        <option value="ai" @if($order === 'ai') {{ __('selected') }} @endif> Ascending by ID</option>
-                        <option value="di" @if($order === 'di') {{ __('selected') }} @endif> Desc by ID </option>
-                        <option value="an" @if($order === 'an') {{ __('selected') }} @endif> Ascending by name </option>
-                        <option value="dn" @if($order === 'dn') {{ __('selected') }} @endif> Desc by name </option>
+                        <option value="ai" @if($order === 'ai') {{ __('lms::selected') }} @endif> Ascending by ID</option>
+                        <option value="di" @if($order === 'di') {{ __('lms::selected') }} @endif> Desc by ID </option>
+                        <option value="an" @if($order === 'an') {{ __('lms::selected') }} @endif> Ascending by name </option>
+                        <option value="dn" @if($order === 'dn') {{ __('lms::selected') }} @endif> Desc by name </option>
                   </select>
                 
                 </div>   

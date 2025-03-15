@@ -48,7 +48,7 @@
               <div class="col-md-6">
                 <div class="custom-control custom-switch">
                   <input type="checkbox" class="custom-control-input" id="strip_form" name="strip_form" 
-                          @if(isset($setting) && $setting->s_is_enable) {{ __('checked') }} @endif/>
+                          @if(isset($setting) && $setting->s_is_enable) {{ __('lms::checked') }} @endif/>
                   <label class="custom-control-label" for="strip_form"> Enable/Disable </label>
                 </div>
               </div>
@@ -110,7 +110,7 @@
               <div class="col-md-6">
                 <div class="custom-control custom-switch">
                   <input type="checkbox" class="custom-control-input" id="paypal_form" name="paypal_form" 
-                          @if(isset($setting) && $setting->paypal_is_enable) {{ __('checked') }} @endif/>
+                          @if(isset($setting) && $setting->paypal_is_enable) {{ __('lms::checked') }} @endif/>
                   <label class="custom-control-label" for="paypal_form"> Enable/Disable </label>
                 </div>
               </div>
@@ -184,7 +184,7 @@
               <div class="col-md-6">
                 <div class="custom-control custom-switch">
                   <input type="checkbox" class="custom-control-input" id="jazzcash_form" name="jazzcash_form" 
-                          @if(isset($setting) && $setting->j_is_enable) {{ __('checked') }} @endif/>
+                          @if(isset($setting) && $setting->j_is_enable) {{ __('lms::checked') }} @endif/>
                   <label class="custom-control-label" for="jazzcash_form"> Enable/Disable </label>
                 </div>
               </div>
@@ -245,7 +245,7 @@
               <div class="col-md-6">
                 <div class="custom-control custom-switch">
                   <input type="checkbox" class="custom-control-input" id="easypaisa___form" name="easypaisa___form" 
-                          @if(isset($setting) && $setting->e_is_enable) {{ __('checked') }} @endif/>
+                          @if(isset($setting) && $setting->e_is_enable) {{ __('lms::checked') }} @endif/>
                   <label class="custom-control-label" for="easypaisa___form"> Enable/Disable </label>
                 </div>
               </div>

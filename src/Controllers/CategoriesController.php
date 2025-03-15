@@ -2,8 +2,8 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\CategoryUpdateValid;
-use Eren\lms\HttpRequests\CategoryValidation;
+use Eren\Lms\Http\Requests\CategoryUpdateValid;
+use Eren\Lms\Http\Requests\CategoryValidation;
 use Eren\Lms\Models\Categories;
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\SubCategory;
@@ -131,23 +131,23 @@ class CategoriesController extends Controller
             $desc = "";
             switch (strtolower($title)) {
                 case 'engineering':
-                    $desc = __('description.engineering');
+                    $desc = __('lms::description.engineering');
                     break;
                 case 'it':
-                    $desc = __('description.it');
+                    $desc = __('lms::description.it');
                     break;
                 case 'designing':
-                    $desc = __('description.designing');
+                    $desc = __('lms::description.designing');
                     break;
                 case 'photography':
-                    $desc = __('description.photography');
+                    $desc = __('lms::description.photography');
                     break;
                 case 'accounting-and-finance':
-                    $desc = __('description.accounting_and_finance');
+                    $desc = __('lms::description.accounting_and_finance');
                     break;
 
                 default:
-                    $desc = __('description.default');
+                    $desc = __('lms::description.default');
                     break;
             }
             return view(config("setting.show_blade"), compact('c', 'courses', 'title', 'desc'));

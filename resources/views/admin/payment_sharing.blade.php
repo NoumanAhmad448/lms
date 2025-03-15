@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="enable" name="enable" 
-                        @if(isset($setting) && $setting->payment_share_enable) {{ __('checked')}} @endif >
+                        @if(isset($setting) && $setting->payment_share_enable) {{ __('lms::checked')}} @endif >
                         <label class="custom-control-label" for="enable"> Enable/Disable </label>
                     </div>
                     <div class="mt-1">

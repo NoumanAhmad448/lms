@@ -12,7 +12,7 @@ use Eren\Lms\Classes\LmsCarbon;
 use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use App\Helpers\UploadData;
+use Eren\Lms\Helpers\UploadData;
 
 class VideoController extends Controller
 {

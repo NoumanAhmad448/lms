@@ -25,7 +25,7 @@
                     <h5 class="card-title font-bold text-capitalize"> {{ $course->course_title ?? ''}} </h5>
                     <p class="card-text text-capitalize mt-1"> By <span class="font-bold"> {{ $course->user->name ?? '' }} </span> </p>
                     <p class="card-text text-capitalize mt-1"> Category {{ $course->categories_selection ?? '' }} </p>
-                    <p class="card-text text-capitalize mt-1"> @if($course->price->is_free) {{ __('free') }} @else {{ $course->price->pricing ?? '' }} @endif </p>
+                    <p class="card-text text-capitalize mt-1"> @if($course->price->is_free) {{ __('lms::free') }} @else {{ $course->price->pricing ?? '' }} @endif </p>
                 </div>
                 <form action="{{route('remove-wishlist-course',['slug' => $course->slug])}}" method="post">
                     @csrf

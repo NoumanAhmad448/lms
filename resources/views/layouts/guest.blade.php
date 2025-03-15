@@ -11,10 +11,10 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
 <head>
     <title id="seo_title"> @if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif </title>
     <meta id="seo_desc" name="description"
-        content="@if(isset($desc) && $desc !== '' ) {{ $desc }} @else {{__('description.default')}}  @endif">
+        content="@if(isset($desc) && $desc !== '' ) {{ $desc }} @else {{__('lms::description.default')}}  @endif">
     <meta property="og:title" content="@if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif">
     <meta id="seo_fb" property="og:description"
-        content="@if(isset($desc) && $desc !== '') {{ $desc }} @else {{__('description.default')}}  @endif">
+        content="@if(isset($desc) && $desc !== '') {{ $desc }} @else {{__('lms::description.default')}}  @endif">
     <link rel="canonical" href="{{ url()->current() }}">
     @include("lms::lib.custom_lib")
     <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -110,7 +110,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
                         </a>
                         @else
                         <a href="{{route('instructor.register')}}" class="ml-3 mt-5 mt-md-3 text-dark">
-                            {{ __('Teach on lms')}} </a>
+                            {{ __('lms::messages.Teach on lms')}} </a>
                         @endif
                     </div>
                 </div>
@@ -131,31 +131,30 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
                             <div class="dropdown-menu dropdown-menu-right  w-55 mr-4 border"
                                 aria-labelledby="user_menu">
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('myLearning') }}">
-                                    {{__('My Learning')}}</a>
+                                    {{__('lms::My Learning')}}</a>
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('get-wishlist-course') }}">
-                                    {{__('WishList')}}</a>
-                                <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('profile.show') }}"> {{__('Setting')}}</a>
+                                    {{__('lms::WishList')}}</a>
+                                <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('profile.show') }}"> {{__('lms::Setting')}}</a>
                                 <div class="dropdown-divider"></div>
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('dashboard') }}">
-                                    {{__('Instructor Dashboard')}}</a>
+                                    {{__('lms::Instructor Dashboard')}}</a>
                                 {{-- <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('chat_w_i') }}">
-                                {{__('Contact With Instructor')}}</a> --}}
+                                {{__('lms::Contact With Instructor')}}</a> --}}
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('email_to_ins') }}">
-                                    {{__('Contact With Instructor')}}</a>
+                                    {{__('lms::Contact With Instructor')}}</a>
                                 <div class="dropdown-divider"></div>
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('pay_his') }}">
-                                    {{__('Purchase History')}}</a>
+                                    {{__('lms::Purchase History')}}</a>
                                 @if(Auth::user()->is_blogger)
                                     <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('blogger_c_p') }}">
-                                    {{__('Create Blogs')}}</a>
+                                    {{__('lms::Create Blogs')}}</a>
                                 @endif
-                                <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('public_faq') }}"> {{__('Help')}}</a>
-                                <a style="font-size: 0.9rem !important" class="pt-1 dropdown-item" href="{{ route('logout_user') }}"> {{__('Logout')}}</a>
+                                <a style="font-size: 0.9rem !important" class="pt-1 dropdown-item" href="{{ route('logout_user') }}"> {{__('lms::Logout')}}</a>
                                 @if(auth()?->user()?->role == config('setting.roles.dev'))
-                                <a style="font-size: 0.9rem !important" class="pt-1 dropdown-item" href="{{ route('health') }}"> {{__('health')}}</a>
+                                <a style="font-size: 0.9rem !important" class="pt-1 dropdown-item" href="{{ route('health') }}"> {{__('lms::health')}}</a>
                                 @endif
                                 @if(auth()?->user()?->is_admin || auth()?->user()?->is_super_admin)
-                                <a style="font-size: 0.9rem !important" class="pt-1 dropdown-item" href="{{ route('a_home') }}"> {{__('Admin Dashboard')}}</a>
+                                <a style="font-size: 0.9rem !important" class="pt-1 dropdown-item" href="{{ route('a_home') }}"> {{__('lms::Admin Dashboard')}}</a>
                                 @endif
                             </div>
                         </div>
@@ -164,7 +163,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
 
                             <a href="{{ route('login') }}" class="btn btn-info mr-1 mt-3">Log in</a>
                             @if (Route::has('register'))
-                            <a href="{{ route('register') }}" class="btn btn-outline-info mt-3">{{ __('homepage.instructor.title') }}</a>
+                            <a href="{{ route('register') }}" class="btn btn-outline-info mt-3">{{ __('lms::homepage.instructor.title') }}</a>
                             @endif
                         </div>
                         @endif

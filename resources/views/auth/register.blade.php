@@ -30,21 +30,21 @@
             @csrf
 
             <div style="">
-                <x-jet-label for="name" value="{{ __('Name') }}" />
+                <x-jet-label for="name" value="{{ __('lms::Name') }}" />
                 <x-jet-input id="name" class="block mt-1 w-full" type="text"
                     placeholder="Name"
                  name="name" :value="old('name')" required autofocus autocomplete="name" />
             </div>
 
             <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
+                <x-jet-label for="email" value="{{ __('lms::Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full"
                 placeholder="email address"
                  type="email" name="email" :value="old('email')" required />
             </div>
 
             <div class="form-group mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
+                <x-jet-label for="password" value="{{ __('lms::Password') }}" />
                 <div class="input-group mb-3">
                   
                   <input id="password" class="form-control"
@@ -67,7 +67,7 @@
             </div>
 
             <div class="form-group mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
+                <x-jet-label for="password_confirmation" value="{{ __('lms::Confirm Password') }}" />
                  <div class="input-group mb-3">
                   
                   <input id="password_confirmation"
@@ -104,11 +104,11 @@
 
             <div class="flex items-center justify-end mt-4">
                 <a class="underline text-sm text-gray-600" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
+                    {{ __('lms::Already registered?') }}
                 </a>
 
                 <x-jet-button class="ml-4 bg-website">
-                    {{ __('Register') }}
+                    {{ __('lms::messages.rgstr') }}
                 </x-jet-button>
             </div>
         </form>

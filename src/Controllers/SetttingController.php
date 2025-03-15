@@ -2,7 +2,7 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\BloggerSettingRequest;
+use Eren\Lms\Http\Requests\BloggerSettingRequest;
 use Eren\Lms\Models\Setting;
 use Exception;
 use Illuminate\Http\Request;

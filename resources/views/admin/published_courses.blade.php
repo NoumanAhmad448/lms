@@ -45,12 +45,12 @@
                     <div class="form-group">
                     <select class="custom-select  mb-3" id="sorting" name="sorting">
                             <option value=""> Sorting ... </option>
-                            <option value="ai" @if ($order === 'ai') {{ __('selected') }} @endif> Ascending by ID</option>
-                            <option value="di" @if ($order === 'di') {{ __('selected') }} @endif> Desc by ID </option>
-                            <option value="at" @if ($order === 'at') {{ __('selected') }} @endif> Ascending by title </option>
-                            <option value="dt" @if ($order === 'dt') {{ __('selected') }} @endif> Desc by title </option>
-                            <option value="ac" @if ($order === 'ac') {{ __('selected') }} @endif> Ascending by categories </option>
-                            <option value="dc" @if ($order === 'dc') {{ __('selected') }} @endif> Desc by categories </option>
+                            <option value="ai" @if ($order === 'ai') {{ __('lms::selected') }} @endif> Ascending by ID</option>
+                            <option value="di" @if ($order === 'di') {{ __('lms::selected') }} @endif> Desc by ID </option>
+                            <option value="at" @if ($order === 'at') {{ __('lms::selected') }} @endif> Ascending by title </option>
+                            <option value="dt" @if ($order === 'dt') {{ __('lms::selected') }} @endif> Desc by title </option>
+                            <option value="ac" @if ($order === 'ac') {{ __('lms::selected') }} @endif> Ascending by categories </option>
+                            <option value="dc" @if ($order === 'dc') {{ __('lms::selected') }} @endif> Desc by categories </option>
                     </select>
                     
                     </div>   
@@ -113,8 +113,8 @@
                             <td>
                                 @if ($s)
                                     <div
-                                        class="badge @if ($s == 'block') {{ __('badge-danger') }}
-                        @elseif($s == 'pending') {{ __('badge-warning') }} @elseif($s == 'published') {{ __('badge-success') }} @elseif($s == 'draft') {{ __('badge-danger') }} @endif">
+                                        class="badge @if ($s == 'block') {{ __('lms::badge-danger') }}
+                        @elseif($s == 'pending') {{ __('lms::badge-warning') }} @elseif($s == 'published') {{ __('lms::badge-success') }} @elseif($s == 'draft') {{ __('lms::badge-danger') }} @endif">
                                         {{ $s ?? '' }} </div>
                                 @endif
                             </td>

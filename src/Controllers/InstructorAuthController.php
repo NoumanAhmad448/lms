@@ -26,8 +26,8 @@ class InstructorAuthController extends Controller
             }
 
             return view('lms::auth.instructor.register', [
-                'title' => __('instructor.auth.register_title'),
-                'desc' => __('instructor.auth.register_desc')
+                'title' => __('lms::instructor.auth.register_title'),
+                'desc' => __('lms::instructor.auth.register_desc')
             ]);
         } catch (Exception $e) {
             if(config("app.debug")){
@@ -67,7 +67,7 @@ class InstructorAuthController extends Controller
             Auth::login($user);
 
             return redirect()->route('dashboard')
-                ->with('status', __('instructor.auth.registration_success'));
+                ->with('status', __('lms::instructor.auth.registration_success'));
 
         } catch (Exception $e) {
             if(config("app.debug")){
@@ -87,8 +87,8 @@ class InstructorAuthController extends Controller
             }
 
             return view('lms::auth.instructor.login', [
-                'title' => __('instructor.auth.login_title'),
-                'desc' => __('instructor.auth.login_desc')
+                'title' => __('lms::instructor.auth.login_title'),
+                'desc' => __('lms::instructor.auth.login_desc')
             ]);
         } catch (Exception $e) {
             if(config("app.debug")){
@@ -119,7 +119,7 @@ class InstructorAuthController extends Controller
 
             if (!$user) {
                 return back()->withErrors([
-                    'email' => __('instructor.auth.invalid_instructor'),
+                    'email' => __('lms::instructor.auth.invalid_instructor'),
                 ]);
             }
 
@@ -129,7 +129,7 @@ class InstructorAuthController extends Controller
             }
 
             return back()->withErrors([
-                'email' => __('instructor.auth.invalid_credentials'),
+                'email' => __('lms::instructor.auth.invalid_credentials'),
             ]);
 
         } catch (Exception $e) {

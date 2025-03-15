@@ -45,7 +45,7 @@
             <div class="col-md-6">
               <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="j_form" name="j_form" 
-                        @if(isset($offline) && $offline->j_is_enable) {{ __('checked') }} @endif/>
+                        @if(isset($offline) && $offline->j_is_enable) {{ __('lms::checked') }} @endif/>
                 <label class="custom-control-label" for="j_form"> Enable/Disable </label>
               </div>
             </div>
@@ -114,7 +114,7 @@
             <div class="col-md-6">
               <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="easypaisa___form" name="easypaisa___form" 
-                        @if(isset($offline) && $offline->e_is_enable) {{ __('checked') }} @endif/>
+                        @if(isset($offline) && $offline->e_is_enable) {{ __('lms::checked') }} @endif/>
                 <label class="custom-control-label" for="easypaisa___form"> Enable/Disable </label>
               </div>
             </div>
@@ -181,7 +181,7 @@
             <div class="col-md-6">
               <div class="custom-control custom-switch">
                 <input type="checkbox" class="custom-control-input" id="b_is_enable" name="b_is_enable" 
-                        @if(isset($offline) && $offline->b_is_enable) {{ __('checked') }} @endif/>
+                        @if(isset($offline) && $offline->b_is_enable) {{ __('lms::checked') }} @endif/>
                 <label class="custom-control-label" for="b_is_enable"> Enable/Disable </label>
               </div>
             </div>
@@ -316,7 +316,7 @@
               <div class="col-md-6">
                 <div class="custom-control custom-switch">
                   <input type="checkbox" class="custom-control-input" id="other_form" name="other_form" 
-                          @if(isset($offline) && $offline->o_is_enable) {{ __('checked') }} @endif/>
+                          @if(isset($offline) && $offline->o_is_enable) {{ __('lms::checked') }} @endif/>
                   <label class="custom-control-label" for="other_form"> Enable/Disable </label>
                 </div>
               </div>

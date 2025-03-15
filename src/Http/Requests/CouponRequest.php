@@ -1,6 +1,6 @@
 <?php
 
-namespace Eren\lms\HttpRequests;
+namespace Eren\Lms\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Eren\Lms\Models\Promotion;

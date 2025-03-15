@@ -16,7 +16,7 @@
                 <form action="{{route('post_setting',compact('course'))}}" method="post">
                     @csrf
                     <button class="btn btn-lg btn-outline-info" type="submit" @if($course->status === "draft" || $course->status === "unpublished")
-                            {{ __('disabled') }}
+                            {{ __('lms::disabled') }}
                             @endif >
                             Unpublish Course
                     </button>

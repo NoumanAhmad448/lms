@@ -17,4 +17,4 @@ return [
             'oversized' => 6000 // 6MB in kilobytes
         ]
     ]
-]; 
+];

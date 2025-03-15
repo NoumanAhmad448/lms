@@ -33,14 +33,14 @@ use Eren\Lms\Models\RatingModal;
                     $settings = Eren\Lms\Models\Setting::first();
                 @endphp
                 <img src="{{ $settings && $settings->homepage_photo ? config('setting.s3Url').$settings->homepage_photo : asset('vendor/lms/img/student.jpg') }}" 
-                     alt="{{ __('homepage.alt_text.student') }}"
+                     alt="{{ __('lms::homepage.alt_text.student') }}"
                      class="img-fluid mx-auto d-block"
                      id="student_img"
                      style="box-shadow: 0px 10px 10px 3px #605f5b;"/>
                 <a href="{{route('register')}}" 
                    class="btn btn-outline-website d-none"
                    style="position: absolute; top: 0;left: 0;">
-                    {{ __('homepage.buttons.instructor') }}
+                    {{ __('lms::homepage.buttons.instructor') }}
                 </a>
             </section>
         </div>
@@ -52,10 +52,10 @@ use Eren\Lms\Models\RatingModal;
     @if($courses && $courses->count())
     <div class="container-fluid my-5">
         @if(config("setting.main_courses_heading"))
-            <h2>{{ __('homepage.courses.available') }}</h2>
+            <h2>{{ __('lms::homepage.courses.available') }}</h2>
         @endif
         <div class="d-flex justify-content-end">
-            <a href="{{route('show-all-courses')}}" class="btn btn-website btn-lg">{{ __('homepage.courses.all') }}</a>
+            <a href="{{route('show-all-courses')}}" class="btn btn-website btn-lg">{{ __('lms::homepage.courses.all') }}</a>
         </div>
         <div class="row mt-2 row-cols-md-5">
             @foreach ($courses as $course)
@@ -94,7 +94,7 @@ use Eren\Lms\Models\RatingModal;
                         </div>
                         @endif
                         <p class="card-text text-capitalize  mb-0  mt-1 d-flex font-bold"> @if($course->price->is_free)
-                            {{ __('homepage.courses.free') }}
+                            {{ __('lms::homepage.courses.free') }}
                             @else <span style="font-weight:bold"> ${{ $course->price->pricing ?? '' }} </span>
                             @php $total_p = ((int)$course->price->pricing)+20 @endphp
                             <del class="ml-2"> ${{ $total_p }} </del>
@@ -107,7 +107,7 @@ use Eren\Lms\Models\RatingModal;
             @endforeach
         </div>
         <div class="d-flex justify-content-end my-3">
-            <a href="{{route('show-all-courses')}}" class="btn btn-website btn-lg">{{ __('homepage.courses.next') }}</a>
+            <a href="{{route('show-all-courses')}}" class="btn btn-website btn-lg">{{ __('lms::homepage.courses.next') }}</a>
         </div>
     </div>
     @endif
@@ -116,7 +116,7 @@ use Eren\Lms\Models\RatingModal;
 @if(config("setting.all_categories"))
     @if(isset($cs) && $cs->count())
     <div class="container-fluid my-4">
-        <h2>{{ __('homepage.categories.title') }}</h2>
+        <h2>{{ __('lms::homepage.categories.title') }}</h2>
         <div class="row my-2">
             @foreach ($cs as $c )
             <div class="col-md-3 mt-3">
@@ -138,11 +138,11 @@ use Eren\Lms\Models\RatingModal;
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('all_public_posts')}}" class="btn btn-lg btn-website">{{ __('homepage.posts.all') }}</a>
+                    <a href="{{route('all_public_posts')}}" class="btn btn-lg btn-website">{{ __('lms::homepage.posts.all') }}</a>
                 </div>
             </div>
             <div class="col-md-8 offset-md-2">
-                <h2 class="my-2">{{ __('homepage.posts.recent') }}</h2>
+                <h2 class="my-2">{{ __('lms::homepage.posts.recent') }}</h2>
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <img src="{{config('setting.s3Url').$post->upload_img}}" alt="{{$post->f_name ?? '' }}"
@@ -155,7 +155,7 @@ use Eren\Lms\Models\RatingModal;
                 <div class="mt-2">
                     {!! reduceWithStripping($post->message,300) !!}
                 </div>
-                <a href="{{route('public_posts',['slug' => $post->slug])}}" class="btn btn-website my-2 float-right">{{ __('homepage.posts.read_more') }}</a>
+                <a href="{{route('public_posts',['slug' => $post->slug])}}" class="btn btn-website my-2 float-right">{{ __('lms::homepage.posts.read_more') }}</a>
             </div>
         </div>
     </div>
@@ -163,12 +163,12 @@ use Eren\Lms\Models\RatingModal;
 @endif
 <div class="container-fluid">
     <div class="jumbotron bg-website text-white my-2 text-center">
-        <h2>{{ __('homepage.instructor.title') }}</h2>
+        <h2>{{ __('lms::homepage.instructor.title') }}</h2>
         <div class="my-1">
-            {{ __('homepage.instructor.description') }}
+            {{ __('lms::homepage.instructor.description') }}
         </div>
         <a href="{{ route('instructor.register') }}" class="btn btn-website border">
-            {{ __('homepage.instructor.cta') }}
+            {{ __('lms::homepage.instructor.cta') }}
         </a>
     </div>
 </div>
@@ -178,11 +178,10 @@ use Eren\Lms\Models\RatingModal;
         <div class="row">
             <div class="col-md-12">
                 <div class="d-flex justify-content-end">
-                    <a href="{{route('public_faq')}}" class="btn btn-lg btn-website">{{ __('homepage.faq.all') }}</a>
                 </div>
             </div>
             <div class="col-md-8 offset-md-2">
-                <h2 class="my-2">{{ __('homepage.faq.recent') }}</h2>
+                <h2 class="my-2">{{ __('lms::homepage.faq.recent') }}</h2>
                 <div class="row">
                     <div class="col-md-8 offset-md-2">
                         <img src="{{config('setting.s3Url').$faq->upload_img}}" alt="{{$faq->f_name ?? '' }}" class="img-fluid" />
@@ -195,7 +194,7 @@ use Eren\Lms\Models\RatingModal;
                     {!! reduceWithStripping($faq->message,300) !!}
                 </div>
                 <a href="{{route('public_faqs',['slug' => $faq->slug])}}" class="btn btn-website my-2 float-right">
-                    {{ __('homepage.faq.read_more') }}
+                    {{ __('lms::homepage.faq.read_more') }}
                 </a>
             </div>
         </div>

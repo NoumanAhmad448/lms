@@ -4,10 +4,10 @@
         <div class="absolute h-full w-full bg-black opacity-70 top-0 left-0 z-10"></div>
         <div class="container relative z-20 text-white text-center text-2xl">
             <h2 class="font-bold text-5xl mb-8 langBN">
-                {{ __('messages.wel_title') }}
+                {{ __('lms::messages.wel_title') }}
             </h2>
             <p class="text-2xl mt-8 langBN">
-                {{ __('messages.wel_desc') }}
+                {{ __('lms::messages.wel_desc') }}
             </p>
             @if (config('setting.en_land_display'))
                 <button type="button"

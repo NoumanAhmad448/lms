@@ -5,10 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <title> {{ __('messages.blogger_login') }} </title>
-        <meta name="description" content="{{ __('description.default') }}">
+        <title> {{ __('lms::messages.blogger_login') }} </title>
+        <meta name="description" content="{{ __('lms::description.default') }}">
         <meta property="og:title" content=" {{ trans('messages.blogger_login') }}">
-        <meta property="og:description" content="{{ __('description.default') }}">
+        <meta property="og:description" content="{{ __('lms::description.default') }}">
         <link rel="canonical" href="{{ url()->current() }}">
         <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
         <!-- Fonts -->

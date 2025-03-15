@@ -16,7 +16,7 @@
             <select class="custom-select  mb-1 @error('sub_c') is-invalid @enderror"  id="sub_c" name="sub_c">
                 <option value=""> Choose Main Category </option>
                 @foreach ($categories as $ca)                
-                    <option value="{{$ca->value ?? null }}" @if( $c->categories_id == $ca->id) {{ __('selected') }} @endif  >  {{$ca->name ?? 'DB ERROR'}}</option>                    
+                    <option value="{{$ca->value ?? null }}" @if( $c->categories_id == $ca->id) {{ __('lms::selected') }} @endif  >  {{$ca->name ?? 'DB ERROR'}}</option>                    
                 @endforeach                
             </select>
             @error('sub_c')
