@@ -1,6 +1,6 @@
 <?php
 
-namespace Eren\lms\Rules;
+namespace Eren\Lms\Rules;
 
 use App\Models\Faq;
 use Illuminate\Contracts\Validation\Rule;

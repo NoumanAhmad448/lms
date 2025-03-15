@@ -1,6 +1,6 @@
 <?php
 
-namespace Eren\lms\HttpLivewire;
+namespace Eren\Lms\HttpLivewire;
 
 use Livewire\Component;
 

@@ -8,7 +8,7 @@ use Eren\Lms\Models\Setting;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Cocur\Slugify\Slugify;
-use Eren\lms\Rules\FaqDuplicateTitle;
+use Eren\Lms\Rules\FaqDuplicateTitle;
 
 class BloggerFaqController extends Controller
 {

@@ -21,7 +21,7 @@ use Eren\Lms\Models\OfflineEnrollment;
 use Eren\Lms\Models\Promotion;
 use Eren\Lms\Models\RatingModal;
 use Eren\Lms\Models\User;
-use Eren\lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\IsScriptAttack;
 use Exception;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;

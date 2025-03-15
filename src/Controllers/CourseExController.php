@@ -8,7 +8,7 @@ use Eren\Lms\Models\Course;
 use Eren\Lms\Models\Media;
 use Eren\Lms\Models\RatingModal;
 use Eren\Lms\Models\User;
-use Eren\lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\IsScriptAttack;
 use Exception;
 use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Eren\Lms\Classes\LmsCarbon;

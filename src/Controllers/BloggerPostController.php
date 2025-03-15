@@ -9,7 +9,7 @@ use Eren\Lms\Models\Post;
 use Eren\Lms\Models\Setting;
 use Illuminate\Support\Facades\Auth;
 use Cocur\Slugify\Slugify;
-use Eren\lms\Rules\DuplicateTitle;
+use Eren\Lms\Rules\DuplicateTitle;
 use Intervention\Image\ImageManager;
 use Illuminate\Support\Facades\Storage;
 

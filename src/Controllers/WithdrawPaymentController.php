@@ -4,7 +4,7 @@ namespace Eren\Lms\Controllers;
 
 use Illuminate\Http\Request;
 use Eren\Lms\Models\WithdrawPayment;
-use Eren\lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\IsScriptAttack;
 use Exception;
 use Illuminate\Support\Facades\Validator;
 

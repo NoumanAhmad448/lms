@@ -2,8 +2,8 @@
 
 namespace Eren\Lms\Http\Requests;
 
-use Eren\lms\Rules\IsScriptAttack;
-use Eren\lms\Rules\ValidPhoneNumber;
+use Eren\Lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\ValidPhoneNumber;
 use Illuminate\Foundation\Http\FormRequest;
 
 class ContactUsRequest extends FormRequest

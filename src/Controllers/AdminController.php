@@ -27,7 +27,7 @@ use Eren\Lms\Models\Promotion;
 use Eren\Lms\Models\Quiz;
 use Eren\Lms\Models\ResVideo;
 use Eren\Lms\Models\Setting;
-use Eren\lms\Rules\IsLessThan;
+use Eren\Lms\Rules\IsLessThan;
 use Eren\Lms\Classes\LmsCarbon;
 use Exception;
 use Illuminate\Http\Request;

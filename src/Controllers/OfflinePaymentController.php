@@ -3,8 +3,8 @@
 namespace Eren\Lms\Controllers;
 
 use Eren\Lms\Models\OfflinePayment;
-use Eren\lms\Rules\IsScriptAttack;
-use Eren\lms\Rules\ValidPhoneNumber;
+use Eren\Lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\ValidPhoneNumber;
 use Exception;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
