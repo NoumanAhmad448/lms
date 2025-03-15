@@ -1,6 +1,6 @@
 <?php
 
-namespace Eren\lms\HttpLivewire;
+namespace Eren\Lms\HttpLivewire;
 
 use Eren\Lms\Models\User;
 use Livewire\Component;

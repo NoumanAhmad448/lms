@@ -5,11 +5,11 @@ namespace Eren\Lms\Controllers;
 use Eren\Lms\Helpers\UploadData;
 use Eren\Lms\Http\Requests\PostRequest;
 use Eren\Lms\Models\Page;
-use Eren\lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\IsScriptAttack;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Cocur\Slugify\Slugify;
-use Eren\lms\Rules\PageDuplicateTitle;
+use Eren\Lms\Rules\PageDuplicateTitle;
 use Intervention\Image\ImageManager;
 
 class AdminPageController extends Controller

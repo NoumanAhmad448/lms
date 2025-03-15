@@ -4,7 +4,7 @@ namespace Eren\Lms\Controllers;
 
 use Eren\Lms\Models\Social;
 use Eren\Lms\Models\User;
-use Eren\lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\IsScriptAttack;
 use Exception;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;

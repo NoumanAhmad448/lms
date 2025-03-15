@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
 use Eren\Lms\Models\Enrollment;
-use Eren\lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\IsScriptAttack;
 
 class AssignmentController extends Controller
 {

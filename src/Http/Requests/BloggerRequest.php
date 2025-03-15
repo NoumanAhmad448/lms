@@ -2,8 +2,8 @@
 
 namespace Eren\Lms\Http\Requests;
 
-use Eren\lms\Rules\IsScriptAttack;
-use Eren\lms\Rules\UniqueNameRule;
+use Eren\Lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\UniqueNameRule;
 use Illuminate\Foundation\Http\FormRequest;
 
 class BloggerRequest extends FormRequest

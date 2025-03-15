@@ -13,7 +13,7 @@ use Eren\Lms\Models\MonthlyPaymentModel;
 use Eren\Lms\Models\OfflinePayment;
 use Eren\Lms\Models\Setting;
 use Eren\Lms\Models\User;
-use Eren\lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\IsScriptAttack;
 use Eren\Lms\Classes\LmsCarbon;
 use Exception;
 use Illuminate\Http\Request;

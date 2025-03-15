@@ -2,7 +2,7 @@
 
 namespace Eren\Lms\Http\Requests;
 
-use Eren\lms\Rules\IsScriptAttack;
+use Eren\Lms\Rules\IsScriptAttack;
 use Illuminate\Foundation\Http\FormRequest;
 
 class AdminSendEmailRequest extends FormRequest

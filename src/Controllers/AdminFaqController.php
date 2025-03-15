@@ -8,7 +8,7 @@ use Eren\Lms\Models\Faq;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Cocur\Slugify\Slugify;
-use Eren\lms\Rules\FaqDuplicateTitle;
+use Eren\Lms\Rules\FaqDuplicateTitle;
 use Exception;
 use Intervention\Image\ImageManager;
 
