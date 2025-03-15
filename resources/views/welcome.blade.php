@@ -132,7 +132,7 @@ use Eren\Lms\Models\RatingModal;
     @endif
 @endif
 
-@if(config("setting.all_posts"))
+@if(config("setting.all_posts") && false)
     @if (isset($post) && $post)
     <div class="container-fluid">
         <div class="row">
@@ -172,7 +172,7 @@ use Eren\Lms\Models\RatingModal;
         </a>
     </div>
 </div>
-@if(config("setting.all_faqs"))
+@if(config("setting.all_faqs") && false)
     @if (isset($faq) && $faq)
     <div class="container-fluid my-3">
         <div class="row">

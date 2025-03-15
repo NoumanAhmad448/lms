@@ -50,7 +50,7 @@ class LmsServiceProvider extends ServiceProvider
         $this->loadTranslationsFrom(__DIR__ . '/../../lang', 'lms');
 
         // Load migrations
-        $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
+        // $this->loadMigrationsFrom(__DIR__ . '/../../database/migrations');
 
         // Publish configuration file (if needed)
         $this->publishes([
