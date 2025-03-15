@@ -3,7 +3,7 @@
 namespace Eren\Lms\Controllers;
 
 use Eren\Lms\Models\User;
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;

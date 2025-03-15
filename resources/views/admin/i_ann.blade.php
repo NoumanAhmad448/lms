@@ -12,7 +12,7 @@
         </section>
         <x-slot name="createNotifcationForm">
         <form action="{{route('p_info')}}" method="POST">                
-                @include('session_msg')
+                @include('lms::session_msg')
                 @csrf
                 @if ($errors->any())
                     <div class="alert alert-danger">

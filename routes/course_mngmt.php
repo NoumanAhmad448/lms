@@ -41,5 +41,4 @@ Route::middleware(['web', 'auth'])->group(function () {
     Route::post('instructor/course/{course}/submit-course', [SayonaraController::class, 'submitCourse'])
         ->name('submitCourse');
 
-    Route::get('course/{slug}', [CourseEx3Controller::class, 'showCourse'])->name('user-course');
 });

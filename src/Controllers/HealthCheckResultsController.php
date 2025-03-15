@@ -2,7 +2,7 @@
 
 namespace Eren\Lms\Controllers;
 
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;

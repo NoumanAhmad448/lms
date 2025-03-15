@@ -28,7 +28,7 @@ use Eren\Lms\Models\Quiz;
 use Eren\Lms\Models\ResVideo;
 use Eren\Lms\Models\Setting;
 use Eren\lms\Rules\IsLessThan;
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;

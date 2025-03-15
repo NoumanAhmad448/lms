@@ -8,7 +8,7 @@
             Create Blogger
         </a>
     </div>
-    @include('session_msg')
+    @include('lms::session_msg')
     @if(isset($users) && $users->count())
     <div class="table-responsive mt-4
     ">

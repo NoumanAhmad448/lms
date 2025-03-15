@@ -1,0 +1,1 @@
+$((function(){$("#name , #email, #student, #instructor").click((function(){$(this).removeClass("is-invalid")})),$(".alert").delay(5e3).slideUp(300)}));

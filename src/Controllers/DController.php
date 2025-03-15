@@ -257,7 +257,7 @@ class DController extends Controller
             $media->f_mimetype = $f_mimetype;
             $media->save();
 
-            $path = asset('storage/' . $path);
+            $path = asset('vendor/lms/storage/' . $path);
 
             return response()->json([
                 'path' => $path,
@@ -326,7 +326,7 @@ class DController extends Controller
             $course_img = $course->course_image;
             if ($course_img) {
                 $img = $course_img->img_path;
-                if (file_exists(asset('storage/'.$img))) {
+                if (file_exists(asset('vendor/lms/storage/'.$img))) {
                     unlink(public_path('storage/'. $img));
                 }
                 $course_img->delete();

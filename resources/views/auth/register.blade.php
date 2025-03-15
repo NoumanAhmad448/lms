@@ -9,7 +9,7 @@
             
         <!--<x-slot name="logo" >-->
         <div class="d-flex justify-content-center">
-            <img src="{{asset('img/logo.jpg')}}" alt="lms" class="img-fluid" width="150"/>
+            <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="lms" class="img-fluid" width="150"/>
         </div>
         <!--</x-slot>-->
 
@@ -86,7 +86,7 @@
                 <!--</div>-->
                 <!-- </div>-->
             </div>
-            
+
             <div class="form-check mt-3">
                 <input class="form-check-input" type="checkbox"  id="terms" name="terms">
                 <label class="form-check-label" for="terms">
@@ -94,7 +94,7 @@
                 </label>
               </div>
 
-            <div class="form-group mt-3">                
+            <div class="form-group mt-3">
                   {!! NoCaptcha::renderJs() !!}
                   {!! NoCaptcha::display() !!}
                   @error('g-recaptcha-response')
@@ -140,8 +140,8 @@
                 pass.click(function(){
                     var other_el = $('#password_confirmation');
                     showPassword(other_el);
-                });        
-                
+                });
+
             });
          </script>
          <script>
@@ -154,6 +154,5 @@
         </script>
     @endsection
     @section('page-css')
-            <!--<link rel="stylesheet" href="{{ asset('vendor/lms/css/app.css') }}">        -->
     @endsection
 </x-guest-layout>

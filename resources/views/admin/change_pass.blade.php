@@ -5,7 +5,7 @@
 
     <h1> Change Password </h1>
     <hr/>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('admin_p_change_pass')}}" method="post">
         @csrf
         @method('patch')

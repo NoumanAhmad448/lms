@@ -7,7 +7,7 @@
         </a>
     </div>
 
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('update_admins',compact('user'))}}" method="POST">
         @csrf
         @method('put')

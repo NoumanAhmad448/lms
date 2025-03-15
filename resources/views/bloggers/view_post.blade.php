@@ -15,7 +15,7 @@
         </a>
     </div>
 
-     @include('session_msg')
+     @include('lms::session_msg')
 
      @if($posts->count())
         <div class="table-responsive mt-2">
@@ -87,7 +87,7 @@
 
         @else
             <div class="jumbotron text-center bg-white mt-5">
-                <img src="{{asset('img/not_found.png')}}" alt="no post found" width="100" height="100" class="img-fluid rounded-circle">
+                <img src="{{asset('vendor/lms/img/not_found.png')}}" alt="no post found" width="100" height="100" class="img-fluid rounded-circle">
                 <div > You have not created any post yet. Please create new post by clicking the button create post </div>
             </div>
         @endif

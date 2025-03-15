@@ -12,7 +12,7 @@
         <a href="{{route('admin_v_page')}}" class="btn btn-lg btn-info"> View Pages </a>
     </div>
 
-    @include('session_msg')
+    @include('lms::session_msg')
 
     <form method="POST" action="{{route('admin_update_page',compact('page'))}}" enctype="multipart/form-data"  >
         @csrf

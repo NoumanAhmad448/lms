@@ -12,7 +12,7 @@
         <a href="{{route('blogger_v_p')}}" class="btn btn-lg btn-info"> View Posts </a>
     </div>
 
-    @include('session_msg')
+    @include('lms::session_msg')
 
     <form method="POST" action="{{route('blogger_update_p',compact('post'))}}" enctype="multipart/form-data"  >
         @csrf

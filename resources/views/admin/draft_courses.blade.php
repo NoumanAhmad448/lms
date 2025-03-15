@@ -83,7 +83,7 @@
         </div>
     @endif
     @if ($courses->count())
-        @include('session_msg')
+        @include('lms::session_msg')
         <div class="table-responsive">
             {{-- <div> --}}
             <table class="table table-hover" id="example">
@@ -142,7 +142,7 @@
         {{-- </div> --}}
     @else
         <div class="jumbotron bg-light text-center">
-            <img src="{{ asset('img/not_found.png') }}" alt="lms" class="img-fluid img-thumbnail rounded-pill"
+            <img src="{{ asset('vendor/lms/img/not_found.png') }}" alt="lms" class="img-fluid img-thumbnail rounded-pill"
                 width="100" />
             <div> Sorry, No course is in draft yet. </div>
         </div>

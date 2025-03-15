@@ -23,7 +23,7 @@ use Eren\Lms\Models\RatingModal;
         <span class="sr-only">Loading...</span>
     </div>
 </section> --}}
-@include('session_msg')
+@include('lms::session_msg')
 @if(config("setting.homepage_image"))
 <div class="container-fluid mt-3">
     <div class="row">
@@ -32,7 +32,7 @@ use Eren\Lms\Models\RatingModal;
                 @php
                     $settings = Eren\Lms\Models\Setting::first();
                 @endphp
-                <img src="{{ $settings && $settings->homepage_photo ? config('setting.s3Url').$settings->homepage_photo : asset('img/student.jpg') }}" 
+                <img src="{{ $settings && $settings->homepage_photo ? config('setting.s3Url').$settings->homepage_photo : asset('vendor/lms/img/student.jpg') }}" 
                      alt="{{ __('homepage.alt_text.student') }}"
                      class="img-fluid mx-auto d-block"
                      id="student_img"

@@ -31,7 +31,7 @@
         <section>
             <h2> Facebook </h2>
             <hr/>
-            @include('session_msg')
+            @include('lms::session_msg')
             <form action="{{route('social_networks_fb')}}" method="post">
             @csrf
             <div class="row">
@@ -91,7 +91,7 @@
       <section>
         <h2> Google </h2>
         <hr/>
-        @include('session_msg')
+        @include('lms::session_msg')
         <form action="{{route('social_networks_g')}}" method="post">
             @csrf
             <div class="row">
@@ -153,7 +153,7 @@
     <section>
         <h2> Linkedin </h2>
         <hr/>
-        @include('session_msg')
+        @include('lms::session_msg')
         <form action="{{route('social_networks_li')}}" method="post">
             @csrf
             <div class="row">

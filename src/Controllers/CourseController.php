@@ -30,7 +30,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade as PDF;
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 
 class CourseController extends Controller
 {

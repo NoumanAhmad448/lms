@@ -3,7 +3,7 @@
         Create Blogger 
     </h1>
     <hr/>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('store_blogger___')}}" method="POST">
         @csrf
         <div class="row">

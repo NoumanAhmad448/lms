@@ -1,0 +1,1 @@
+$(".categories").change((function(){$(".next").attr("disabled",!1),0==$(this).val()&&$(".next").attr("disabled",!0)}));

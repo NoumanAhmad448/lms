@@ -2,7 +2,7 @@
     <h1>
         {{ $title ?? 'Monthly Payment' }} 
     </h1>
-    @include('session_msg')
+    @include('lms::session_msg')
     <div class="table-responsive mt-4">
 
     <table class="table" id="instructor">

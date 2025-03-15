@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use Eren\Lms\Models\User;
 use Illuminate\Support\Facades\Hash;
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 
 
 return new class extends Migration

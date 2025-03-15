@@ -7,7 +7,7 @@
 @section('content')
     <h1> Emails</h1>
     <hr/>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('a-p-send-email')}}" method="POST">
         @csrf
         <div class="form-group">

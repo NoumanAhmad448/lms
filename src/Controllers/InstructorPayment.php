@@ -9,7 +9,7 @@ use Eren\Lms\Models\InstructorEarning;
 use Eren\Lms\Models\InstructorPayment as ModelsInstructorPayment;
 use Eren\Lms\Models\MonthlyPaymentModel;
 use Eren\Lms\Models\User;
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 use Exception;
 use Illuminate\Support\Facades\DB;
 

@@ -31,7 +31,7 @@
                                 </small>
                             </div>
                         @else
-                            <img src="{{ asset('img/student.jpg') }}" 
+                            <img src="{{ asset('vendor/lms/img/student.jpg') }}" 
                                  class="img-fluid" 
                                  style="max-height: 300px; box-shadow: 0px 10px 10px 3px #605f5b;" 
                                  alt="{{ __('homepage.alt_text.student') }}"

@@ -7,7 +7,7 @@
     <div class="d-flex justify-content-end mb-1">
         <a href="{{route('admin_sub_categories')}}" class="btn btn-lg website-outline"> View SubCategory </a>
     </div>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('admin_update_sub_c',compact('c'))}}" method="post" class="mt-2">
         @csrf
         @method('patch')

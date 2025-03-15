@@ -3,7 +3,7 @@
 namespace Eren\Lms\Controllers;
 
 use Eren\Lms\Models\Media;
-use App\Classes\LmsCarbon;
+use Eren\Lms\Classes\LmsCarbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 

@@ -1,0 +1,1 @@
+$(".option").click((function(){$(".next").attr("disabled",!1)}));

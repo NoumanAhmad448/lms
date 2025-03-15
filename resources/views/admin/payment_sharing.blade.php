@@ -8,7 +8,7 @@
 
     <h1> Payment Sharing Setting </h1>
     <hr/>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('a_p_share_payment')}}" method="post">
         @csrf
         <div class="row">

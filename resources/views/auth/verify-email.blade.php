@@ -3,7 +3,7 @@
     <x-jet-authentication-card>
         <x-slot name="logo">
             {{-- <x-jet-authentication-card-logo /> --}}
-            <img src="{{asset('img/logo.jpg')}}" alt="lms" class="img-fluid" width="150"/>
+            <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="lms" class="img-fluid" width="150"/>
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600 text-center">

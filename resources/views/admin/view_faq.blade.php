@@ -14,7 +14,7 @@
         </a>
     </div>
 
-     @include('session_msg')
+     @include('lms::session_msg')
 
      @if($faqs->count())
         <div class="table-responsive mt-2">
@@ -85,7 +85,7 @@
 
         @else
             <div class="jumbotron text-center bg-white mt-5">
-                <img src="{{asset('img/not_found.png')}}" alt="no faq found" width="100" height="100" class="img-fluid rounded-circle">
+                <img src="{{asset('vendor/lms/img/not_found.png')}}" alt="no faq found" width="100" height="100" class="img-fluid rounded-circle">
                 <div > You have not created any faq yet. Please create new faq by clicking the button create faq </div>
             </div>
         @endif

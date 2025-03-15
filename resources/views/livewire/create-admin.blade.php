@@ -11,7 +11,7 @@
     <div class="d-flex justify-content-end">
         <a href="{{route('show_sub_admins')}}" class="btn btn-lg btn-info"> Show All Admin </a>
     </div>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('store_admin')}}" method="POST">
         @csrf
         

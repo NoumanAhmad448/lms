@@ -1,5 +1,5 @@
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+<link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
 
 
     <input type="hidden" id="amount" name="amount" value="{{$price}}">

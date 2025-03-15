@@ -23,7 +23,7 @@
                 
             
         <form action="{{route('____edit_user',['i' => $i->id ?? abort(500)])}}" method="POST">                
-                @include('session_msg')
+                @include('lms::session_msg')
                 @csrf
                 @method('put')
                 @if ($errors->any())

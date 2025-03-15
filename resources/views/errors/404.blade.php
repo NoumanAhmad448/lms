@@ -7,7 +7,7 @@
 @endsection
 
 @section('img')
-    <img src="{{ asset('img/404.jpg')}}" alt="404" class="img-fluid w-70" />
+    <img src="{{ asset('vendor/lms/img/404.jpg')}}" alt="404" class="img-fluid w-70" />
 @endsection
 @section('message')
 

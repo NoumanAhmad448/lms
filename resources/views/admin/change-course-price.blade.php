@@ -5,7 +5,7 @@
 
     <h1> Change Price </h1>
     <hr/>
-    @include('session_msg')
+    @include('lms::session_msg')
     <form action="{{route('admin_change_price_post',compact('course'))}}" method="post">
         @csrf
         @method('patch')

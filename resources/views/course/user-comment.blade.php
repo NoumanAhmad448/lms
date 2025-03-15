@@ -18,7 +18,7 @@
                 <div class="offset-md-2 col-md-10">
                     <form action="{{ route('laoshi-commentPost') }}" method="POST" class="mt-5">
                         @csrf
-                        @include('session_msg')
+                        @include('lms::session_msg')
                         <div class="form-group">
                             <label for="message">Type Comment</label>
                             <textarea class="form-control" name="message" id="message" rows="10" placeholder="start writing...."></textarea>

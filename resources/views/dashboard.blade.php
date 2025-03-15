@@ -2,7 +2,7 @@
     use Eren\Lms\Models\CourseStatus;
     use Eren\Lms\Models\CourseEnrollment;
     use Eren\Lms\Models\InstructorEarning;
-    use App\Classes\LmsCarbon;
+    use Eren\Lms\Classes\LmsCarbon;
 @endphp
 {{-- <x-app-layout>     --}}
 @extends('lms::layouts.dashboard_header')
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    @include('session_msg')
+    @include('lms::session_msg')
 
     <div class="container-fluid">
         @foreach ($courses as $course)

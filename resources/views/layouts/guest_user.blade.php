@@ -20,7 +20,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
         <meta property="og:title" content="@if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif">
         <meta id="seo_fb" property="og:description" content="@if(isset($desc) && $desc !== '') {{ $desc }} @else {{__('description.default')}}  @endif">
         <link rel="canonical" href="{{ url()->current() }}">
-        <link rel="shortcut icon" href="{{asset('img/favicon.png')}}">
+        <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
 
         <!-- Fonts -->
         {{-- <link rel="preconnect" href="https://fonts.gstatic.com"> --}}
@@ -28,8 +28,6 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-
-        {{-- <link rel="stylesheet" href="{{ asset('vendor/lms/css/app.css') }}">         --}}
 
         <link rel="stylesheet" href="{{ asset('vendor/lms/css/text.css') }}">
 
@@ -90,7 +88,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
             <div class="col-md-2">
                 <div class="d-md-flex align-items-md-center">
                     @if(config("setting.show_site_log"))
-                        <a href="{{route('index')}}" class=""> <img src="{{asset('img/logo.jpg')}}" alt="lms" width="80" class="img-fluid"/></a>
+                        <a href="{{route('index')}}" class=""> <img src="{{asset('vendor/lms/img/logo.jpg')}}" alt="lms" width="80" class="img-fluid"/></a>
                     @endif
                     <div class="dropdown">
                         <div class="ml-4 cursor_pointer show-dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

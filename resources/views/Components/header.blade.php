@@ -39,5 +39,5 @@
         </div>
     @endif
 
-    @include("svg.toggle")
+    @include("lms::svg.toggle")
 </nav>

@@ -1,0 +1,1 @@
+$((function(){$(".delete_course").click((function(){var t=$(this).attr("id");t&&($(".delete").attr("onClick","$('.".concat(t,"').submit();")),$("#course_delete").modal("show"))}))}));

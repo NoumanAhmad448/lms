@@ -20,7 +20,7 @@ if(isset($pricing)){
     <section class="pricing">
         <h1> Course Pricing</h1>
         <hr>
-        @include('session_msg')
+        @include('lms::session_msg')
         <form url="{{route('pricing',compact('course'))}}" class="p_price" >
             <div class="form-group">
                 <label for="pricing">Course Price</label>

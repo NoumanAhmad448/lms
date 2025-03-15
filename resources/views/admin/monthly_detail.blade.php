@@ -7,7 +7,7 @@
 
 
 @section('content')
-    @include('session_msg')
+    @include('lms::session_msg')
     <div class="d-flex justify-content-end my-3">
         <a href="{{route('total-earning-detail', ['id' => $user->id])}}" class="btn btn-website btn-lg"> Total Earning Details</a>
     </div>
