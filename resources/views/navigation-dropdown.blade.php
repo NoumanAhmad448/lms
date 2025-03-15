@@ -11,7 +11,7 @@
                 </div>
                 {{-- <div class="pt-2 pb-3 space-y-1">
                     <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                        {{ __('Dashboard') }}
+                        {{ __('lms::Dashboard') }}
                     </x-jet-responsive-nav-link>
                 </div>                 --}}
             </div>
@@ -19,7 +19,7 @@
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ml-6">
 
-                <a href="{{ route('index') }}" class="mr-3" > {{__('Student')}}  </a>
+                <a href="{{ route('index') }}" class="mr-3" > {{__('lms::Student')}}  </a>
                 <a href="{{ route('dashboard') }}" class="mr-3">
                     Your Dashboard
                 </a>
@@ -55,37 +55,37 @@
                     <x-slot name="content">
                         <!-- Account Management -->
                         <div class="block px-4 py-2 text-xs text-gray-400">
-                            {{ __('Manage Account') }}
+                            {{ __('lms::Manage Account') }}
                         </div>
 
                         
                         <x-jet-dropdown-link href="{{ route('dashboard') }}">
-                            {{ __('Dashboard') }}
+                            {{ __('lms::Dashboard') }}
                         </x-jet-dropdown-link>
                         
                         
                         <x-jet-dropdown-link href="{{ route('i-profile') }}">
-                            {{ __('Instructor Profile') }}
+                            {{ __('lms::Instructor Profile') }}
                         </x-jet-dropdown-link>
                         
                         <x-jet-dropdown-link href="{{ route('i-payment-setting') }}">
-                            {{ __('Withdraw Payment') }}
+                            {{ __('lms::Withdraw Payment') }}
                         </x-jet-dropdown-link>
                         <div class="border-t border-gray-100"></div>
 
                         <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                            {{ __('Setting') }}
+                            {{ __('lms::Setting') }}
                         </x-jet-dropdown-link>
                         <x-jet-dropdown-link href="{{ route('public-ann') }}">
-                            {{ __('Public Announcement') }}
+                            {{ __('lms::Public Announcement') }}
                         </x-jet-dropdown-link>
                         <x-jet-dropdown-link href="{{ route('purHis') }}">
-                            {{ __('Earning History') }}
+                            {{ __('lms::Earning History') }}
                         </x-jet-dropdown-link>
                         
                          {{-- @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                             <x-jet-dropdown-link href="{{ route('api-tokens.index') }}">
-                                {{ __('API Tokens') }}
+                                {{ __('lms::API Tokens') }}
                             </x-jet-dropdown-link>
                         @endif  --}}
 
@@ -94,17 +94,17 @@
                         <!-- Team Management -->
                          {{-- @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
                             <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Manage Team') }}
+                                {{ __('lms::Manage Team') }}
                             </div>
 
                              Team Settings  --}}
                             {{-- <x-jet-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
-                                {{ __('Team Settings') }}
+                                {{ __('lms::Team Settings') }}
                             </x-jet-dropdown-link> --}}
 
                             {{-- @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                 <x-jet-dropdown-link href="{{ route('teams.create') }}">
-                                    {{ __('Create New Team') }}
+                                    {{ __('lms::Create New Team') }}
                                 </x-jet-dropdown-link>
                             @endcan --}}
 
@@ -112,7 +112,7 @@
 
                             Team Switcher -->
                             <!-- <div class="block px-4 py-2 text-xs text-gray-400">
-                                {{ __('Switch Teams') }}
+                                {{ __('lms::Switch Teams') }}
                             </div> --}}
 
                             {{-- @foreach (Auth::user()->allTeams() as $team)
@@ -129,7 +129,7 @@
                             <x-jet-dropdown-link href="{{ route('logout') }}"
                                                 onclick="event.preventDefault();
                                                             this.closest('form').submit();">
-                                {{ __('Logout') }}
+                                {{ __('lms::Logout') }}
                             </x-jet-dropdown-link>
                         </form>
                     </x-slot>
@@ -152,7 +152,7 @@
     <div :class="{'block': open, 'hidden': ! open}" class="hidden sm:hidden">
         {{-- <div class="pt-2 pb-3 space-y-1">
             <x-jet-responsive-nav-link href="{{ route('dashboard') }}" :active="request()->routeIs('dashboard')">
-                {{ __('Dashboard') }}
+                {{ __('lms::Dashboard') }}
             </x-jet-responsive-nav-link>
         </div> --}}
 
@@ -172,32 +172,32 @@
             <div class="mt-3 space-y-1">
                 <!-- Account Management -->
                 <x-jet-dropdown-link href="{{ route('dashboard') }}">
-                    {{ __('Dashboard') }}
+                    {{ __('lms::Dashboard') }}
                 </x-jet-dropdown-link>
                 
                 
                 <x-jet-dropdown-link href="{{ route('i-profile') }}">
-                    {{ __('Instructor Profile') }}
+                    {{ __('lms::Instructor Profile') }}
                 </x-jet-dropdown-link>
                 
                 <x-jet-dropdown-link href="{{ route('i-payment-setting') }}">
-                    {{ __('Withdraw Payment') }}
+                    {{ __('lms::Withdraw Payment') }}
                 </x-jet-dropdown-link>
                 <div class="border-t border-gray-100"></div>
 
                 <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                    {{ __('Setting') }}
+                    {{ __('lms::Setting') }}
                 </x-jet-dropdown-link>
                 <x-jet-dropdown-link href="{{ route('public-ann') }}">
-                    {{ __('Public Announcement') }}
+                    {{ __('lms::Public Announcement') }}
                 </x-jet-dropdown-link>
                 <x-jet-dropdown-link href="{{ route('purHis') }}">
-                    {{ __('Earning History') }}
+                    {{ __('lms::Earning History') }}
                 </x-jet-dropdown-link>
                 
                 {{-- @if (Laravel\Jetstream\Jetstream::hasApiFeatures())
                     <x-jet-responsive-nav-link href="{{ route('api-tokens.index') }}" :active="request()->routeIs('api-tokens.index')">
-                        {{ __('API Tokens') }}
+                        {{ __('lms::API Tokens') }}
                     </x-jet-responsive-nav-link>
                 @endif --}}
 
@@ -208,7 +208,7 @@
                     <x-jet-responsive-nav-link href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-                        {{ __('Logout') }}
+                        {{ __('lms::Logout') }}
                     </x-jet-responsive-nav-link>
                 </form>
 
@@ -217,23 +217,23 @@
                     <div class="border-t border-gray-200"></div>
 
                     <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Manage Team') }}
+                        {{ __('lms::Manage Team') }}
                     </div>
 
                     <!-- Team Settings -->
                     <x-jet-responsive-nav-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}" :active="request()->routeIs('teams.show')">
-                        {{ __('Team Settings') }}
+                        {{ __('lms::Team Settings') }}
                     </x-jet-responsive-nav-link>
 
                     <x-jet-responsive-nav-link href="{{ route('teams.create') }}" :active="request()->routeIs('teams.create')">
-                        {{ __('Create New Team') }}
+                        {{ __('lms::Create New Team') }}
                     </x-jet-responsive-nav-link>
 
                     <div class="border-t border-gray-200"></div>
 
                     <!-- Team Switcher -->
                     <div class="block px-4 py-2 text-xs text-gray-400">
-                        {{ __('Switch Teams') }}
+                        {{ __('lms::Switch Teams') }}
                     </div>
 
                     @foreach (Auth::user()->allTeams() as $team)

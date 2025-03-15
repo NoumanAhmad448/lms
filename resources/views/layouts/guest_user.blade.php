@@ -16,9 +16,9 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title id="seo_title"> @if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif </title>
-        <meta id="seo_desc" name="description" content="@if(isset($desc) && $desc !== '' ) {{ $desc }} @else {{__('description.default')}}  @endif">
+        <meta id="seo_desc" name="description" content="@if(isset($desc) && $desc !== '' ) {{ $desc }} @else {{__('lms::description.default')}}  @endif">
         <meta property="og:title" content="@if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif">
-        <meta id="seo_fb" property="og:description" content="@if(isset($desc) && $desc !== '') {{ $desc }} @else {{__('description.default')}}  @endif">
+        <meta id="seo_fb" property="og:description" content="@if(isset($desc) && $desc !== '') {{ $desc }} @else {{__('lms::description.default')}}  @endif">
         <link rel="canonical" href="{{ url()->current() }}">
         <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
 
@@ -124,12 +124,12 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
             <div class="col-md-2">
                <div class="d-md-flex justify-content-end align-items-md-center">
                 @auth
-                    <a href="{{route('dashboard')}}" class="ml-3 mt-4 mt-md-0"> {{ __('Instructor')}} </a>
+                    <a href="{{route('dashboard')}}" class="ml-3 mt-4 mt-md-0"> {{ __('lms::Instructor')}} </a>
                     <a href="{{route('get-wishlist-course')}}" class="ml-3 text-website" style="font-size: 2rem" title="wishlist courses">
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
                     @else
-                    <a href="{{route('dashboard')}}" class="ml-3 mt-5 mt-md-3 text-dark"> {{ __('Teach on lms')}} </a>
+                    <a href="{{route('dashboard')}}" class="ml-3 mt-5 mt-md-3 text-dark"> {{ __('lms::messages.Teach on lms')}} </a>
                 @endif
                </div>
             </div>
@@ -154,17 +154,16 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
                             </div>
                          @endif
                     <div class="dropdown-menu dropdown-menu-right  w-55 mr-4 border" aria-labelledby="user_menu">
-                        <a class="pt-2 dropdown-item" href="{{ route('myLearning') }}"> {{__('My Learning')}}</a>
-                        <a class="pt-2 dropdown-item" href="{{ route('get-wishlist-course') }}"> {{__('WishList')}}</a>
-                        <a class="pt-2 dropdown-item" href="{{ route('profile.show') }}"> {{__('Setting')}}</a>
+                        <a class="pt-2 dropdown-item" href="{{ route('myLearning') }}"> {{__('lms::My Learning')}}</a>
+                        <a class="pt-2 dropdown-item" href="{{ route('get-wishlist-course') }}"> {{__('lms::WishList')}}</a>
+                        <a class="pt-2 dropdown-item" href="{{ route('profile.show') }}"> {{__('lms::Setting')}}</a>
                         <div class="dropdown-divider"></div>
-                        <a class="pt-2 dropdown-item" href="{{ route('dashboard') }}"> {{__('Instructor Dashboard')}}</a>
-                        {{-- <a class="pt-2 dropdown-item" href="{{ route('chat_w_i') }}"> {{__('Contact With Instructor')}}</a>                               --}}
-                        <a class="pt-2 dropdown-item" href="{{ route('email_to_ins') }}"> {{__('Contact With Instructor')}}</a>
+                        <a class="pt-2 dropdown-item" href="{{ route('dashboard') }}"> {{__('lms::Instructor Dashboard')}}</a>
+                        {{-- <a class="pt-2 dropdown-item" href="{{ route('chat_w_i') }}"> {{__('lms::Contact With Instructor')}}</a>                               --}}
+                        <a class="pt-2 dropdown-item" href="{{ route('email_to_ins') }}"> {{__('lms::Contact With Instructor')}}</a>
                         <div class="dropdown-divider"></div>
-                        <a class="pt-2 dropdown-item" href="{{ route('pay_his') }}"> {{__('Purchase History')}}</a>
-                        <a class="pt-2 dropdown-item" href="{{ route('public_faq') }}"> {{__('Help')}}</a>
-                        <a class="pt-1 dropdown-item" href="{{ route('logout_user') }}"> {{__('Logout')}}</a>
+                        <a class="pt-2 dropdown-item" href="{{ route('pay_his') }}"> {{__('lms::Purchase History')}}</a>
+                        <a class="pt-1 dropdown-item" href="{{ route('logout_user') }}"> {{__('lms::Logout')}}</a>
                     </div>
                 </div>
                 @else

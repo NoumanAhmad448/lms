@@ -54,26 +54,26 @@ debug_logs($data);
                 @if(isAdmin(false))
                     <th>#</th>
                 @endif
-                <th>{{ __('table.' . config('table.user')) }}</th>
-                <th>{{ __('table.' . config('table.title')) }}</th>
-                <th>{{ __('table.' . config('table.description')) }}</th>
-                <th>{{ __('table.' . config('table.location')) }}</th>
-                <th>{{ __('table.' . config('table.size')) }}</th>
-                <th>{{ __('table.' . config('table.city')) }}</th>
-                <th>{{ __('table.' . config('table.is_admin_approved')) }}</th>
-                <th>{{ __('table.' . config("table.comment")) }}</th>
+                <th>{{ __('lms::table.' . config('table.user')) }}</th>
+                <th>{{ __('lms::table.' . config('table.title')) }}</th>
+                <th>{{ __('lms::table.' . config('table.description')) }}</th>
+                <th>{{ __('lms::table.' . config('table.location')) }}</th>
+                <th>{{ __('lms::table.' . config('table.size')) }}</th>
+                <th>{{ __('lms::table.' . config('table.city')) }}</th>
+                <th>{{ __('lms::table.' . config('table.is_admin_approved')) }}</th>
+                <th>{{ __('lms::table.' . config("table.comment")) }}</th>
                 @can(config("policy.is_super_admin"))
-                    <th>{{ __('table.' . config("table.land_logs")) }}</th>
+                    <th>{{ __('lms::table.' . config("table.land_logs")) }}</th>
                 @endcan
                 @can(config("policy.view_land_comment"))
-                    <th>{{ __('table.' . config("table.land_comments_logs")) }}</th>
+                    <th>{{ __('lms::table.' . config("table.land_comments_logs")) }}</th>
                 @endcan
-                <th>{{ __('table.' . config("table.created_by")) }}</th>
+                <th>{{ __('lms::table.' . config("table.created_by")) }}</th>
                 @if (config('setting.en_slf'))
-                    <th>{{ __('table.' . config('table.land_files')) }}</th>
+                    <th>{{ __('lms::table.' . config('table.land_files')) }}</th>
                 @endif
-                <th>{{ __('table.' . config('table.created_at')) }}</th>
-                <th>{{ __('table.' . config('table.updated_at')) }}</th>
+                <th>{{ __('lms::table.' . config('table.created_at')) }}</th>
+                <th>{{ __('lms::table.' . config('table.updated_at')) }}</th>
             </tr>
         </thead>
         <tbody class="hidden" id="{{$id}}tbody">

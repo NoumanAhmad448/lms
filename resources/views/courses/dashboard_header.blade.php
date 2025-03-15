@@ -3,9 +3,9 @@
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title> @if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif </title>
-    <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
+    <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{__('lms::description.default')}}  @endif">
     <meta property="og:title" content="@if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif">
-    <meta property="og:description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
+    <meta property="og:description" content="@if(isset($desc)) {{ $desc }} @else {{__('lms::description.default')}}  @endif">
     <link rel="canonical" href="{{ url()->current() }}">
 
     {{-- <title> @if(! empty($title)) {{$title}} @else {{ get_option('site_title') }} @endif</title> --}}
@@ -55,10 +55,10 @@
               }
               @endphp
             <div class="ml-3 badge
-                @if($status == 'draft') {{ __('badge-warning') }}  @elseif($status == 'published') {{ __('badge-success')}}
-                @elseif($status == 'pending') {{ __('badge-info')}}
-                @elseif($status == 'block') {{ __('badge-danger')}}
-                @elseif($status == 'unpublished') {{ __('badge-danger')}}
+                @if($status == 'draft') {{ __('lms::badge-warning') }}  @elseif($status == 'published') {{ __('lms::badge-success')}}
+                @elseif($status == 'pending') {{ __('lms::badge-info')}}
+                @elseif($status == 'block') {{ __('lms::badge-danger')}}
+                @elseif($status == 'unpublished') {{ __('lms::badge-danger')}}
                 @endif">
                 {{ $status ?? ''}}
             </div>

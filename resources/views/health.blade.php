@@ -8,14 +8,14 @@ $constant = "test";
 <body class="antialiased bg-gray-100 mt-7 md:mt-12 dark:bg-gray-900">
     <div class="mx-auto max-w-7xl lg:px-8 sm:px-6">
         <div class="flex flex-wrap justify-center space-y-3">
-            <h4 class="w-full text-2xl font-bold text-center text-gray-900 dark:text-white">{{ __('health::notifications.laravel_health') }}</h4>
+            <h4 class="w-full text-2xl font-bold text-center text-gray-900 dark:text-white">{{ __('lms::health::notifications.laravel_health') }}</h4>
             <div class="flex justify-center w-full">
                 <x-health-logo/>
             </div>
 
             @if ($lastRanAt)
                 <div id="{{$constant}}notifications" class="hidden {{ $lastRanAt->diffInMinutes() > 5 ? 'text-red-400' : 'text-gray-400 dark:text-gray-500' }} text-sm text-center font-medium">
-                    {{ __('health::notifications.check_results_from') }} {{ $lastRanAt->diffForHumans() }}
+                    {{ __('lms::health::notifications.check_results_from') }} {{ $lastRanAt->diffForHumans() }}
                 </div>
             @endif
 

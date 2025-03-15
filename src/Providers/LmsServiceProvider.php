@@ -2,15 +2,25 @@
 
 namespace Eren\Lms\Providers;
 
-use Eren\Lms\Http\Middleware\Admin;
+use Eren\Lms\Middleware\Admin;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
-use Eren\Lms\Helpers\AssetHelper;
+use Illuminate\Routing\Router;
 
 class LmsServiceProvider extends ServiceProvider
 {
-    public function boot()
+    public function boot(Router $router)
     {
+        // Register a middleware group for your package
+        $router->middlewareGroup('lms-web', [
+            \App\Http\Middleware\EncryptCookies::class,
+            \Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse::class,
+            \Illuminate\Session\Middleware\StartSession::class,
+            \Illuminate\View\Middleware\ShareErrorsFromSession::class,
+            \App\Http\Middleware\VerifyCsrfToken::class,
+            \Illuminate\Routing\Middleware\SubstituteBindings::class,
+        ]);
+
         Fortify::loginView(function () {
             return view('auth.login');
         });
@@ -33,8 +43,7 @@ class LmsServiceProvider extends ServiceProvider
 
         $this->app['router']->aliasMiddleware(
             'NoCaptcha',
-             \Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
-
+            \Anhskohbo\NoCaptcha\Facades\NoCaptcha::class,
         );
 
         // Load translations
@@ -90,7 +99,7 @@ class LmsServiceProvider extends ServiceProvider
         ], 'lms_only_header_footer_sidebar');
 
         $this->publishes([
-        __DIR__ . '/../../database/migrations' => database_path('migrations'),
+            __DIR__ . '/../../database/migrations' => database_path('migrations'),
         ], 'lms_migrations');
 
         $this->publishes([

@@ -13,7 +13,7 @@
 @endsection
 @section('header')
     <h2>
-        {{ __('Instructor Dashboard') }}
+        {{ __('lms::Instructor Dashboard') }}
     </h2>
 @endsection
 
@@ -96,11 +96,11 @@
                                 $status = $course->status;
                             @endphp
                             <div
-                                class="badge @if ($status == 'draft') {{ __('badge-warning') }}
-                                    @elseif($status == 'published') {{ __('badge-success') }}
-                                    @elseif($status == 'unpublished') {{ __('badge-danger') }}
-                                    @elseif($status == 'pending') {{ __('badge-info') }}
-                                    @elseif($status == 'block') {{ __('badge-danger') }} @endif">
+                                class="badge @if ($status == 'draft') {{ __('lms::badge-warning') }}
+                                    @elseif($status == 'published') {{ __('lms::badge-success') }}
+                                    @elseif($status == 'unpublished') {{ __('lms::badge-danger') }}
+                                    @elseif($status == 'pending') {{ __('lms::badge-info') }}
+                                    @elseif($status == 'block') {{ __('lms::badge-danger') }} @endif">
                                 {{ $status ?? '' }} </div>
                         </div>
 
@@ -137,8 +137,8 @@
                                 @endphp
                                 @if (!empty($progress))
                                     <div class="progress">
-                                        <div class="progress-bar @if ($progress != 100) {{ __('progress-bar-striped') }} @endif  progress-bar-animated
-                                         @if ($progress == 100) {{ __('bg-info') }} @endif"
+                                        <div class="progress-bar @if ($progress != 100) {{ __('lms::progress-bar-striped') }} @endif  progress-bar-animated
+                                         @if ($progress == 100) {{ __('lms::bg-info') }} @endif"
                                             role="progressbar" aria-valuenow="{{ $progress }}" aria-valuemin="0"
                                             aria-valuemax="100" style="width: {{ $progress }}%"> {{ $progress }}%
                                         </div>

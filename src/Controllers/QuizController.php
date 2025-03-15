@@ -7,8 +7,8 @@ use Eren\Lms\Models\Course;
 use Eren\Lms\Models\Lecture;
 use Eren\Lms\Models\Quiz;
 use Eren\Lms\Models\QuizQuestionAns;
-use Eren\lms\HttpRequests\QuizPostRequest;
-use Eren\lms\HttpRequests\QuizQuestionPostRequest;
+use Eren\Lms\Http\Requests\QuizPostRequest;
+use Eren\Lms\Http\Requests\QuizQuestionPostRequest;
 
 
 use Illuminate\Support\Facades\Auth;

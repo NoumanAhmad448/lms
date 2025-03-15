@@ -2,8 +2,8 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\SubCategoryUpdateValidation;
-use Eren\lms\HttpRequests\SubCategoryValidation;
+use Eren\Lms\Http\Requests\SubCategoryUpdateValidation;
+use Eren\Lms\Http\Requests\SubCategoryValidation;
 use Eren\Lms\Models\Categories;
 use Eren\Lms\Models\SubCategory;
 use Illuminate\Support\Str;

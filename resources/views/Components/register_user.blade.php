@@ -1,7 +1,7 @@
 @php
 
-    $title = $title ?? __('messages.PersonalDetails');
-    $desc = $desc ?? __('messages.PersonalDetails_desc');
+    $title = $title ?? __('lms::messages.PersonalDetails');
+    $desc = $desc ?? __('lms::messages.PersonalDetails_desc');
 @endphp
 <div class="grid gap-4 gap-y-2 text-sm grid-cols-1 lg:grid-cols-3 my-4">
     <div class="text-gray-600">

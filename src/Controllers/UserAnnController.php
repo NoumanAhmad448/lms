@@ -3,7 +3,7 @@
 namespace Eren\Lms\Controllers;
 
 use Illuminate\Http\Request;
-use Eren\lms\HttpRequests\CreateNotificationRequest;
+use Eren\Lms\Http\Requests\CreateNotificationRequest;
 use Eren\Lms\Models\InstructorAnn;
 use Eren\Lms\Models\User;
 use Eren\Lms\Models\UserAnnModel;

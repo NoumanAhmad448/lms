@@ -2,7 +2,7 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\IProfileRequest;
+use Eren\Lms\Http\Requests\IProfileRequest;
 use Eren\Lms\Models\Profile;
 use Eren\Lms\Models\User;
 use Exception;

@@ -5,7 +5,7 @@ namespace Eren\Lms\Controllers;
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\Pricing;
 use Illuminate\Support\Facades\Auth;
-use Eren\lms\HttpRequests\PricingRequest;
+use Eren\Lms\Http\Requests\PricingRequest;
 use Illuminate\Support\Facades\DB;
 
 class PricingController extends Controller

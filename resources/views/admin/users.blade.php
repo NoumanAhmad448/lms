@@ -14,12 +14,12 @@
                         <label for="sorting" class="mr-2 d-none d-md-block"> Sorting </label>
                         <select class="custom-select custom-select mb-3" id="sorting" name="sorting">
                             <option value=""> Choose Sorting  </option>
-                            <option value="ai" @if($order === 'ai') {{ __('selected') }} @endif >Ascending by ID</option>
-                            <option value="di" @if($order === 'di') {{ __('selected') }} @endif >Descending by ID</option>
-                            <option value="an" @if($order === 'an') {{ __('selected') }} @endif >Ascending by Name</option>
-                            <option value="dn" @if($order === 'dn') {{ __('selected') }} @endif >Descending by Name</option>
-                            <option value="ae" @if($order === 'ae') {{ __('selected') }} @endif >Ascending by Email</option>
-                            <option value="de" @if($order === 'de') {{ __('selected') }} @endif >Descending by Email</option>
+                            <option value="ai" @if($order === 'ai') {{ __('lms::selected') }} @endif >Ascending by ID</option>
+                            <option value="di" @if($order === 'di') {{ __('lms::selected') }} @endif >Descending by ID</option>
+                            <option value="an" @if($order === 'an') {{ __('lms::selected') }} @endif >Ascending by Name</option>
+                            <option value="dn" @if($order === 'dn') {{ __('lms::selected') }} @endif >Descending by Name</option>
+                            <option value="ae" @if($order === 'ae') {{ __('lms::selected') }} @endif >Ascending by Email</option>
+                            <option value="de" @if($order === 'de') {{ __('lms::selected') }} @endif >Descending by Email</option>
                         </select>
                     </div>
                 </form>

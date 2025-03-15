@@ -1,13 +1,13 @@
 <?php
 
-namespace App\Helpers;
+namespace Eren\Lms\Helpers;
 
-use App\interfaces\UploadDataInterface;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 
-class UploadData implements UploadDataInterface{
+
+class UploadData {
     private $dir_path = "";
     private $disk = "";
     private $default_setting = [

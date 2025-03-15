@@ -18,11 +18,11 @@ debug_logs($data);
         <thead>
             <tr>
                 <th>#</th>
-                <th>{{ __('table.' . config('table.comment')) }}</th>
-                <th>{{ __('table.' . config('table.is_admin_approved')) }}</th>
-                <th>{{ __('table.' . config('table.created_by')) }}</th>
-                <th>{{ __('table.' . config('table.created_at')) }}</th>
-                <th>{{ __('table.' . config('table.updated_at')) }}</th>
+                <th>{{ __('lms::table.' . config('table.comment')) }}</th>
+                <th>{{ __('lms::table.' . config('table.is_admin_approved')) }}</th>
+                <th>{{ __('lms::table.' . config('table.created_by')) }}</th>
+                <th>{{ __('lms::table.' . config('table.created_at')) }}</th>
+                <th>{{ __('lms::table.' . config('table.updated_at')) }}</th>
             </tr>
         </thead>
         <tbody class="hidden" id="{{$id}}tbody">

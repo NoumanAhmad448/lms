@@ -3,7 +3,7 @@
 namespace Eren\Lms\Controllers;
 
 use Eren\Lms\Models\User;
-use Eren\lms\HttpRequests\UpdateUserReq;
+use Eren\Lms\Http\Requests\UpdateUserReq;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 

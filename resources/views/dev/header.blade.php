@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> @if(isset($title)){{ __('messages.'.$title) }} @else {{ __("lms::messages.admin") }} @endif </title>
-    <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
+    <title> @if(isset($title)){{ __('lms::messages.'.$title) }} @else {{ __("lms::messages.admin") }} @endif </title>
+    <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{__('lms::description.default')}}  @endif">
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="shortcut icon" href="{{asset('vendor/lms/img/favicon.png')}}">
     <script src="https://cdn.datatables.net/1.10.25/js/jquery.dataTables.min.js"></script>

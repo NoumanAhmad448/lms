@@ -3,9 +3,9 @@
     <head>
 
         <title> @if(isset($title)) {{ $title }} @else {{ config('app.name') }} @endif </title>
-        <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{ __('description.default') }}  @endif">
+        <meta name="description" content="@if(isset($desc)) {{ $desc }} @else {{ __('lms::description.default') }}  @endif">
         <meta property="og:title" content="@if(isset($title)){{ $title }} @else {{ config('app.name') }} @endif">
-        <meta property="og:description" content="@if(isset($desc)) {{ $desc }} @else {{__('description.default')}}  @endif">
+        <meta property="og:description" content="@if(isset($desc)) {{ $desc }} @else {{__('lms::description.default')}}  @endif">
         <link rel="canonical" href="{{ url()->current() }}">
         @livewireStyles
 
@@ -27,7 +27,7 @@
                     </a>
                 @endif
                 <section class="d-flex align-items-center">
-                    <a href="{{ route('index') }}" class="mr-3 d-none d-md-block" > {{__('Student')}}  </a>
+                    <a href="{{ route('index') }}" class="mr-3 d-none d-md-block" > {{__('lms::Student')}}  </a>
                 <a href="{{ route('dashboard') }}" class="mr-3 d-none d-md-block">
                     Your Dashboard
                 </a>
@@ -42,21 +42,20 @@
                     <div class="dropdown-menu dropdown-menu-right  w-55 mr-4 border"
                         aria-labelledby="user_menu">
                         <a style="font-size: 0.9rem !important" class="pt-2 dropdown-item" href="{{ route('dashboard') }}">
-                            {{__('Dashboard')}}</a>
+                            {{__('lms::Dashboard')}}</a>
                         <a style="font-size: 0.9rem !important" class="pt-2 dropdown-item" href="{{ route('i-profile') }}">
-                            {{ __('Instructor Profile') }}</a>
+                            {{ __('lms::Instructor Profile') }}</a>
                         <a style="font-size: 0.9rem !important" class="pt-2 dropdown-item" href="{{ route('i-payment-setting') }}">
-                            {{ __('Withdraw Payment') }}
+                            {{ __('lms::Withdraw Payment') }}
                         <div class="dropdown-divider"></div>
                         <a style="font-size: 0.9rem !important" class="pt-2 dropdown-item" href="{{  route('profile.show') }}">
-                            {{ __('Setting')}}</a>
+                            {{ __('lms::Setting')}}</a>
 
                         <a style="font-size: 0.9rem !important" class="pt-2 dropdown-item" href="{{ route('public-ann') }}">
-                            {{  __('Public Announcement') }}</a>
+                            {{  __('lms::Public Announcement') }}</a>
                         <a style="font-size: 0.9rem !important" class="pt-2 dropdown-item" href="{{ route('purHis') }}">
-                            {{__('Earning History')}}</a>
-                        <a style="font-size: 0.9rem !important" class="pt-2 dropdown-item" href="{{ route('public_faq') }}"> {{__('Help')}}</a>
-                        <a style="font-size: 0.9rem !important" class="pt-1 dropdown-item" href="{{ route('logout') }}"> {{__('Logout')}}</a>
+                            {{__('lms::Earning History')}}</a>
+                        <a style="font-size: 0.9rem !important" class="pt-1 dropdown-item" href="{{ route('logout') }}"> {{__('lms::Logout')}}</a>
                     </div>
                 </div>
                 </section>

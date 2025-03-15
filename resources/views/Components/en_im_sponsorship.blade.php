@@ -6,15 +6,15 @@
                 "
                 data-twe-animation-start="onScroll">
                 <img class="rounded" src="{{ url(config('setting.im_sponsorship')) }}"
-                    alt="{{ __('messages.Sponsorship') }}">
+                    alt="{{ __('lms::messages.Sponsorship') }}">
             </div>
             <div class="flex-1 ml-10 text-lg leading-normal justify-center items-center">
                 <h2
                     class="flex flex-col justify-center items-center mb-4 text-4xl font-extrabold leading-none
                             tracking-tight md:text-5xl lg:text-6xl dark:text-white">
-                    {{ __('messages.Sponsorship') }}
+                    {{ __('lms::messages.Sponsorship') }}
                 </h2>
-                <p>{{ __('messages.Sponsorship_desc') }}</p>
+                <p>{{ __('lms::messages.Sponsorship_desc') }}</p>
             </div>
         </div>
     </div>

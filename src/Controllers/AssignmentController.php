@@ -2,7 +2,7 @@
 
 namespace Eren\Lms\Controllers;
 
-use App\Helpers\UploadData;
+use Eren\Lms\Helpers\UploadData;
 use Illuminate\Http\Request;
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\Lecture;

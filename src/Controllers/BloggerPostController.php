@@ -2,9 +2,9 @@
 
 namespace Eren\Lms\Controllers;
 
-use App\Helpers\UploadData;
+use Eren\Lms\Helpers\UploadData;
 use Illuminate\Http\Request;
-use Eren\lms\HttpRequests\PostRequest;
+use Eren\Lms\Http\Requests\PostRequest;
 use Eren\Lms\Models\Post;
 use Eren\Lms\Models\Setting;
 use Illuminate\Support\Facades\Auth;

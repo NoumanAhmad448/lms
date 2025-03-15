@@ -1,6 +1,6 @@
 @extends('lms::errors::minimal')
 
-@section('title', __('404 Not Found'))
+@section('title', __('lms::404 Not Found'))
 @section('code')
 <div class="display-2"> 404 page not found </div>
 

@@ -5,8 +5,8 @@ namespace Eren\Lms\Controllers;
 use Illuminate\Http\Request;
 use Eren\Lms\Models\Course;
 use Illuminate\Support\Facades\Auth;
-use Eren\lms\HttpRequests\PromotionRequest;
-use Eren\lms\HttpRequests\CouponRequest;
+use Eren\Lms\Http\Requests\PromotionRequest;
+use Eren\Lms\Http\Requests\CouponRequest;
 use Eren\Lms\Models\Promotion;
 
 

@@ -193,7 +193,7 @@
                         <source
                             src="{{config('setting.s3Url')}}{{$extra_vid->lec_path}}"
                             type="{{$extra_vid->f_mimetype ?? '' }}">
-                            {{ __('video_nt_fnd')}}
+                            {{ __('lms::video_nt_fnd')}}
                     </video>
                     @else
                         {{ __("lms::access_restricted")}} {{dateFormat($media?->access_duration)}}

@@ -48,7 +48,7 @@
                 <div class="col-md-6">      
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="enable" name="enable" 
-                        @if(isset($social) && $social->f_enable) {{ __('checked')}} @endif>
+                        @if(isset($social) && $social->f_enable) {{ __('lms::checked')}} @endif>
                     <label class="custom-control-label" for="enable">Enable/Disable</label>
                 </div>                           
                 </div>
@@ -108,7 +108,7 @@
             <div class="col-md-6">      
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="enable_g" name="enable_g"
-                    @if(isset($social) && $social->g_enable) {{ __('checked')}} @endif
+                    @if(isset($social) && $social->g_enable) {{ __('lms::checked')}} @endif
                     >
                     <label class="custom-control-label" for="enable_g">Enable/Disable</label>
                 </div>                           
@@ -170,7 +170,7 @@
             <div class="col-md-6">      
                 <div class="custom-control custom-switch">
                     <input type="checkbox" class="custom-control-input" id="enable_l" name="enable_l"
-                    @if(isset($social) && $social->l_enable) {{ __('checked')}} @endif
+                    @if(isset($social) && $social->l_enable) {{ __('lms::checked')}} @endif
                     />
                     <label class="custom-control-label" for="enable_l">Enable/Disable</label>
                 </div>                           

@@ -2,7 +2,7 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\CreateNotificationRequest;
+use Eren\Lms\Http\Requests\CreateNotificationRequest;
 use Eren\Lms\Models\CourseHistory;
 use Eren\Lms\Models\InstructorAnn;
 use Eren\Lms\Models\InstructorEarning;

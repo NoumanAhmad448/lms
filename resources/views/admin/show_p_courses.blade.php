@@ -70,8 +70,8 @@
                     <td> {{ $course->user->email ?? '' }} </td>                    
                     @php $s = $course->status; @endphp
                     <td> @if($s) 
-                        <div class="badge @if($s == "block") {{ __('badge-danger') }} 
-                        @elseif($s == "pending") {{ __('badge-warning')}} @else {{__('badge-info')}} @endif" > {{ $s ?? '' }} </div> @endif 
+                        <div class="badge @if($s == "block") {{ __('lms::badge-danger') }} 
+                        @elseif($s == "pending") {{ __('lms::badge-warning')}} @else {{__('lms::badge-info')}} @endif" > {{ $s ?? '' }} </div> @endif 
                     </td>    
                     <td> {{ $course->isPopular ? 'yes': "No" }} </td>                    
                     <td> {{ $course->isFeatured ? 'yes': "No" }} </td>                    

@@ -56,12 +56,12 @@ debug_logs($data);
                 @if(isAdmin(false))
                     <th>#</th>
                 @endif
-                <th>{{ __('table.' . config('table.name')) }}</th>
-                <th>{{ __('table.' . config('form.email')) }}</th>
-                <th>{{ __('table.' . config('table.is_active')) }}</th>
-                <th>{{ __('table.' . config('table.user_profiles')) }}</th>
-                <th>{{ __('table.' . config('table.created_at')) }}</th>
-                <th>{{ __('table.' . config('table.updated_at')) }}</th>
+                <th>{{ __('lms::table.' . config('table.name')) }}</th>
+                <th>{{ __('lms::table.' . config('form.email')) }}</th>
+                <th>{{ __('lms::table.' . config('table.is_active')) }}</th>
+                <th>{{ __('lms::table.' . config('table.user_profiles')) }}</th>
+                <th>{{ __('lms::table.' . config('table.created_at')) }}</th>
+                <th>{{ __('lms::table.' . config('table.updated_at')) }}</th>
             </tr>
         </thead>
         <tbody class="hidden" id="{{$id}}tbody">

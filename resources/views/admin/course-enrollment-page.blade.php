@@ -16,7 +16,7 @@
         <div class="col-md-5 my-3" style="min-width: 100%">
             <div class="searchbar mt-4 mt-md-0">
                 <input class="search_input" type="text" name="user_search" id="user_search"
-                    placeholder="{{__('messages.enroll_stu')}}">
+                    placeholder="{{__('lms::messages.enroll_stu')}}">
                 <div class="search_icon btn"><i class="fa fa-search"
                         aria-hidden="true"></i>
                 </div>
@@ -32,7 +32,7 @@
                       <th scope="col">email</th>
                       <th scope="col">name</th>
                       @if(config("setting.enable_course_unenroll"))
-                        <th scope="col">{{__('messages.unenrolled')}}</th>
+                        <th scope="col">{{__('lms::messages.unenrolled')}}</th>
                       @endif
                     </tr>
                   </thead>
@@ -53,7 +53,7 @@
     @else 
         <div class="text-center">
             <h3 class="text-danger">
-                {{ __('messages.nceif')}}
+                {{ __('lms::messages.nceif')}}
             </h3>
             <div>
                 {{ __("lms::messages.tinue")}}

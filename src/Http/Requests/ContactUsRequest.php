@@ -1,6 +1,6 @@
 <?php
 
-namespace Eren\lms\HttpRequests;
+namespace Eren\Lms\Http\Requests;
 
 use Eren\lms\Rules\IsScriptAttack;
 use Eren\lms\Rules\ValidPhoneNumber;

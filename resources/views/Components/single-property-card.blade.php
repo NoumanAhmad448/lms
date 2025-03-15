@@ -15,15 +15,15 @@
             @else
                 <h2 class="leading-0 text-base">{{$property->name}}</h2>
             @endif
-            {{-- <h3 class="text-2xl py-3">{{ number_format($property->price) }} {{ __('TK') }}</h3> --}}
+            {{-- <h3 class="text-2xl py-3">{{ number_format($property->price) }} {{ __('lms::TK') }}</h3> --}}
             <h3 class="text-2xl py-3">{{ $property->dynamic_pricing($property->price) }}</h3>
             <div class="border-t-2">
                 <ul class="flex items-center -mx-1 my-4">
-                    <li class="px-2 py-1 bg-gray-200 rounded-md text-xs mx-1 shadow-sm">{{$property->bedrooms}} {{ __('Bedrooms') }}</li>
-                    <li class="px-2 py-1 bg-gray-200 rounded-md text-xs mx-1 shadow-sm">{{$property->bathrooms}} {{ __('Bathrooms') }}</li>
-                    <li class="px-2 py-1 bg-gray-200 rounded-md text-xs mx-1 shadow-sm">{{$property->gross_sqm}} {{ __('ft') }}<sup>2</sup></li>
+                    <li class="px-2 py-1 bg-gray-200 rounded-md text-xs mx-1 shadow-sm">{{$property->bedrooms}} {{ __('lms::Bedrooms') }}</li>
+                    <li class="px-2 py-1 bg-gray-200 rounded-md text-xs mx-1 shadow-sm">{{$property->bathrooms}} {{ __('lms::Bathrooms') }}</li>
+                    <li class="px-2 py-1 bg-gray-200 rounded-md text-xs mx-1 shadow-sm">{{$property->gross_sqm}} {{ __('lms::ft') }}<sup>2</sup></li>
                 </ul>
-                <a href="{{route('property.show', $property->id)}}" class="btn w-full text-center">{{ __('More details') }}</a>
+                <a href="{{route('property.show', $property->id)}}" class="btn w-full text-center">{{ __('lms::More details') }}</a>
             </div>
         </div>
     </div>

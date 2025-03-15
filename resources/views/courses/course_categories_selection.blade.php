@@ -53,10 +53,10 @@ $course_category = $course->categories_selection;
                         
                         <select class="custom-select categories" name="categories_selection">
                             @if($categories->count())
-                                <option @if(!$course_category) {{ __('selected') }} @endif value="Choose a category">  Choose a category </option>
+                                <option @if(!$course_category) {{ __('lms::selected') }} @endif value="Choose a category">  Choose a category </option>
                                 @foreach ($categories as $c)
                                     @php $value = $c->value; @endphp
-                                  <option @if($course_category == $value) {{ __('selected') }} @endif value="{{$value ?? null}}"> {{$c->name ?? null}} </option>
+                                  <option @if($course_category == $value) {{ __('lms::selected') }} @endif value="{{$value ?? null}}"> {{$c->name ?? null}} </option>
                                 @endforeach
                             @endif
                         </select>

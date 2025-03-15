@@ -2,10 +2,10 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\LandingPage;
+use Eren\Lms\Http\Requests\LandingPage;
 
-use Eren\lms\HttpRequests\CourseImageUpload;
-use Eren\lms\HttpRequests\CourseVideoRequest;
+use Eren\Lms\Http\Requests\CourseImageUpload;
+use Eren\Lms\Http\Requests\CourseVideoRequest;
 use Eren\Lms\Models\Categories;
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\CourseImage;
@@ -14,7 +14,7 @@ use Exception;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
-use App\Helpers\UploadData;
+use Eren\Lms\Helpers\UploadData;
 
 class LandingPageController extends Controller
 {

@@ -10,6 +10,6 @@
         'input' => config('files.forms') . 'submit',
         'move_btn_right' => true,
         'id' => 'submit',
-        'text' => __('messages.usr_reg'),
+        'text' => __('lms::messages.usr_reg'),
     ])
 </form>

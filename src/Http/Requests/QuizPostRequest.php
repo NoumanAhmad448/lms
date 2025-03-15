@@ -1,6 +1,6 @@
 <?php
 
-namespace Eren\lms\HttpRequests;
+namespace Eren\Lms\Http\Requests;
 use Eren\Lms\Models\Quiz;
 
 use Illuminate\Foundation\Http\FormRequest;

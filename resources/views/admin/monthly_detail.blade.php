@@ -126,7 +126,7 @@
                                     <th scope="row"> {{ $month ?? '' }}</th>
                                     <td> ${{ $earn ?? 0 }}</td>                           
                                     @php $p_u = $earn === null; @endphp
-                                    <td class="@if(!$p_u) {{ __('bg-success') }} @else {{ __('bg-danger') }} @endif"> {{  $p_u ? 'unpaid' : 'paid' }}</td>                            
+                                    <td class="@if(!$p_u) {{ __('lms::bg-success') }} @else {{ __('lms::bg-danger') }} @endif"> {{  $p_u ? 'unpaid' : 'paid' }}</td>                            
                                 </tr>                                
                             @endforeach
                         </tbody>

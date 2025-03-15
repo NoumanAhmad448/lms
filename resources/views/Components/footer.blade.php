@@ -4,7 +4,7 @@
     @if(config("setting.en_articleadvices"))
 
     <div class="pt-20">
-        <h2 class="section-title text-4xl text-center pb-8 langBN">{{ __('Article & Advices') }}</h2>
+        <h2 class="section-title text-4xl text-center pb-8 langBN">{{ __('lms::Article & Advices') }}</h2>
         <div class="md:flex -mx-4">
             @foreach([1,2,3] as $_)
                 <div class="md:flex-1 px-4 mt-7 md:mt-3">

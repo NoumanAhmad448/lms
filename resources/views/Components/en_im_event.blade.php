@@ -1,7 +1,7 @@
 @if (config('setting.en_im_event'))
     <div class="w-full-sm container pt-14 sm:mt-10 mx-auto">
         <h2 class="{!! config('setting.h2_css') !!}">
-            {{ __('messages.event') }}
+            {{ __('lms::messages.event') }}
         </h2>
         @if ($data && $data['features'])
             <div class="w-full-sm md:flex md:flex-wrap md:justify-between md:items-center">

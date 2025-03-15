@@ -10,7 +10,7 @@
             <span class="hidden text-right lg:block">
                 <span class="block text-sm font-medium text-black dark:text-white">{{ $user->name }}</span>
                 <span class="block text-xs font-medium">
-                    {{ isAdmin(false) ? (isSuperAdmin(false) ? __('messages.spr')  : "") . __('messages.admin') : '' }}</span>
+                    {{ isAdmin(false) ? (isSuperAdmin(false) ? __('lms::messages.spr')  : "") . __('lms::messages.admin') : '' }}</span>
             </span>
 
             <span class="h-12 w-12 rounded-full">
@@ -34,7 +34,7 @@
                         'prop' => [
                             'link' => route("my_profile"),
                             'svg' => config('files.svg') . 'profile',
-                            'text' => __('messages.mprofile'),
+                            'text' => __('lms::messages.mprofile'),
                         ],
                     ])
                 @endcan
@@ -43,7 +43,7 @@
                         'prop' => [
                             'link' => route("admin_chart"),
                             'svg' => config('files.svg') . 'dashboard',
-                            'text' => __('messages.dashboard'),
+                            'text' => __('lms::messages.dashboard'),
                         ],
                     ])
                 @endcan
@@ -52,7 +52,7 @@
                         'prop' => [
                             'link' => route("land_index"),
                             'svg' => config('files.svg') . 'dashboard',
-                            'text' => __('messages.usr_dshbrd'),
+                            'text' => __('lms::messages.usr_dshbrd'),
                         ],
                     ])
                 @endcan
@@ -62,7 +62,7 @@
                         'prop' => [
                             'link' => route("setting"),
                             'svg' => config('files.svg') . 'setting',
-                            'text' => __('messages.settings'),
+                            'text' => __('lms::messages.settings'),
                         ],
                     ])
                 @endcan

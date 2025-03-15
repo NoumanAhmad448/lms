@@ -1,6 +1,6 @@
 <?php
 
-namespace Eren\Lms\Http\Middleware;
+namespace Eren\Lms\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;

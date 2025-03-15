@@ -9,9 +9,9 @@
             class="flex flex-col font-medium p-4 md:p-0 mt-4 rounded-lg md:space-x-8 rtl:space-x-reverse
                         md:flex-row md:mt-0 md:border-0">
             <li><a class="inline-block p-4 text-white {{ request('type') == '3' ? 'bg-gray-50' : '' }}"
-                    href="{{route('index')}}">{{ __('Home') }}</a></li>
+                    href="{{route('index')}}">{{ __('lms::Home') }}</a></li>
             <li><a class="inline-block p-4 text-white {{ request('type') == '3' ? 'bg-gray-50' : '' }}"
-                    href="">{{ __('Land') }}</a>
+                    href="">{{ __('lms::Land') }}</a>
             </li>
             @if(route("land_create"))
             <li><a class="inline-block p-4 text-white {{ request('type') == '3' ? 'bg-gray-50' : '' }}"
@@ -19,13 +19,13 @@
             </li>
             @endif
             <li><a class="inline-block p-4 text-white {{ request('type') == '1' ? 'bg-gray-50' : '' }}"
-                    href="">{{ __('messages.Residential') }}</a></li>
+                    href="">{{ __('lms::messages.Residential') }}</a></li>
             <li><a class="inline-block p-4 text-white {{ request()->is('*page/about-us*') ? 'bg-gray-50' : '' }}"
                     href="#footer">
-                    {{ __('messages.contact') }}</a></li>
+                    {{ __('lms::messages.contact') }}</a></li>
             <li><a class="inline-block p-4 text-white  {{ request()->is('page/contact-us') ? 'bg-gray-50' : '' }}"
                     href="#footer">
-                    {{ __('messages.about_u') }}</a></li>
+                    {{ __('lms::messages.about_u') }}</a></li>
         </ul>
     </div>
 

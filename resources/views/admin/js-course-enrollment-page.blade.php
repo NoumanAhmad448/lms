@@ -47,7 +47,7 @@
                     response = JSON.stringify(response);
                     if(response){
                         $(`#user_${user_id}`).remove()
-                        show_message("{{ __('messages.user_enrolled_msg') }}")
+                        show_message("{{ __('lms::messages.user_enrolled_msg') }}")
                         location.reload()
                     }else{
                         console.error(response)
@@ -84,7 +84,7 @@
     select: function(event, ui) {
         course_id = "{{ $course_id }}"
         user_id = ui.item.id
-        message = "{{ __('messages.confirmation_enroll') }}"
+        message = "{{ __('lms::messages.confirmation_enroll') }}"
         message = message.replace(":this", ui.item.name)
         if(confirm(message))
         {
@@ -102,7 +102,7 @@
                 .then(function (response) {
                     response = JSON.stringify(response);
                     if(response){
-                        show_message("{{ __('messages.user_enrolled_msgs') }}")
+                        show_message("{{ __('lms::messages.user_enrolled_msgs') }}")
                         location.reload()
                     }else{
                         console.error(response)

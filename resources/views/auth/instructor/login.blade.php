@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('instructor.auth.login_title') }}</div>
+                    <div class="card-header">{{ __('lms::instructor.auth.login_title') }}</div>
 
                     <div class="card-body">
                         @if (session('status'))
@@ -25,7 +25,7 @@
 
                             <div class="form-group row">
                                 <label for="email" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('instructor.fields.email') }}
+                                    {{ __('lms::instructor.fields.email') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -44,7 +44,7 @@
 
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">
-                                    {{ __('instructor.fields.password') }}
+                                    {{ __('lms::instructor.fields.password') }}
                                 </label>
 
                                 <div class="col-md-6">
@@ -74,7 +74,7 @@
                                             {{ old('remember') ? 'checked' : '' }}>
 
                                         <label class="form-check-label" for="remember">
-                                            {{ __('instructor.auth.remember_me') }}
+                                            {{ __('lms::instructor.auth.remember_me') }}
                                         </label>
                                     </div>
                                 </div>
@@ -94,16 +94,16 @@
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
-                                        {{ __('instructor.auth.login_button') }}
+                                        {{ __('lms::instructor.auth.login_button') }}
                                     </button>
 
                                     <a href="{{ route('instructor.register') }}" class="btn btn-link">
-                                        {{ __('instructor.auth.register_link') }}
+                                        {{ __('lms::instructor.auth.register_link') }}
                                     </a>
 
                                     @if (Route::has('password.request'))
                                         <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('instructor.auth.forgot_password') }}
+                                            {{ __('lms::instructor.auth.forgot_password') }}
                                         </a>
                                     @endif
                                 </div>

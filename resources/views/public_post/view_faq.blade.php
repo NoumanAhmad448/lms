@@ -24,7 +24,6 @@
          <div class="col-md-8 offset-md-2">
              <nav aria-label="breadcrumb">
                  <ol class="breadcrumb">
-                     <li class="breadcrumb-item text-primary"><a href="{{ route('public_faq')}}">FAQ</a></li>
                      <li class="breadcrumb-item" aria-current="page"> {{ $faq->slug }}</li>
                  </ol>
                </nav>

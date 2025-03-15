@@ -2,7 +2,7 @@
 
 namespace Eren\Lms\Controllers;
 
-use Eren\lms\HttpRequests\PostRequest;
+use Eren\Lms\Http\Requests\PostRequest;
 use Eren\Lms\Models\Faq;
 use Eren\Lms\Models\Setting;
 use Illuminate\Http\Request;

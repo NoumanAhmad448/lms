@@ -2,8 +2,8 @@
 
 namespace Eren\Lms\Controllers;
 
-use App\Helpers\UploadData;
-use Eren\lms\HttpRequests\PostRequest;
+use Eren\Lms\Helpers\UploadData;
+use Eren\Lms\Http\Requests\PostRequest;
 use Eren\Lms\Models\Page;
 use Eren\lms\Rules\IsScriptAttack;
 use Illuminate\Http\Request;
