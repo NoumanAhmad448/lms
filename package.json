@@ -10,12 +10,11 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
         "git_push": "composer validate && npm run prod && git add . && git commit -m 'new package updates'  && git push",
         "git_push_0": "npm run git_push --message='commit'",
-        "git_push_help" : "echo 'run the command mentioned in git_push_0'"
+        "git_push_help": "echo 'run the command mentioned in git_push_0'"
     },
-        "config": {
-          "message": "Local to Github"
-        }
-      ,
+    "config": {
+        "message": "Local to Github"
+    },
     "devDependencies": {
         "buffer": "^6.0.3",
         "cross-env": "^7.0.3",
@@ -31,6 +30,7 @@
     "dependencies": {
         "@tailwindcss/postcss": "^4.0.9",
         "autoprefixer": "^10.4.20",
+        "axios": "^1.8.3",
         "dplayer": "^1.27.0",
         "postcss": "^8.5.3"
     },

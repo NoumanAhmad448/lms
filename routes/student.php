@@ -20,7 +20,6 @@ Route::middleware(['web', 'auth', "lms-web"])->group(function () {
     Route::delete('instructor/quiz/{quizzes}/delete-quizzes', [QuizController::class, 'deleteQuizzes'])
         ->name('del_quizzes');
 
-
     Route::post('instructor/course/{course}/change-the-course-url', [CourseEx3Controller::class, 'changeURL'])
         ->name('course-change-url');
 
@@ -35,7 +34,7 @@ Route::middleware(['web', 'auth', "lms-web"])->group(function () {
     Route::get('course/{slug}/video/uploads/{video}', [CourseEx3Controller::class, 'showVideo'])->name('video-page');
 
     Route::get('student/wish-list-courses', [StudentController::class, 'getWishlistCourse'])->name('get-wishlist-course');
-    Route::get('student/my-learning', [CourseEx2Controller::class, 'myLearning'])->name('myLearning');
+    Route::get('inst/student/my-learning', [CourseEx2Controller::class, 'myLearning'])->name('myLearning');
 
     Route::get('course/{slug}/available-payment-methods', [PaymentController::class, 'availablePayMe'])->name('a_payment_methods');
     Route::get('course/{slug}/payment-with-credit-card', [PaymentController::class, 'creditPayment'])->name('credit_card_payment');
@@ -45,6 +44,5 @@ Route::middleware(['web', 'auth', "lms-web"])->group(function () {
 
     Route::post('student/offline-payment', [CourseEx2Controller::class, 'offlinePayment'])->name('offline-payment');
     Route::get('student/get-certificate', [CourseEx2Controller::class, 'getCerti'])->name('getCerti');
-    // Route::get('student/get-certificate', [CourseEx2Controller::class, 'getCerti'])->name('getCerti');
     Route::post('crop-image-upload', [ProfileController::class, 'uploadCropImage'])->name('upload_profile');
 });

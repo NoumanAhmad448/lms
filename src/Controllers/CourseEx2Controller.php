@@ -31,6 +31,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 use Barryvdh\DomPDF\Facade as PDF;
 use Eren\Lms\Classes\LmsCarbon;
+use Eren\Lms\Helpers\LyskillsPayment as HelpersLyskillsPayment;
 
 class CourseEx2Controller extends Controller
 {
@@ -86,10 +87,10 @@ class CourseEx2Controller extends Controller
             $user = auth()->user();
             $u_name = $user->name;
             $u_email = $user->email;
-            setEmailConfigViaStudent();
+            // setEmailConfigViaStudent();
 
             Mail::to($ins['email'])->queue(new StudentEmail($u_name, $u_email, $request->course, $request->subject, $request->body, $ins['name']));
-            return back()->with('status', 'Your Email has been sent to your instructor. If instructor wants to contact with you. He/She will respond 
+            return back()->with('status', 'Your Email has been sent to your instructor. If instructor wants to contact with you. He/She will respond
         back to you on your email address.');
         } catch (Exception $th) {
             if(config("app.env")){
@@ -123,7 +124,7 @@ class CourseEx2Controller extends Controller
     {
         try {
             $request->validate([
-                'slug' => ['required', 'string']
+                'slug' => ['required', 'string', new IsScriptAttack]
             ]);
 
             $course = Course::where('slug', $request->slug)->select('id')->first();
@@ -246,19 +247,17 @@ class CourseEx2Controller extends Controller
                 return back()->with('error', 'operation not allowed');
             }
 
-            $user = auth()->id();
+            $user = auth();
 
-            $lms = new LyskillsPayment($user, $course, 'free');
-            CourseEnrollment::Create(['course_id' => $course, 'user_id' => $user]);
+            $lms = new HelpersLyskillsPayment($user, $course, 'free');
+            CourseEnrollment::Create(['course_id' => $course, 'user_id' => $user?->id()]);
 
-            $user_d = User::findOrFail($user);
-
-            $lms->sendEmail($user_d->email, $user_d->name, $course_d->slug, $course_d);
+            $lms->sendEmail($user->email, $user->name, $course_d->slug, $course_d);
 
             return back()->with('status', 'Congtratulation! you are enrolled in this course now');
         } catch (Exception $th){
             if(config("app.debug")){
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
             }else{
                 return back()->with('error', config("setting.err_msg"));
             }

@@ -17,6 +17,7 @@ Route::middleware(['web', 'auth'])->group(function () {
 });
 
 Route::middleware(['web'])->group(function () {
+    Route::get('show-all-courses', [CourseEx3Controller::class, 'showAllCourses'])->name('show-all-courses');
 
     Route::get('/', [HomeController::class, 'index'])->name('index');
     Route::get('/user_logout', [HomeController::class, 'logout'])->name('logout_user');
