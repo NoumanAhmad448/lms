@@ -137,7 +137,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('profile.show') }}"> {{__('lms::Setting')}}</a>
                                 <div class="dropdown-divider"></div>
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('dashboard') }}">
-                                    {{__('lms::Instructor Dashboard')}}</a>
+                                    {{__('lms::custom_msgs.ins_dashboard')}}</a>
                                 {{-- <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('chat_w_i') }}">
                                 {{__('lms::Contact With Instructor')}}</a> --}}
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('email_to_ins') }}">

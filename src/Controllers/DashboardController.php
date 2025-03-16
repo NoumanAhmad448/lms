@@ -314,7 +314,7 @@ class DashboardController extends Controller
             }
 
             $course_en = CourseEnrollment::where('course_id', $course_id)->exists();
-            if (!$is_admin && $course_en) {
+            if (!$is_admin) {
                 $course->is_deleted = true;
                 $course->save();
 

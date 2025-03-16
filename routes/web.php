@@ -31,7 +31,7 @@ Route::middleware(['web'])->group(function () {
     Route::get('/google/callback', [SocialController::class, 'googleLogin']);
 
     Route::get('/login/facebook', [SocialController::class, 'facebookVerification'])->name('fb-login');
-    Route::get('/facebook/callback', [SocialController::class, 'facebookLogin']);
+    Route::get('/facebook/callback', [SocialController::class, 'facebookLogin'])->route('facebook.callback');
 
     Route::get('/login/linkedin', [SocialController::class, 'linkedinVerification'])->name('li-login');
     Route::get('/linkedin/callback', [SocialController::class, 'linkedinLogin']);
@@ -45,7 +45,7 @@ Route::middleware(['web'])->group(function () {
 
     Route::get('/instructor/login', [InstructorAuthController::class, 'showLogin'])
         ->name('instructor.login');
-    Route::post('/instructor/login', [InstructorAuthController::class, 'login']);
+    Route::post('/instructor/login', [InstructorAuthController::class, 'login'])->name("instructor.login.post");
     Route::get('categories/{category}', [CategoriesController::class, 'showCategory'])->name('user-categories');
 });
 

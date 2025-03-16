@@ -3,51 +3,42 @@
 namespace Eren\Lms\Controllers;
 
 use Illuminate\Http\Request;
-use App\Actions\Nouman\LyskillsPayment;
-use Eren\Lms\Events\CourseStatusEmail;
 use Eren\Lms\Http\Requests\CourseAnnRequest;
 use App\Mail\PublicAnnByIns;
-use App\Mail\StudentEmail;
-use Eren\Lms\Models\Categories;
 use Eren\Lms\Models\Chat;
 use Eren\Lms\Models\ChatInfo;
 use Eren\Lms\Models\Comment;
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\CourseAnnouncement;
 use Eren\Lms\Models\CourseEnrollment;
-use Eren\Lms\Models\CourseStatus;
 use Eren\Lms\Models\Media;
-use Eren\Lms\Models\OfflineEnrollment;
-use Eren\Lms\Models\Promotion;
 use Eren\Lms\Models\RatingModal;
-use Eren\Lms\Models\User;
 use Eren\Lms\Rules\IsScriptAttack;
 use Exception;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
-use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
-use Barryvdh\DomPDF\Facade as PDF;
 use Eren\Lms\Classes\LmsCarbon;
 
 class CourseEx3Controller extends Controller
 {
-    public function __construct() {
-    }
+    public function __construct() {}
 
     public function setting(Course $course)
     {
         try {
             $title = 'c_status';
+            if (Auth::user()->id == $course->user_id) {
+                abort(403);
+            }
             return view('lms::courses.change-course-status-setting', compact('title', 'course'));
         } catch (\Throwable $th) {
-            if(config("app.env")){
+            if (config("app.env")) {
                 dd($th->getMessage());
-            }else{
+            } else {
                 return back();
-            }        }
+            }
+        }
     }
 
     public function PostSetting(Course $course)
@@ -59,10 +50,11 @@ class CourseEx3Controller extends Controller
                 $course->save();
                 return back()->with('status', 'Course has been unpublished. After making changing, you  may resubmit it again.');
             }
+            abort(403);
         } catch (\Throwable $th) {
-            if(config("app.env")){
+            if (config("app.env")) {
                 dd($th->getMessage());
-            }else{
+            } else {
                 return back();
             }
         }
@@ -77,9 +69,9 @@ class CourseEx3Controller extends Controller
                 return redirect()->route('dashboard')->with('status', 'Course ' . reduceCharIfAv($course->course_title, 10) . ' has deleted');
             }
         } catch (\Throwable $th) {
-            if(config("app.env")){
+            if (config("app.env")) {
                 dd($th->getMessage());
-            }else{
+            } else {
                 return back();
             }
         }
@@ -105,9 +97,9 @@ class CourseEx3Controller extends Controller
 
             return back()->with('status', 'course url has been updated and it will not be updated in future');
         } catch (\Throwable $th) {
-            if(config("app.env")){
+            if (config("app.env")) {
                 dd($th->getMessage());
-            }else{
+            } else {
                 return back();
             }
         }
@@ -131,16 +123,23 @@ class CourseEx3Controller extends Controller
             } else {
                 $c_img = "";
             }
-            $rating_avg = (float) RatingModal::where('course_id',$course->id)->avg('rating');
-            $rated_by_students = (int) RatingModal::where('course_id',$course->id)->count('rating');
+            $rating_avg = (float) RatingModal::where('course_id', $course->id)->avg('rating');
+            $rated_by_students = (int) RatingModal::where('course_id', $course->id)->count('rating');
 
-            $comments = Comment::with('rating')->where('course_id',$course->id)->limit(3)->get();
+            $comments = Comment::with('rating')->where('course_id', $course->id)->limit(3)->get();
 
-            return view(config("setting.show_course_blade"), compact('comments','course', 'title', 'total_en', 'desc', 'c_img','rating_avg',
-                    'rated_by_students'
-        ));
+            return view(config("setting.show_course_blade"), compact(
+                'comments',
+                'course',
+                'title',
+                'total_en',
+                'desc',
+                'c_img',
+                'rating_avg',
+                'rated_by_students'
+            ));
         } catch (\Throwable $th) {
-            if(config('app.debug'))
+            if (config('app.debug'))
                 dd($th->getMessage());
         }
     }
@@ -152,8 +151,8 @@ class CourseEx3Controller extends Controller
             $title = "course content";
             $id = auth()->id();
 
-            $course = Course::with(['rating' =>  function($query) use($id){
-                $query->where('student_id', (string)$id)->orderBy('created_at','desc');
+            $course = Course::with(['rating' =>  function ($query) use ($id) {
+                $query->where('student_id', (string)$id)->orderBy('created_at', 'desc');
             }])->where('slug', $slug)->first();
 
             if (!$course) {
@@ -175,11 +174,13 @@ class CourseEx3Controller extends Controller
                 $m_lec = $media->lecture;
                 $c_anns = CourseAnnouncement::select('subject', 'body')->where('course_id', $course->id)->latest()->take(5)->get();
                 $should_usr_hv_acs = true;
-                if ($media->access_duration && $c_en && 
-                    LmsCarbon::is_day_future(LmsCarbon::now(),$media->access_duration)){
+                if (
+                    $media->access_duration && $c_en &&
+                    LmsCarbon::is_day_future(LmsCarbon::now(), $media->access_duration)
+                ) {
                     $should_usr_hv_acs = false;
                 }
-                return view('lms::xuesheng.course-content', compact('course', 'title', 'media', 'desc', 'm_lec', 'c_anns','should_usr_hv_acs'));
+                return view('lms::xuesheng.course-content', compact('course', 'title', 'media', 'desc', 'm_lec', 'c_anns', 'should_usr_hv_acs'));
             } else {
                 abort(403);
             }
@@ -192,7 +193,7 @@ class CourseEx3Controller extends Controller
     {
         try {
             $title = 'Courses';
-            $courses = Course::with(['course_image', 'price', 'user'])->where('status', 'published')->where('is_deleted',NULL)->select(
+            $courses = Course::with(['course_image', 'price', 'user'])->where('status', 'published')->whereNull('is_deleted')->select(
                 'id',
                 'user_id',
                 'course_title',
@@ -201,6 +202,7 @@ class CourseEx3Controller extends Controller
             )->orderByDesc('created_at')->simplePaginate();
             return view('lms::xuesheng.all-courses', compact('title', 'courses'));
         } catch (Exception $th) {
+            debug_logs($th->getMessage());
             return back()->with('error', 'this action cannot be done now. please try again');
         }
     }
@@ -214,9 +216,9 @@ class CourseEx3Controller extends Controller
             }
             return view('lms::laoshi.public-announcement', compact('title', 'courses'));
         } catch (\Throwable $th) {
-            if(config("app.env")){
+            if (config("app.env")) {
                 dd($th->getMessage());
-            }else{
+            } else {
                 return back();
             }
         }
@@ -281,7 +283,7 @@ class CourseEx3Controller extends Controller
 
             return view('lms::xuesheng.contact_with_ins', compact('title', 'c_titles'));
         } catch (\Throwable $th) {
-            if(config("app.debug")){
+            if (config("app.debug")) {
                 dd($th->getMessage());
             }
         }
@@ -301,14 +303,12 @@ class CourseEx3Controller extends Controller
             if (!$available) {
                 ChatInfo::create(['user_id' => $s_user_id, 'ins_id' => $r_user_id]);
             }
-
         } catch (Exception $th) {
-            if(config("app.env")){
+            if (config("app.env")) {
                 dd($th->getMessage());
-            }else{
+            } else {
                 return back()->with('error', 'something went wrong.');
             }
         }
     }
-
 }

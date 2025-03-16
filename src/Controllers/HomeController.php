@@ -271,6 +271,7 @@ class HomeController extends Controller
 
             return view('lms::xuesheng.show-course', compact('title', 'courses', 'keyword'));
         } catch (\Throwable $th) {
+            debug_logs($th->getMessage());
             return redirect()->route('index');
         }
     }
