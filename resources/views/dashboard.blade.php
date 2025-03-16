@@ -13,7 +13,7 @@
 @endsection
 @section('header')
     <h2>
-        {{ __('lms::Instructor Dashboard') }}
+        {{ __('lms::custom_msgs.ins_dashboard') }}
     </h2>
 @endsection
 

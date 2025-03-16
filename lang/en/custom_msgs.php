@@ -9,5 +9,6 @@ return [
         "default" => "lorem ipsum",
         "about" => "lorem ipsum",
         "contact" => "lorem ipsum",
-    ]
+    ],
+    "ins_dashboard" => "Instructor Dashboard"
 ];
