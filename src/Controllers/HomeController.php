@@ -259,7 +259,7 @@ class HomeController extends Controller
                 ->whereNull('is_deleted')
                 ->orderByDesc('created_at')->simplePaginate(15);
 
-            if (!$courses->count()) {
+            if (!$courses) {
                 $user = User::where('name', $keyword)->select('id')->first();
                 if ($user->count()) {
                     $courses = Course::where('user_id', $user->id)->whereNull('is_deleted')
@@ -267,8 +267,6 @@ class HomeController extends Controller
                     orderByDesc('created_at')->simplePaginate(15);
                 }
             }
-
-
             return view('lms::xuesheng.show-course', compact('title', 'courses', 'keyword'));
         } catch (\Throwable $th) {
             debug_logs($th->getMessage());

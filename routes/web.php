@@ -28,10 +28,10 @@ Route::middleware(['web'])->group(function () {
 
     // social login
     Route::get('/login/google', [SocialController::class, 'googleVerification'])->name('google-login');
-    Route::get('/google/callback', [SocialController::class, 'googleLogin']);
+    Route::get('/google/callback', [SocialController::class, 'googleLogin'])->name('google.callback');
 
     Route::get('/login/facebook', [SocialController::class, 'facebookVerification'])->name('fb-login');
-    Route::get('/facebook/callback', [SocialController::class, 'facebookLogin'])->route('facebook.callback');
+    Route::get('/facebook/callback', [SocialController::class, 'facebookLogin'])->name('facebook.callback');
 
     Route::get('/login/linkedin', [SocialController::class, 'linkedinVerification'])->name('li-login');
     Route::get('/linkedin/callback', [SocialController::class, 'linkedinLogin']);

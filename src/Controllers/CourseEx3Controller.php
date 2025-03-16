@@ -28,13 +28,15 @@ class CourseEx3Controller extends Controller
     {
         try {
             $title = 'c_status';
-            if (Auth::user()->id == $course->user_id) {
-                abort(403);
+            if (Auth::user()->id != $course->user_id) {
+                dump("course_user_id".$course->user_id);
+                dump("auth_user_id".auth()->id());
+                return back();
             }
             return view('lms::courses.change-course-status-setting', compact('title', 'course'));
         } catch (\Throwable $th) {
             if (config("app.env")) {
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
             } else {
                 return back();
             }
@@ -44,7 +46,7 @@ class CourseEx3Controller extends Controller
     public function PostSetting(Course $course)
     {
         try {
-            if (Auth::user()->id == $course->user_id) {
+            if (Auth::user()?->id == $course?->user_id) {
 
                 $course->status = "unpublished";
                 $course->save();
@@ -53,7 +55,7 @@ class CourseEx3Controller extends Controller
             abort(403);
         } catch (\Throwable $th) {
             if (config("app.env")) {
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
             } else {
                 return back();
             }
@@ -70,7 +72,7 @@ class CourseEx3Controller extends Controller
             }
         } catch (\Throwable $th) {
             if (config("app.env")) {
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
             } else {
                 return back();
             }
@@ -89,7 +91,6 @@ class CourseEx3Controller extends Controller
                 abort(403);
             }
 
-
             $slug = Str::slug($request->slug);
             $course->slug = $slug;
             $course->has_u_update_url = 1;
@@ -98,7 +99,7 @@ class CourseEx3Controller extends Controller
             return back()->with('status', 'course url has been updated and it will not be updated in future');
         } catch (\Throwable $th) {
             if (config("app.env")) {
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
             } else {
                 return back();
             }
@@ -140,7 +141,7 @@ class CourseEx3Controller extends Controller
             ));
         } catch (\Throwable $th) {
             if (config('app.debug'))
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
         }
     }
 
@@ -185,7 +186,7 @@ class CourseEx3Controller extends Controller
                 abort(403);
             }
         } catch (\Throwable $th) {
-            dd($th->getMessage());
+            debug_logs($th->getMessage());
         }
     }
 
@@ -217,7 +218,7 @@ class CourseEx3Controller extends Controller
             return view('lms::laoshi.public-announcement', compact('title', 'courses'));
         } catch (\Throwable $th) {
             if (config("app.env")) {
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
             } else {
                 return back();
             }
@@ -284,7 +285,7 @@ class CourseEx3Controller extends Controller
             return view('lms::xuesheng.contact_with_ins', compact('title', 'c_titles'));
         } catch (\Throwable $th) {
             if (config("app.debug")) {
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
             }
         }
     }
@@ -305,7 +306,7 @@ class CourseEx3Controller extends Controller
             }
         } catch (Exception $th) {
             if (config("app.env")) {
-                dd($th->getMessage());
+                debug_logs($th->getMessage());
             } else {
                 return back()->with('error', 'something went wrong.');
             }
