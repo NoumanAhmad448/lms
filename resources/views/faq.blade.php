@@ -18,7 +18,7 @@
         <div class="container-fluid">
             <div class="row my-5">
                 <div class="col-md-4 offset-md-2">
-                    <a href="{{route('public_faqs', ['slug' => $faq->slug])}}"> <img src="{{config('setting.s3Url').$faq->upload_img}}" 
+                    <a href="{{route('public_faqs', ['slug' => $faq->slug])}}"> <img src="{{config('setting.s3Url').$faq->upload_img}}"
                         width="400" height="200"
                         /> </a>
                 </div>
