@@ -17,6 +17,7 @@ Route::middleware(['web', 'auth', "lms-web"])->group(function () {
 
     Route::post('instructor/course/{course_id}/manage/section_title', [DashboardController::class, 'course_curriculum_post'])
         ->name('courses_curriculum_post');
+
     Route::get('instructor/course/{course_id}/manage/curriculum', [DashboardController::class, 'course_curriculum'])
         ->name('courses_curriculum');
 
@@ -53,6 +54,7 @@ Route::middleware(['web', 'auth', "lms-web"])->group(function () {
         ->name('create_course');
 
     Route::get('courses/public-announcement', [CourseEx3Controller::class, 'publicAnn'])->name('public-ann');
+
     Route::post('courses/public-announcement', [CourseEx3Controller::class, 'publicAnnPost'])->name('public-ann-post');
 
 

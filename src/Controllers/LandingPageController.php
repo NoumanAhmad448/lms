@@ -88,8 +88,6 @@ class LandingPageController extends Controller
             $name = $file->getClientOriginalName();
             $path = "storage/img/".time() . uniqid() . str_replace(' ', '-',$name);
 
-            $dir_path = "storage/img";
-
             $path = $this->uploadData->upload($image->stream()->__toString(), $name);
 
             $extension = $file->extension();

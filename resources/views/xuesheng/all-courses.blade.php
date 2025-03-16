@@ -53,7 +53,7 @@ use Eren\Lms\Models\RatingModal;
                         </section>
                     </div>
                     @endif
-                    <p class="card-text text-capitalize  mb-0  mt-1 d-flex font-bold"> @if($course->price->is_free)
+                    <p class="card-text text-capitalize  mb-0  mt-1 d-flex font-bold"> @if($course?->price?->is_free)
                         {{ __('lms::free') }}
                         @else <span style="font-weight:bold"> ${{ $course->price->pricing ?? '' }} </span>
                         @php $total_p = ((int)$course->price->pricing)+20 @endphp
