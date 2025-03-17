@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Mail;
+namespace Eren\Lms\Mail;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -17,10 +17,10 @@ class PublicAnn extends Mailable  implements ShouldQueue
      * @return void
      */
 
-     public $subject;
-     public $body;
-     public $name;
-    public function __construct($subject,$body,$name)
+    public $subject;
+    public $body;
+    public $name;
+    public function __construct($subject, $body, $name)
     {
         $this->subject = $subject;
         $this->body = $body;
@@ -34,8 +34,7 @@ class PublicAnn extends Mailable  implements ShouldQueue
      */
     public function build()
     {
-        return $this->from(getAdminEmail())->subject($this->subject)->
-            markdown('emails.public-ann',[
+        return $this->from(getAdminEmail())->subject($this->subject)->markdown('emails.public-ann', [
                 'body' => $this->body,
                 'name' => $this->name
             ]);

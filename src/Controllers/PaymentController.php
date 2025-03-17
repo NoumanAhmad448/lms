@@ -2,9 +2,9 @@
 
 namespace Eren\Lms\Controllers;
 
-use App\Mail\InformInstructorMail;
-use App\Mail\PaymentMail;
-use App\Mail\StudentEnrollmentMail;
+use Eren\Lms\Mail\InformInstructorMail;
+use Eren\Lms\Mail\PaymentMail;
+use Eren\Lms\Mail\StudentEnrollmentMail;
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\CourseEnrollment;
 use Eren\Lms\Models\CourseHistory;
@@ -96,7 +96,7 @@ class PaymentController extends Controller
             if(!empty($extras['course_price'])){
                 $price_in_do = $extras['course_price'];
             }
-            dd($price_in_do);
+            debug_logs($price_in_do);
             if ($payment_method !== NULL) {
 
                 $request->user()->charge(
@@ -114,7 +114,6 @@ class PaymentController extends Controller
                 if ($policy->count() && $policy['payment_share_enable']) {
                     $earning = (((int) $policy['instructor_share']) * $price_in_do) / 100;
                     InstructorEarning::create(['course_id' => $c_id, 'user_id' => $u_id, 'earning' => $earning, 'ins_id' => $course->user->id]);
-                    // dd('HIT');
                 } else {
                     $earning = (50 * $price_in_do) / 100;
                     InstructorEarning::create(['course_id' => $c_id, 'user_id' => $u_id, 'earning' => $earning, 'ins_id' => $course->user->id]);
@@ -122,7 +121,7 @@ class PaymentController extends Controller
 
                 setEmailConfigForCourse();
                 $course_url = route('user-course', $slug);
-                // dd($course->user->email);
+                debug_logs($course?->user?->email);
                 Mail::to(auth()->user()->email)->queue(new StudentEnrollmentMail(auth()->user()->name, $course->course_title, $course_url));
                 Mail::to($course->user->email)->queue(new InformInstructorMail(auth()->user()->name, $course->course_title, $course_url, $course->user->name));
 
@@ -177,12 +176,11 @@ class PaymentController extends Controller
             $month  = LmsCarbon::currentMonth() - 1;
 
             $save_detail = MonthlyPaymentModel::where('user_id', $request->user)->where('month', $month)
-            ->whereYear('created_at', LmsCarbon:currentYear())->exists();
+            ->whereYear('created_at', LmsCarbon::currentYear())->exists();
             if ($save_detail) {
                 return back()->with('error', 'you have already paid for this month to this instructor');
             }
 
-            setEmailConfigViaAdmin();
             Mail::to($ins->email)->queue(new PaymentMail($ins->name, $ins->email));
 
             $payment = InstructorEarning::whereMonth('created_at', $month)->sum('earning');
