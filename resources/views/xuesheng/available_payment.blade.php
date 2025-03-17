@@ -23,20 +23,20 @@
             <div class="col-12">
                 <div class="jumbotron bg-light border">
                     <section class="d-flex">
-                        @if ($setting->paypal_is_enable)
+                        @if ($setting?->paypal_is_enable)
                             <form action="{{ route('PaypalPost', ['slug' => $slug]) }}" method="post">
                                 @csrf
                                 <button type="submit" class="btn btn-lg btn-website"> Pay with Paypal </button>
                             </form>
                         @endif
-                        @if ($setting->s_is_enable)
+                        @if ($setting?->s_is_enable)
                             <a href="{{ route('credit_card_payment', ['slug' => $slug]) }}"
                                 class="btn btn-lg btn-website ml-4"> Pay with Credit Card </a>
                         @endif
-                        @if ($setting->j_is_enable)
+                        @if ($setting?->j_is_enable)
                             <a href="" class="btn btn-lg btn-website ml-4"> Pay with Jazzcash </a>
                         @endif
-                        @if ($setting->e_is_enable)
+                        @if ($setting?->e_is_enable)
                             <a href="{{ route('haji-me', ['course' => $slug, 'randomtoken' => uniqid()]) }}"
                                 class="btn btn-lg btn-website ml-4"> Pay with EasyPaisa </a>
                         @endif

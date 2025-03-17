@@ -258,7 +258,6 @@ class CourseEx3Controller extends Controller
                 }
             }
 
-            setEmailConfigViaIns(auth()->user()->name);
             foreach ($users_email as $recipient) {
                 Mail::to($recipient)->send(new PublicAnnByIns($request->subject, $request->body));
             }

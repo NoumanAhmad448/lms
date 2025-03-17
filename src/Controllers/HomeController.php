@@ -259,9 +259,9 @@ class HomeController extends Controller
                 ->whereNull('is_deleted')
                 ->orderByDesc('created_at')->simplePaginate(15);
 
-            if (!$courses) {
+            if (is_null($courses)) {
                 $user = User::where('name', $keyword)->select('id')->first();
-                if ($user->count()) {
+                if (! is_null($user) && $user?->count()) {
                     $courses = Course::where('user_id', $user->id)->whereNull('is_deleted')
                     ->where('status', 'published')->
                     orderByDesc('created_at')->simplePaginate(15);
@@ -274,43 +274,4 @@ class HomeController extends Controller
         }
     }
 
-
-    public function getManyRoles()
-    {
-        // $u = u::with('r')->get();
-        // dd($u);
-        $r = R::with('u')->get();
-        dd($r);
-    }
-
-
-    public function convertVideo()
-    {
-        $path = 'uploads/Lecture-1.mp4';
-
-    try {
-
-        $start = \FFMpeg\Coordinate\TimeCode::fromSeconds(10);
-        $clipFilter = new \FFMpeg\Filters\Video\ClipFilter($start);
-
-        FFMpeg::fromDisk('public_path')->open($path)
-        ->addWatermark(function(WatermarkFactory $watermark) {
-            $watermark->openUrl('https://lms.com/img/logo.jpg')
-                ->right(25)
-                ->bottom(25)
-                ->width(100)
-                ->height(100)
-                ->greyscale()
-                ->quality(100)
-                ;
-        })
-        ->export()
-        ->toDisk('public')
-        ->inFormat(new \FFMpeg\Format\Video\X264)
-        ->save('uploads/'.'abf.mp4');
-
-    } catch (\Throwable $th) {
-        dd($th->getMessage());
-    }
-    }
 }

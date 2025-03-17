@@ -2,13 +2,13 @@
 
 namespace Eren\Lms\Controllers;
 
-use App\Actions\Nouman\LyskillsPayment;
+use Eren\Lms\Helpers\LyskillsPayment;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 use Eren\Lms\Http\Requests\AdminRequest;
 use Eren\Lms\Http\Requests\AdminSendEmailRequest;
-use App\Mail\PublicAnn;
+use Eren\Lms\Mail\PublicAnn;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Eren\Lms\Models\User;
@@ -76,8 +76,8 @@ class AdminController extends Controller
             $courses = Course::all()->count();
             $students = User::where('is_student', 1)->whereNull('is_admin')->whereNull('is_blogger')->count();
             $bloggers = User::where('is_blogger', 1)->count();
-            $admins = User::where('is_admin', 1)->where('email',"<>","anime@bypass.com")->count();
-            $instructors = User::where('is_instructor', 1)->where('is_admin',null)->where('is_blogger',null)->where('is_super_admin', null)->count();            
+            $admins = User::where('is_admin', 1)->where('email', "<>", "anime@bypass.com")->count();
+            $instructors = User::where('is_instructor', 1)->where('is_admin', null)->where('is_blogger', null)->where('is_super_admin', null)->count();
             $c_videos = ResVideo::all()->count();
             $lectures = Lecture::all()->count();
             $media = Media::all()->count();
@@ -97,7 +97,7 @@ class AdminController extends Controller
             $dates = [];
             if ($history->count()) {
                 foreach ($history as $key) {
-                    $d = LmsCarbon::parse($key->created_at,'d');
+                    $d = LmsCarbon::parse($key->created_at, 'd');
                     array_push($dates, [(int)$d, $key->amount]);
                 }
             }
@@ -138,9 +138,9 @@ class AdminController extends Controller
                 'enrollments'
             ));
         } catch (Exception $e) {
-            if(config('app.debug')){
+            if (config('app.debug')) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', config('setting.err_msg'));
             }
         }
@@ -163,9 +163,9 @@ class AdminController extends Controller
 
             return redirect('/admin')->with('status', config("setting.logout_msg"));
         } catch (Exception $e) {
-            if(config('app.debug')){
+            if (config('app.debug')) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', config('setting.err_msg'));
             }
         }
@@ -174,18 +174,18 @@ class AdminController extends Controller
     {
         try {
             if (Auth::check()) {
-                if(auth()->user()->is_admin){
+                if (auth()->user()->is_admin) {
                     return redirect()->route('a_home');
-                }else{
+                } else {
                     return redirect()->route('index');
                 }
             }
             $title = 'admin';
             return view('lms::admin', compact('title'));
         } catch (\Throwable $e) {
-            if(config('app.debug')){
+            if (config('app.debug')) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', config('setting.err_msg'));
             }
         }
@@ -200,9 +200,9 @@ class AdminController extends Controller
             $res = '';
             return view('lms::admin.assignments', compact('asses', 'title', 'order', 'res'));
         } catch (\Throwable $e) {
-            if(config('app.debug')){
+            if (config('app.debug')) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', config('setting.err_msg'));
             }
         }
@@ -231,9 +231,9 @@ class AdminController extends Controller
             $res = '';
             return view('lms::admin.assignments', compact('asses', 'title', 'order', 'res'));
         } catch (\Throwable $e) {
-            if(config('app.debug')){
+            if (config('app.debug')) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', config('setting.err_msg'));
             }
         }
@@ -256,9 +256,9 @@ class AdminController extends Controller
             $order = 'ai';
             return view('lms::admin.assignments', compact('asses', 'title', 'order', 'res'));
         } catch (\Throwable $e) {
-            if(config('app.debug')){
+            if (config('app.debug')) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', config('setting.err_msg'));
             }
         }
@@ -280,7 +280,7 @@ class AdminController extends Controller
     {
         try {
             $title = 'courses';
-            $courses = Course::with('user')->where('status','draft')->get();
+            $courses = Course::with('user')->where('status', 'draft')->get();
             $order = 'ai';
             $res = '';
             return view('lms::admin.draft_courses', compact('title', 'courses', 'order', 'res'));
@@ -293,7 +293,7 @@ class AdminController extends Controller
     {
         try {
             $title = 'courses';
-            $courses = Course::with('user')->where('status','published')->get();
+            $courses = Course::with('user')->where('status', 'published')->get();
             $order = 'ai';
             $res = '';
             return view('lms::admin.published_courses', compact('title', 'courses', 'order', 'res'));
@@ -483,7 +483,6 @@ class AdminController extends Controller
         try {
             $data = $request->validated();
             //change email configuration
-            setEmailConfigViaAdmin();
             $status = $data['status'];
             $users = "";
             if ($status === 's') {
@@ -513,7 +512,7 @@ class AdminController extends Controller
         try {
 
             if (isAdmin()) {
-                $user = User::where('id',$id)->first();
+                $user = User::where('id', $id)->first();
                 if (!$user) {
                     return back()->with('error', 'user not found');
                 }
@@ -560,42 +559,41 @@ class AdminController extends Controller
         }
     }
 
-    public function xueshiXuesheng($course){
-        if(Course::find($course)){
-            $students = User::where("is_student",1)->whereNull('is_admin')->whereNull('is_super_admin')->whereNull('is_blogger')->
-                select('id','name','email')->get();
+    public function xueshiXuesheng($course)
+    {
+        if (Course::find($course)) {
+            $students = User::where("is_student", 1)->whereNull('is_admin')->whereNull('is_super_admin')->whereNull('is_blogger')->select('id', 'name', 'email')->get();
             $course_detail  = Course::find($course);
             $course_title = $course_detail->course_title;
-            return view("lms::courses.course_students", compact('students','course', 'course_title'));
+            return view("lms::courses.course_students", compact('students', 'course', 'course_title'));
         }
     }
-    public function xueshiXueshengPost(Request $request){
-        try{
-            if(!$request->course_id || !$request->student_id){
+    public function xueshiXueshengPost(Request $request)
+    {
+        try {
+            if (!$request->course_id || !$request->student_id) {
                 new Exception(__("lms::messages.request_aborted_msg"));
             }
-            if($request->action == "unenroll"){
-                CourseEnrollment::where("course_id", $request->course_id)->where("user_id",$request->student_id)->delete();
-            }else{
-                $course_enrollment = CourseEnrollment::where("course_id", $request->course_id)->where("user_id" ,$request->student_id)->first();
-                if(!$course_enrollment)
-                {
-                    $courseEnrollment= new CourseEnrollment;
+            if ($request->action == "unenroll") {
+                CourseEnrollment::where("course_id", $request->course_id)->where("user_id", $request->student_id)->delete();
+            } else {
+                $course_enrollment = CourseEnrollment::where("course_id", $request->course_id)->where("user_id", $request->student_id)->first();
+                if (!$course_enrollment) {
+                    $courseEnrollment = new CourseEnrollment;
                     $courseEnrollment->course_id = $request->course_id;
                     $courseEnrollment->user_id = $request->student_id;
                     $courseEnrollment->save();
                 }
             }
-            if($request->type == "ajax"){
+            if ($request->type == "ajax") {
                 return response()->json(__("lms::messages.action_executation", ["action", $request->action]));
-            }else{
+            } else {
                 return back();
             }
-        }
-        catch (Exception $e) {
-            if(config("app.debug")){
+        } catch (Exception $e) {
+            if (config("app.debug")) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', __("lms::messages.universal_err_msg"));
             }
         }
@@ -606,14 +604,14 @@ class AdminController extends Controller
         try {
             $title = 'homepage';
             $desc = 'Manage home page settings';
-            
+
             $settings = Setting::first();
-            
+
             return view('lms::admin.homepage.index', compact('title', 'desc', 'settings'));
         } catch (Exception $e) {
-            if(config("app.debug")){
+            if (config("app.debug")) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', __("lms::messages.universal_err_msg"));
             }
         }
@@ -663,9 +661,9 @@ class AdminController extends Controller
 
             return back()->with('status', __("lms::messages.action_executation", ["action" => "Homepage update"]));
         } catch (Exception $e) {
-            if(config("app.debug")){
+            if (config("app.debug")) {
                 dd($e->getMessage());
-            }else{
+            } else {
                 return back()->with('error', __("lms::messages.universal_err_msg"));
             }
         }
