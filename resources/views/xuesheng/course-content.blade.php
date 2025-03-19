@@ -113,25 +113,15 @@ use Eren\Lms\Models\Media;
                 all of them mentioned above in @page-css
                 -->
                 {{-- prettier-ignore-end --}}
+                @if ($should_usr_hv_acs)
 
-                <media-player
-                    src="@if (file_exists(public_path('storage/' . $media->lec_name))) {{ asset('vendor/lms/storage/' . $media->lec_name) }}@else{{ config('setting.https_s3Url') }}{{ $media->lec_name }} @endif"
-                    aspect-ratio="16/9" type="{{ $media->f_mimetype ?? '' }}"
-                    @if (empty($media->is_download)) {!! 'oncontextmenu="return false"' !!} @endif>
-                    <media-outlet>
-                        <media-seek-button seconds="+30">
-                            <media-tooltip position="top center">
-                                <span>Seek +30s</span>
-                            </media-tooltip>
-                        </media-seek-button>
-                        <media-seek-button seconds="-30">
-                            <media-tooltip position="top center">
-                                <span>Seek -30s</span>
-                            </media-tooltip>
-                        </media-seek-button>
-                    </media-outlet>
-                    <media-community-skin></media-community-skin>
-                </media-player>
+                    <video controls class="w-100" @if (empty($media->is_download)) {!! 'oncontextmenu="return false"' !!} @endif>
+                        <source
+                            src="file_exists(public_path('storage/' . $media->lec_name))) {{ asset('storage/' . $media?->lec_name) }}@else{{ config('setting.s3Url') }}{{ $media?->lec_name }} @endif"
+                            {{ $media->f_mimetype }}>
+                        {{ __('lms::video_nt_fnd') }}
+                    </video>
+                @endif
 
                 <div class="my-5">
                     <div class="container">
