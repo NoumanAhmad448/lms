@@ -128,8 +128,8 @@
                             </td>
                             <td> <a href="{{ route('laoshi_de_c', ['course' => $course->id]) }}" class="cursor_pointer">
                                     Comments </a> </td>
-                            <td> <a href="{{ route('xueshiXuesheng', ['course' => $course->id]) }}"
-                                    class="cursor_pointer"> Enroll/Unenroll Students </a> </td>
+                            <td> <a href="{{ route('xueshiXuesheng', ['course' => $course->id]) }}" class="cursor_pointer">
+                                    Enroll/Unenroll Students </a> </td>
                         </tr>
                         <input type="hidden" id="course_status_change" value="{{ route('change_course_status') }}">
                     @endforeach
@@ -141,12 +141,11 @@
         </div>
     @else
         <div class="jumbotron bg-light text-center">
-            <img src="{{ asset('vendor/lms/img/not_found.png') }}" alt="lms" class="img-fluid img-thumbnail rounded-pill"
-                width="100" />
+            <img src="{{ asset('vendor/lms/img/not_found.png') }}" alt="lms"
+                class="img-fluid img-thumbnail rounded-pill" width="100" />
             <div> Nothing to show here </div>
         </div>
     @endif
-
 
     <div class="modal" tabindex="-1" data-backdrop="static" data-keyboard="false" id="course-delete">
         <div class="modal-dialog">

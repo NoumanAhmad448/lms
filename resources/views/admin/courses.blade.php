@@ -46,17 +46,23 @@
                     <div class="form-group">
                         <select class="custom-select  mb-3" id="sorting" name="sorting">
                             <option value=""> Sorting ... </option>
-                            <option value="ai" @if ($order === 'ai') {{ __('lms::selected') }} @endif> Ascending
+                            <option value="ai" @if ($order === 'ai') {{ __('lms::selected') }} @endif>
+                                Ascending
                                 by ID</option>
-                            <option value="di" @if ($order === 'di') {{ __('lms::selected') }} @endif> Desc by ID
+                            <option value="di" @if ($order === 'di') {{ __('lms::selected') }} @endif> Desc
+                                by ID
                             </option>
-                            <option value="at" @if ($order === 'at') {{ __('lms::selected') }} @endif> Ascending
+                            <option value="at" @if ($order === 'at') {{ __('lms::selected') }} @endif>
+                                Ascending
                                 by title </option>
-                            <option value="dt" @if ($order === 'dt') {{ __('lms::selected') }} @endif> Desc by
+                            <option value="dt" @if ($order === 'dt') {{ __('lms::selected') }} @endif> Desc
+                                by
                                 title </option>
-                            <option value="ac" @if ($order === 'ac') {{ __('lms::selected') }} @endif> Ascending
+                            <option value="ac" @if ($order === 'ac') {{ __('lms::selected') }} @endif>
+                                Ascending
                                 by categories </option>
-                            <option value="dc" @if ($order === 'dc') {{ __('lms::selected') }} @endif> Desc by
+                            <option value="dc" @if ($order === 'dc') {{ __('lms::selected') }} @endif> Desc
+                                by
                                 categories </option>
                         </select>
                     </div>
@@ -143,12 +149,11 @@
         </div>
     @else
         <div class="jumbotron bg-light text-center">
-            <img src="{{ asset('vendor/lms/img/not_found.png') }}" alt="lms" class="img-fluid img-thumbnail rounded-pill"
-                width="100" />
+            <img src="{{ asset('vendor/lms/img/not_found.png') }}" alt="lms"
+                class="img-fluid img-thumbnail rounded-pill" width="100" />
             <div> Sorry, no assignments were found. </div>
         </div>
     @endif
-
 
     <div class="modal" tabindex="-1" data-backdrop="static" data-keyboard="false" id="course-delete">
         <div class="modal-dialog">

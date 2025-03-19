@@ -1,14 +1,12 @@
 @component('mail::message')
-Hi {{ $name}}
+    Hi {{ $name }}
 
-{!!$body!!}
+    {!! $body !!}
 
-@component('mail::button', ['url' => 'https://lms.com' ])
-lms
-@endcomponent
+    @component('mail::button', ['url' => 'https://lms.com'])
+        lms
+    @endcomponent
 
-
-
-Thanks,<br>
-{{ config('app.name') }}
+    Thanks,<br>
+    {{ config('app.name') }}
 @endcomponent

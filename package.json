@@ -29,6 +29,7 @@
         "webpack-cli": "^6.0.1"
     },
     "dependencies": {
+        "@shufo/prettier-plugin-blade": "^1.15.3",
         "@tailwindcss/postcss": "^4.0.9",
         "autoprefixer": "^10.4.20",
         "axios": "^1.8.3",

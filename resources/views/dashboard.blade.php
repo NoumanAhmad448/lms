@@ -17,7 +17,6 @@
     </h2>
 @endsection
 
-
 @section('content')
     @if (isset($ann) && $ann->count())
         <div class="container-fluid mt-5 text-center font-bold">
@@ -75,13 +74,13 @@
                                         class="text-dark" style="font-size: 1.2rem">
                                 @endif
                                 @php
-                                $course_title = $course->course_title;
-                                if ($course_title) {
-                                    echo $course_title;
-                                } else {
-                                    echo 'No title';
-                                }
-                                $course_id = $course?->id;
+                                    $course_title = $course->course_title;
+                                    if ($course_title) {
+                                        echo $course_title;
+                                    } else {
+                                        echo 'No title';
+                                    }
+                                    $course_id = $course?->id;
                                 @endphp
                                 @if ($course->slug)
                                     </a>
@@ -180,8 +179,6 @@
             {{ $courses->links() }}
         </div>
 
-
-
         {{-- course delete modal  --}}
         <div class="modal" tabindex="-1" id="course_delete">
             <div class="modal-dialog">
@@ -215,10 +212,8 @@
             </div>
         </div>
 
-
     </div>
 @endsection
-
 
 @section('page-js')
     <script src="{{ asset('vendor/lms/js/dashboard.js') }}"></script>

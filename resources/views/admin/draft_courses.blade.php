@@ -49,15 +49,18 @@
                                 <option value=""> Sorting ... </option>
                                 <option value="ai" @if ($order === 'ai') {{ __('lms::selected') }} @endif>
                                     Ascending by ID</option>
-                                <option value="di" @if ($order === 'di') {{ __('lms::selected') }} @endif> Desc
+                                <option value="di" @if ($order === 'di') {{ __('lms::selected') }} @endif>
+                                    Desc
                                     by ID </option>
                                 <option value="at" @if ($order === 'at') {{ __('lms::selected') }} @endif>
                                     Ascending by title </option>
-                                <option value="dt" @if ($order === 'dt') {{ __('lms::selected') }} @endif> Desc
+                                <option value="dt" @if ($order === 'dt') {{ __('lms::selected') }} @endif>
+                                    Desc
                                     by title </option>
                                 <option value="ac" @if ($order === 'ac') {{ __('lms::selected') }} @endif>
                                     Ascending by categories </option>
-                                <option value="dc" @if ($order === 'dc') {{ __('lms::selected') }} @endif> Desc
+                                <option value="dc" @if ($order === 'dc') {{ __('lms::selected') }} @endif>
+                                    Desc
                                     by categories </option>
                             </select>
 
@@ -142,12 +145,11 @@
         {{-- </div> --}}
     @else
         <div class="jumbotron bg-light text-center">
-            <img src="{{ asset('vendor/lms/img/not_found.png') }}" alt="lms" class="img-fluid img-thumbnail rounded-pill"
-                width="100" />
+            <img src="{{ asset('vendor/lms/img/not_found.png') }}" alt="lms"
+                class="img-fluid img-thumbnail rounded-pill" width="100" />
             <div> Sorry, No course is in draft yet. </div>
         </div>
     @endif
-
 
     <div class="modal" tabindex="-1" data-backdrop="static" data-keyboard="false" id="course-delete">
         <div class="modal-dialog">

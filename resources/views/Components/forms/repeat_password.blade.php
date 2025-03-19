@@ -1,13 +1,14 @@
 @php
     $text = !empty($text) ? $text : __('lms::messages.create_land_btn');
-    $id = $prop['id'] ?? config("form.c_password");
+    $id = $prop['id'] ?? config('form.c_password');
     $include_star = $include_star ?? true;
 
 @endphp
-<label for="{{$id}}">
+<label for="{{ $id }}">
     {{ __('lms::messages.re_password') }}@if ($include_star)
         {!! config('setting.red_star') !!}
     @endif
 </label>
-<input type="password" name="{{$id}}" id="{{$id}}" placeholder="{{ __('lms::messages.re_password') }}"
-    class="h-10 border mt-1 rounded px-4 w-full bg-gray-50" value="{{ $c_password ?? '' }}" />
+<input type="password" name="{{ $id }}" id="{{ $id }}"
+    placeholder="{{ __('lms::messages.re_password') }}" class="h-10 border mt-1 rounded px-4 w-full bg-gray-50"
+    value="{{ $c_password ?? '' }}" />

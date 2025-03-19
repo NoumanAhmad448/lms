@@ -24,7 +24,7 @@ use Eren\Lms\Models\RatingModal;
         <h1 class="text-capitalize"> {{ $keyword ?? 'Courses' }} </h1>
         @if ($courses->count())
             @foreach ($courses as $course)
-                @include("sn.load_card")
+                @include('sn.load_card')
                 <div class="row my-3 border content-main">
                     @if ($course->slug)
                         <div class="col-md-3">
@@ -99,7 +99,6 @@ use Eren\Lms\Models\RatingModal;
                     @endif
                 </div>
             @endforeach
-
 
             <div class="d-flex-justify-content-end">
                 {{ $courses->links() }}

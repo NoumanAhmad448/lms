@@ -79,7 +79,7 @@ use Eren\Lms\Models\RatingModal;
                                             {{ __('lms::free') }}
                                         @else
                                             <span style="font-weight:bold"> ${{ $course?->price?->pricing ?? '' }} </span>
-                                            @if($course?->price?->pricing)
+                                            @if ($course?->price?->pricing)
                                                 @php $total_p = ((int)$course?->price?->pricing)+20 @endphp
                                                 <del class="ml-2"> ${{ $total_p }} </del>
                                             @endif

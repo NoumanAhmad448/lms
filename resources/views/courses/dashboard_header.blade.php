@@ -18,7 +18,6 @@
         content="@if (isset($desc)) {{ $desc }} @else {{ __('lms::description.default') }} @endif">
     <link rel="canonical" href="{{ url()->current() }}">
 
-
     <!-- all css here -->
     @yield('page-css')
     <!-- bootstrap v4.5.3 css -->
@@ -28,7 +27,6 @@
         href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/line-awesome/css/line-awesome.min.css"
         integrity="sha512-vebUliqxrVkBy3gucMhClmyQP9On/HAWQdKDXRaAlb/FKuTbxkjPKUyqVOxAcGwFDka79eTF+YXwfke1h3/wfg=="
         crossorigin="anonymous" />
-
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
@@ -59,11 +57,11 @@
                     class="d-none d-md-inline"> back to dashboard </span> </a>
             <div class="ml-3 text-uppercase"> {{ $course->course_title ?? '' }} </div>
             @phptry {
-                    $status = $course->status;
-                } catch (Exception $e) {
-                    echo 'Database error';
-                }
-            @endphp
+                                    $status = $course->status;
+                                } catch (Exception $e) {
+                                    echo 'Database error';
+                                }
+                        @endphp ?>
             <div
                 class="ml-3 badge
                 @if ($status == 'draft') {{ __('lms::badge-warning') }}  @elseif($status == 'published') {{ __('lms::badge-success') }}
