@@ -93,7 +93,7 @@
                         <th scope="col"> Change Price </th>
                         <th scope="col"> Delete </th>
                         <th scope="col"> Comments </th>
-                        <th scope="col"> Course Enrollment/unEnrollment </th>
+                        <th scope="col"> Course {{ __("lms::coupon.Enrollment") }}/unEnrollment </th>
                     </tr>
                 </thead>
                 <tbody>

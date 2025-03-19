@@ -111,7 +111,7 @@
                             {{-- <i --}}
                             {{-- class="las la-film"></i> --}}
                             <i class="las la-check-circle"></i>
-                            {{ __('lms::Coupon') }} </a>
+                            {{ __('lms::coupon.coupon') }} </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link text-info" href="{{ route('zaijian', compact('course')) }}" id="msg">

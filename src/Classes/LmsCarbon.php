@@ -94,9 +94,20 @@ class LmsCarbon
         return $date1->diffForHumans($date2);
     }
 
-    public static function parse($value, $format = false)
+    public static function parse($value,$format = false)
     {
-        return $format ? Carbon::parse($value)->format($format) : Carbon::parse($value);
+        if ($format == false) {
+            $date_format = "Y-m-d";
+        } else {
+            $date_format = $format;
+        }
+        if ($value instanceof \Illuminate\Support\Carbon) {
+            return $value->toFormattedDateString($date_format);
+        }
+        if($format){
+            return Carbon::parse($value)->format($date_format);
+        }
+        return Carbon::parse($value);
     }
 
     public static function dateFormat($value)

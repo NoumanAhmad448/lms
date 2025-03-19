@@ -95,7 +95,7 @@ class VideoController extends Controller
 
             $time_mili = !empty($file) && !empty($file['playtime_seconds']) ? $file['playtime_seconds'] : 2;
 
-            $duration = LmsCarbon::parse($time_mili,$toTimeString=true);
+            $duration = LmsCarbon::parse($time_mili, "H:i:s");
             if(file_exists(public_path('storage/'.$path1))){
                 // @ supress the error
                 @unlink(public_path('storage/'.$path1));
@@ -240,7 +240,8 @@ class VideoController extends Controller
 
             $time_mili = !empty($file) && !empty($file['playtime_seconds']) ? $file['playtime_seconds'] : 2;
 
-            $duration = LmsCarbon::parse($time_mili,$toTimeString=true);
+            $duration = LmsCarbon::parse($time_mili,"H:i:s");
+
             if(file_exists(public_path($this->st_path.$path1))){
                 // @ supress the error
                 @unlink(public_path($this->st_path.$path1));

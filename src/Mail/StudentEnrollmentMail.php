@@ -35,6 +35,6 @@ class StudentEnrollmentMail extends Mailable
      */
     public function build()
     {
-        return $this->from(getCourseEmail())->subject('Congtratulation on Course Enrollment')->markdown('lms::emails.student-enroll');
+        return $this->from(getCourseEmail())->subject('Congtratulation on Course {{ __("lms::coupon.Enrollment") }}')->markdown('lms::emails.student-enroll');
     }
 }

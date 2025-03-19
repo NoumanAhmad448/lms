@@ -97,7 +97,7 @@ class AdminController extends Controller
             $dates = [];
             if ($history->count()) {
                 foreach ($history as $key) {
-                    $d = LmsCarbon::parse($key->created_at, 'd');
+                    $d = LmsCarbon::parse($key->created_at,'d');
                     array_push($dates, [(int)$d, $key->amount]);
                 }
             }

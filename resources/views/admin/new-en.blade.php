@@ -5,7 +5,7 @@
 
 @section('content')
     <h1>
-        New Offline Enrollment Requests
+        New Offline {{ __("lms::coupon.Enrollment") }} Requests
     </h1>
 
     @include('lms::session_msg')
