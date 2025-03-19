@@ -17,6 +17,7 @@ $site_settings = [
         ],
         "cron_paginate" => 40,
         "s3Url" => env('AWS_URL'),
+        "https_s3Url" => env('AWS_BUCKET_URL')."/",
         "no_reply_email_pass" => env('NO_REPLY_EMAIL_PASS'),
         "max_tble_size" => 9_0000000,
         "retry_time" => 5,
