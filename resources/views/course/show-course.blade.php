@@ -43,8 +43,8 @@
                         </div>
                         <div class="mt-2 text-uppercase">
                             {{ __('lms::coupon.created by') }}
-                             <a class="text-warning" href="#profile">
-                                {{ $course->user->name ?? '' }} 
+                            <a class="text-warning" href="#profile">
+                                {{ $course?->user?->name }}
                             </a>
                         </div>
 
@@ -72,7 +72,7 @@
                         </div>
                         @if (!empty($total_en) && config('setting.course_enrollment_count'))
                             <div class="m2-1">
-                                {{ __('lms::coupon.Enrollment') }}: {{ $total_en  }}
+                                {{ __('lms::coupon.Enrollment') }}: {{ $total_en }}
                             </div>
                         @endif
                         @if ($course && $course->lang && $course->lang->name ?? '')

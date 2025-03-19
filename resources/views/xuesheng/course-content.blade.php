@@ -76,14 +76,14 @@ use Eren\Lms\Models\Media;
                 <input type="hidden" name="c_name" value="{{ $course->course_title ?? '' }}" />
                 <button type="submit" class="btn btn-website btn-lg mt-5 ml-4"> Get Your Certificate </button>
             </form> --}}
-                @if ($course->course_title)
-                    <a href="{{ route('down-cert', ['course_name' => $course->course_title]) }}"
+                @if ($course?->course_title)
+                    <a href="{{ route('down-cert', ['course_name' => $course?->course_title]) }}"
                         class="btn btn-website btn-lg mt-5 ml-4" target="_blank" style="width: 230px">
                         {{-- <img src="https://media.giphy.com/media/4p1JhLCYEOEJa/giphy.gif" width="50" height="50"/> --}}
                         Get Your Certificate
                     </a>
                     <a title="Commenting on course will show the detail in course page"
-                        href="{{ route('laoshi-comment', ['course_name' => $course->slug]) }}"
+                        href="{{ route('laoshi-comment', ['course_name' => $course?->slug]) }}"
                         class="btn btn-website btn-lg mt-2 ml-4" target="_blank" style="width: 230px">
                         <img src="https://media.giphy.com/media/LHZyixOnHwDDy/giphy.gif" alt="nothing" width="50"
                             height="50">
@@ -93,15 +93,15 @@ use Eren\Lms\Models\Media;
             </div>
             <div class="col-md-9">
                 @php
-                    $id = $media->lecture_id;
-                    $course_id = $media->course_id;
+                    $id = $media?->lecture_id;
+                    $course_id = $media?->course_id;
                     $next_media = Media::where('lecture_id', $id + 1)
-                        ->where('course_id', $course_id)
-                        ->first();
+                        ?->where('course_id', $course_id)
+                        ?->first();
                 @endphp
                 @if ($next_media)
                     <div class="d-flex justify-content-end my-2">
-                        <a href="{{ route('video-page', ['slug' => $course->slug, 'video' => explode('/', $next_media->lec_name)[1]]) }}"
+                        <a href="{{ route('video-page', ['slug' => $course?->slug, 'video' => explode('/', $next_media?->lec_name)[1]]) }}"
                             class="btn btn-lg btn-website"> Next </a>
                     </div>
                 @endif
@@ -114,11 +114,10 @@ use Eren\Lms\Models\Media;
                 -->
                 {{-- prettier-ignore-end --}}
                 @if ($should_usr_hv_acs)
-
-                    <video controls class="w-100" @if (empty($media->is_download)) {!! 'oncontextmenu="return false"' !!} @endif>
+                    <video controls class="w-100" @if (empty($media?->is_download)) {!! 'oncontextmenu="return false"' !!} @endif>
                         <source
-                            src="file_exists(public_path('storage/' . $media->lec_name))) {{ asset('storage/' . $media?->lec_name) }}@else{{ config('setting.s3Url') }}{{ $media?->lec_name }} @endif"
-                            {{ $media->f_mimetype }}>
+                            src="@if (file_exists(public_path('storage/' . $media?->lec_name))) {{ asset('storage/' . $media?->lec_name) }}@else{{ config('setting.s3Url') }}{{ $media?->lec_name }} @endif"
+                            {{ $media?->f_mimetype }}>
                         {{ __('lms::video_nt_fnd') }}
                     </video>
                 @endif
@@ -129,11 +128,11 @@ use Eren\Lms\Models\Media;
                             <div class="col">
                                 <h3> About Course </h3>
                                 <div class="pl-3 mt-2">
-                                    <h4 class="text-capitalize my-2"> {{ $course->course_title ?? '' }} </h4>
-                                    <div class="my-2"> {{ $course->categoires_selection ?? '' }} </div>
-                                    <div class="my-2"> {{ $course->description ?? '' }} </div>
-                                    <div class="my-2">{{ $course->c_level ?? '' }} </div>
-                                    <div class="my-2"> <a href="{{ route('user-course', ['slug' => $course->slug]) }}"
+                                    <h4 class="text-capitalize my-2"> {{ $course?->course_title ?? '' }} </h4>
+                                    <div class="my-2"> {{ $course?->categoires_selection ?? '' }} </div>
+                                    <div class="my-2"> {{ $course?->description ?? '' }} </div>
+                                    <div class="my-2">{{ $course?->c_level ?? '' }} </div>
+                                    <div class="my-2"> <a href="{{ route('user-course', ['slug' => $course?->slug]) }}"
                                             class="btn btn-website"> Course Link </a> </div>
                                 </div>
                             </div>
@@ -148,15 +147,15 @@ use Eren\Lms\Models\Media;
                 </ul>
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="public" role="tabpanel" aria-labelledby="home-tab">
-                        @if ($c_anns->count())
+                        @if ($c_anns?->count())
                             <h2 class="text-center"> Announcements </h2>
                             @foreach ($c_anns as $ann)
                                 <section class="border p-3 mt-3">
                                     <h3>
-                                        {{ $ann->subject ?? '' }}
+                                        {{ $ann?->subject ?? '' }}
                                     </h3>
                                     <div>
-                                        {{ $ann->body ?? '' }}
+                                        {{ $ann?->body ?? '' }}
                                     </div>
                                 </section>
                             @endforeach
@@ -167,13 +166,13 @@ use Eren\Lms\Models\Media;
                     </div>
                 </div>
 
-                @php $ex_youtube_res = $m_lec->ex_res; @endphp
-                @if ($ex_youtube_res && $ex_youtube_res->title)
+                @php $ex_youtube_res = $m_lec?->ex_res; @endphp
+                @if ($ex_youtube_res && $ex_youtube_res?->title)
                     <div class="my-5">
                         <div class="container">
                             <h3 class="mb-4"> Extra Resource That might help </h3>
-                            <div> {{ $ex_youtube_res->title }} </div>
-                            <iframe class="w-100" height="300" src="{{ $ex_youtube_res->link }}"
+                            <div> {{ $ex_youtube_res?->title }} </div>
+                            <iframe class="w-100" height="300" src="{{ $ex_youtube_res?->link }}"
                                 title="YouTube video player" frameborder="0"
                                 allow="accelerometer;  clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                 allowfullscreen></iframe>
@@ -181,7 +180,7 @@ use Eren\Lms\Models\Media;
                     </div>
                 @endif
 
-                @php $extra_vid = $m_lec->res_vid; @endphp
+                @php $extra_vid = $m_lec?->res_vid; @endphp
                 @if ($extra_vid)
                     <div class="my-5">
                         <div class="container">
@@ -190,8 +189,8 @@ use Eren\Lms\Models\Media;
                             </h3>
                             @if ($should_usr_hv_acs)
                                 <video controls class="w-100" oncontextmenu="return false;">
-                                    <source src="{{ config('setting.s3Url') }}{{ $extra_vid->lec_path }}"
-                                        type="{{ $extra_vid->f_mimetype ?? '' }}">
+                                    <source src="{{ config('setting.s3Url') }}{{ $extra_vid?->lec_path }}"
+                                        type="{{ $extra_vid?->f_mimetype ?? '' }}">
                                     {{ __('lms::video_nt_fnd') }}
                                 </video>
                             @else
@@ -201,7 +200,7 @@ use Eren\Lms\Models\Media;
                     </div>
                 @endif
 
-                @php $article = $m_lec->article; @endphp
+                @php $article = $m_lec?->article; @endphp
                 @if ($article)
                     <div class="my-5">
                         <div class="container">
@@ -209,29 +208,29 @@ use Eren\Lms\Models\Media;
                                 Recommended Article
                             </h3>
                             <textarea rows="10" class="form-control">
-                                {{ $article->article_txt ?? '' }}
+                                {{ $article?->article_txt }}
                             </textarea>
                         </div>
                     </div>
                 @endif
 
-                @php $other_file = $m_lec->other_file; @endphp
+                @php $other_file = $m_lec?->other_file; @endphp
                 @if ($other_file)
                     <div class="my-5">
                         <div class="container">
                             <h3 class="mb-2">
                                 Recommended Material to read offline
                             </h3>
-                            <a href="{{ asset('vendor/lms/storage/' . $other_file->f_path) }}" download="download"
+                            <a href="{{ asset('vendor/lms/storage/' . $other_file?->f_path) }}" download="download"
                                 class="btn btn-website mt-2">
-                                {{ $other_file->f_name }}
+                                {{ $other_file?->f_name }}
                             </a>
                         </div>
                     </div>
                 @endif
                 @if ($next_media)
                     <div class="d-flex justify-content-end my-2">
-                        <a href="{{ route('video-page', ['slug' => $course->slug, 'video' => explode('/', $next_media->lec_name)[1]]) }}"
+                        <a href="{{ route('video-page', ['slug' => $course?->slug, 'video' => explode('/', $next_media?->lec_name)[1]]) }}"
                             class="btn btn-lg btn-website"> Next </a>
                     </div>
                 @endif
@@ -249,8 +248,8 @@ use Eren\Lms\Models\Media;
     <script>
         let rating_url = "{{ route('rating-course') }}"
         let rating =
-            '@if ($course->rating) {{ $course->rating->rating }} @endif'
-        let course_slug = '{{ $course->slug }}'
+            '@if ($course->rating) {{ $course->rating->rating }} @endif';
+        let course_slug = '{{ $course->slug }}';
     </script>
     <script src="{{ asset('vendor/lms/js/course-content.js') }}"></script>
 @endsection
