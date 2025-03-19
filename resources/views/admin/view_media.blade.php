@@ -10,9 +10,12 @@
             <div class="row">
 
                 @foreach ($media as $m)
-                    @php$path = asset('vendor/lms/storage/' . $m->lec_name);
-                    @endphp
+                    {{-- prettier-ignore --}}
 
+                    @php
+                    $path = asset('vendor/lms/storage/' . $m->lec_name);
+                    @endphp
+                    {{-- prettier-ignore-end --}}
                     <div class="col-md-4">
                         <video class="w-100" controls>
                             <source src="{!! $path !!}" type="{!! $m->f_mimetype !!}">

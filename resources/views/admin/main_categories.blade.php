@@ -60,7 +60,7 @@
             $('.del').click(function() {
                 if (confirm(
                         'Are you sure to delete this category? Deleting this category will delete all its sub categories as well'
-                        )) {
+                    )) {
                     $(this).parents('form').first().submit();
                 }
             });
