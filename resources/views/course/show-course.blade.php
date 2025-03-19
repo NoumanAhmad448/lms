@@ -42,7 +42,7 @@
                             {{ reduceCharIfAv($course->description ?? '', 200) }}
                         </div>
                         <div class="mt-2 text-uppercase">
-                            created by <a class="text-warning" href="#profile"> {{ $course->user->name ?? '' }} </a>
+                            {{ __("lms::coupon.created by") }} <a class="text-warning" href="#profile"> {{ $course->user->name ?? '' }} </a>
                         </div>
 
                         @if ($rating_avg)
@@ -65,16 +65,16 @@
                         @endif
 
                         <div class="mt-2">
-                            Last updated {{ LmsCarbon::parse($course->updated_at, true) ?? '' }}
+                            Last updated: {{ LmsCarbon::parse($course?->updated_at) }}
                         </div>
                         @if (!empty($total_en) && config('setting.course_enrollment_count'))
                             <div class="m2-1">
-                                Enrollment: {{ $total_en ?? '' }}
+                                {{ __("lms::coupon.Enrollment") }}: {{ $total_en ?? '' }}
                             </div>
                         @endif
                         @if ($course && $course->lang && $course->lang->name ?? '')
                             <div class="m2-1">
-                                Language: {{ $course->lang->name ?? '' }}
+                                {{ __("lms::coupon.Language") }}: {{ $course->lang->name ?? '' }}
                             </div>
                         @endif
 
@@ -102,7 +102,7 @@
                                 @if (config('setting.course_desc_share_btn'))
                                     <div link="{{ route('user-course', ['slug' => $course->slug]) }}" id="share_course"
                                         class="btn btn-light ml-2"> <i class="fa fa-share-square-o" aria-hidden="true"></i>
-                                        Share
+                                        {{ __("lms::coupon.Share") }}
                                     </div>
                                 @endif
                                 @if (config('setting.course_desc_gift_btn'))
@@ -295,7 +295,7 @@
                     @if ($targeting_student)
                         <ol class="pl-2 mt-2" style="list-style-type: none">
                             <h2 class="mt-1">
-                                {{ __('lms::Which Students must take this course') }}
+                                {{ __('lms::coupon.wsm') }}
                             </h2>
                             <div class="row">
                                 @foreach ($targeting_student as $skill)
@@ -313,7 +313,7 @@
                     <div class="course_content">
                         <section class="my-4  ml-4 d-flex justify-content-between align-items-center">
                             <h2 class=""> Course Content </h2>
-                            <div id="show_time"> </div>
+                            <div id="show_time" show_time="true"> </div>
                         </section>
 
                         <div class="accordion mt-2" id="course_content">
@@ -333,7 +333,7 @@
                                                         style="font-size: 1.2rem;" type="button" data-toggle="collapse"
                                                         data-target="#section{{ $sec->id }}" aria-expanded="true"
                                                         aria-controls="collapseOne">
-                                                        {{ $sec->section_title ?? '' }}
+                                                        {{ $sec?->section_title }}
                                                     </button>
                                                 </h2>
                                                 <button class="btn btn-link" type="button" data-toggle="collapse"
@@ -371,7 +371,7 @@
                                                                     aria-hidden="true"></i>
                                                                 <span
                                                                     class="@if ($is_media_free) cursor-p text-info show_popup @endif"
-                                                                    @if ($media) url="{{ config('setting.s3Url') }}{{ $media->lec_name }}" @endif>
+                                                                    @if ($media) url="{{ config('setting.s3Url') }}{{ $media?->lec_name }}" @endif>
                                                                     {{ $lec->lec_name ?? '' }}
                                                                 </span>
                                                             </div>
@@ -382,8 +382,8 @@
                                                                         <i class="fa fa-eye mr-2" aria-hidden="true"></i>
                                                                     </div>
                                                                 @endif
-                                                                <div class="col-2">
-                                                                    {{ $media->duration ?? '' }}
+                                                                <div class="col-2" video-duration="{{$media?->duration}}">
+                                                                    {{ $media?->duration }}
                                                                 </div>
                                                             @endif
 
@@ -441,7 +441,7 @@
                                     @endforeach
                                 @endif
 
-                                @php $total_time = LmsCarbon::parse($total_time,true); @endphp
+                                @php $total_time = LmsCarbon::parse($total_time,"H:i:s"); @endphp
                                 <input type="hidden" id="total_time" value="{{ $total_time }}">
 
                             </div>

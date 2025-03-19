@@ -11,7 +11,7 @@
 @endsection
 
 @section('content')
-    <h1> Total number of Enrollments </h1> <span class="badge badge-success"> Total Enrollment {{ $total_enrollment ?? '' }}
+    <h1> Total number of Enrollments </h1> <span class="badge badge-success"> Total {{ __("lms::coupon.Enrollment") }} {{ $total_enrollment ?? '' }}
     </span>
     @if (config('setting.admin_guest_search_bar'))
         <div class="col-md-5 my-3" style="min-width: 100%">

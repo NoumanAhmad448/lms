@@ -101,7 +101,7 @@ use Eren\Lms\Models\RatingModal;
             </div>
         @else
             <div class="jumbotron bg-white text-dark text-center">
-                <h2> No Enrollment Found</h2>
+                <h2> No {{ __("lms::coupon.Enrollment") }} Found</h2>
                 <div> you are not enrolled in any course. please enroll in any course and then come back to here</div>
             </div>
         @endif

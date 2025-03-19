@@ -13,7 +13,7 @@ use Eren\Lms\Models\CourseEnrollment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
-use Eren\Lms\Models\Enrollment;
+use Eren\Lms\Models\{{ __("lms::coupon.Enrollment") }};
 use Eren\Lms\Rules\IsScriptAttack;
 
 class AssignmentController extends Controller
