@@ -24,7 +24,8 @@ use Eren\Lms\Models\RatingModal;
         <h1 class="text-capitalize"> {{ $keyword ?? 'Courses' }} </h1>
         @if ($courses->count())
             @foreach ($courses as $course)
-                <div class="row my-3 border">
+                @include("sn.load_card")
+                <div class="row my-3 border content-main">
                     @if ($course->slug)
                         <div class="col-md-3">
                             @php $ci = $course->course_image; @endphp

@@ -249,7 +249,7 @@
 
                     @if ($learnable_skill)
                         <h2 class="mt-1" style="">
-                            {{ __('lms::Your Coverages') }}
+                            {{ __('lms::con1.uc') }}
                         </h2>
                         <ul class="pl-2 mt-2" style="list-style-type: none">
                             <div class="row">
@@ -274,7 +274,7 @@
                     @if ($course_requirements)
                         <ol class="pl-2 mt-2" style="list-style-type: none">
                             <h2 class="mt-1">
-                                {{ __('lms::Course Requirements') }}
+                                {{ __('lms::con1.cr') }}
                             </h2>
                             <div class="row">
                                 @foreach ($course_requirements as $skill)

@@ -20,19 +20,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use Eren\Lms\Models\Article;
 use Eren\Lms\Models\RatingModal;
+use Eren\Lms\Models\Setting;
 
 class HomeController extends Controller
 {
     public function index()
     {
         try {
+            $settings = Setting::first();
             $title = __('lms::messages.site_title');
             $desc = __('lms::description.home');
             $cs = Categories::select('id', 'name', 'value')->get();
             $post = Post::where('status', 'published')->select('id', 'title', 'message', 'upload_img', 'f_name', 'slug')->orderByDesc('created_at')->first();
             $faq = Faq::where('status', 'published')->select('id', 'title', 'message', 'upload_img', 'f_name', 'slug')->orderByDesc('created_at')->first();
             $courses = Course::where('status', 'published')->whereNull('is_deleted')->with(['price:id,course_id,pricing,is_free', 'user:id,name', 'course_image'])->select('id', 'user_id', 'course_title', 'categories_selection', 'slug')->orderByDesc('created_at')->paginate(20);
-            return view(config("setting.welcome_blade"), compact('title', 'desc', 'cs', 'post', 'faq', 'courses'));
+            return view(config("setting.welcome_blade"), compact('title', 'desc', 'cs', 'post', 'faq', 'courses',"settings"));
         } catch (Exception $e) {
             if(config("app.debug")){
                 dd($e->getMessage());
