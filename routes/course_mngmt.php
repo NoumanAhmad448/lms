@@ -15,6 +15,9 @@ Route::middleware(['web', 'auth', "lms-web"])->group(function () {
     Route::post('instructor/course/{course}/upload-bulk-loader', [VideoController::class, 'uploadBulkLoader'])
         ->name('bulk_loader');
 
+    Route::get('download-certificate/{course_name}', [CourseExController::class, 'downloadCert'])->name('down-cert');
+
+    Route::post('rating-course', [CourseExController::class, 'ratingCourse'])->name('rating-course');
 
     Route::post('instructor/course/{course_id}/manage/section_title', [DashboardController::class, 'course_curriculum_post'])
         ->name('courses_curriculum_post');
