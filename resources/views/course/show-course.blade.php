@@ -42,7 +42,10 @@
                             {{ reduceCharIfAv($course->description ?? '', 200) }}
                         </div>
                         <div class="mt-2 text-uppercase">
-                            {{ __("lms::coupon.created by") }} <a class="text-warning" href="#profile"> {{ $course->user->name ?? '' }} </a>
+                            {{ __('lms::coupon.created by') }}
+                             <a class="text-warning" href="#profile">
+                                {{ $course->user->name ?? '' }} 
+                            </a>
                         </div>
 
                         @if ($rating_avg)
@@ -69,12 +72,12 @@
                         </div>
                         @if (!empty($total_en) && config('setting.course_enrollment_count'))
                             <div class="m2-1">
-                                {{ __("lms::coupon.Enrollment") }}: {{ $total_en ?? '' }}
+                                {{ __('lms::coupon.Enrollment') }}: {{ $total_en  }}
                             </div>
                         @endif
                         @if ($course && $course->lang && $course->lang->name ?? '')
                             <div class="m2-1">
-                                {{ __("lms::coupon.Language") }}: {{ $course->lang->name ?? '' }}
+                                {{ __('lms::coupon.Language') }}: {{ $course?->lang?->name }}
                             </div>
                         @endif
 
@@ -102,7 +105,7 @@
                                 @if (config('setting.course_desc_share_btn'))
                                     <div link="{{ route('user-course', ['slug' => $course->slug]) }}" id="share_course"
                                         class="btn btn-light ml-2"> <i class="fa fa-share-square-o" aria-hidden="true"></i>
-                                        {{ __("lms::coupon.Share") }}
+                                        {{ __('lms::coupon.Share') }}
                                     </div>
                                 @endif
                                 @if (config('setting.course_desc_gift_btn'))
@@ -382,7 +385,8 @@
                                                                         <i class="fa fa-eye mr-2" aria-hidden="true"></i>
                                                                     </div>
                                                                 @endif
-                                                                <div class="col-2" video-duration="{{$media?->duration}}">
+                                                                <div class="col-2"
+                                                                    video-duration="{{ $media?->duration }}">
                                                                     {{ $media?->duration }}
                                                                 </div>
                                                             @endif

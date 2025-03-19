@@ -112,12 +112,12 @@ class LmsCarbon
 
     public static function dateFormat($value)
     {
-        return self::parse($value)->format(self::$date_form);
+        return self::parse($value, self::$date_form);
     }
 
     public static function dbDateFormat($value)
     {
-        return self::parse($value)->format(self::$db_date_form);
+        return self::parse($value, self::$db_date_form);
     }
 
     public static function startOfMonth()

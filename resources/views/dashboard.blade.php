@@ -162,7 +162,8 @@
 
                                 @endphp
                                 @if ($m_en)
-                                    <div class="text-success"> This month {{ __("lms::coupon.Enrollment") }} {{ $m_en }} </div>
+                                    <div class="text-success"> This month {{ __('lms::coupon.Enrollment') }}
+                                        {{ $m_en }} </div>
                                 @endif
                                 @if ($m_ear)
                                     <div class="text-success"> This month Income ${{ $m_ear }} </div>
