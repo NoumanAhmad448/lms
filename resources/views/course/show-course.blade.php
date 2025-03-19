@@ -65,7 +65,7 @@
                         @endif
 
                         <div class="mt-2">
-                            Last updated {{ LmsCarbon::parse($course->updated_at,true) ?? '' }}
+                            Last updated {{ LmsCarbon::parse($course->updated_at, true) ?? '' }}
                         </div>
                         @if (!empty($total_en) && config('setting.course_enrollment_count'))
                             <div class="m2-1">
@@ -77,8 +77,6 @@
                                 Language: {{ $course->lang->name ?? '' }}
                             </div>
                         @endif
-
-
 
                         <div class="mt-2">
                             <section class="d-flex">
@@ -170,7 +168,7 @@
                         </form>
                     @endunless
 
-                    @if ($course->slug) 
+                    @if ($course->slug)
                         @if ($course->lecture)
                             @if ($course->lecture->media)
                                 @if ($course->lecture && $course->lecture->media && $course->lecture->media->lec_name)
@@ -212,7 +210,7 @@
                     @if ($quizzes)
                         <div> {{ $quizzes }} Quizzes </div>
                     @endif
-                    @php 
+                    @php
                     $ass = $course->assignments->count(); @endphp
                     @if ($ass)
                         <div> {{ $ass }} Assignments </div>
@@ -249,7 +247,7 @@
 
                     @if ($learnable_skill)
                         <h2 class="mt-1" style="">
-                            {{ __('lms::Your Coverages') }}
+                            {{ __('lms::con1.uc') }}
                         </h2>
                         <ul class="pl-2 mt-2" style="list-style-type: none">
                             <div class="row">
@@ -274,7 +272,7 @@
                     @if ($course_requirements)
                         <ol class="pl-2 mt-2" style="list-style-type: none">
                             <h2 class="mt-1">
-                                {{ __('lms::Course Requirements') }}
+                                {{ __('lms::con1.cr') }}
                             </h2>
                             <div class="row">
                                 @foreach ($course_requirements as $skill)
@@ -352,8 +350,8 @@
                                             <div class="card-body">
                                                 @php
                                                     $lectures = Lecture::where('course_id', $course->id)
-                                                    ->where('sec_no', $sec->section_no)
-                                                    ->get();
+                                                        ->where('sec_no', $sec->section_no)
+                                                        ->get();
                                                 @endphp
                                                 @if ($lectures->count())
                                                     @foreach ($lectures as $lec)
@@ -483,7 +481,6 @@
                 </div>
             </div>
         @endif
-
 
         @if ($rating_avg)
             <section class="mb-5">
@@ -706,7 +703,6 @@
     </div>
     </div>
     </div>
-
 
     <div class="modal" tabindex="-1" id="course_share_modal" data-backdrop="static" data-keyboard="false">
         <div class="modal-dialog modal-dialog-centered">

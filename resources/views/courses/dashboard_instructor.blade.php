@@ -13,7 +13,6 @@
 
     <div class="col-12 col-md-9 bg-white border border-light p-3">
 
-
         <h1 class="my-3"> Target Student Details </h1>
         <hr>
         <p class="my-4">
@@ -112,7 +111,6 @@
                 </div>
             @endif
 
-
         </section>
         <div class="target_errs"> </div>
         <div class="mb-5">
@@ -127,8 +125,6 @@
     </div>
     </div>
 @endsection
-
-
 
 @section('page-js')
     <script src="{{ asset('vendor/lms/js/target_ur_students.js') }}"></script>
@@ -195,7 +191,8 @@
                             l_errs.addClass("text-danger").text(errors['learnable_skill'][0]);
                         } else if ("course_requirement" in errors) {
                             re_errs.addClass("text-danger").text(errors['course_requirement'][
-                                0]);
+                                0
+                            ]);
                         } else if ("targeting_student" in errors) {
                             target_errs.addClass("text-danger").text(errors['targeting_student']
                                 [0]);

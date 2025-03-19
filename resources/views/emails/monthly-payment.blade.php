@@ -1,10 +1,14 @@
 @component('mail::message')
-# HI {{$name}}
+    # HI {{ $name }}
 
-We have sent you your monthly payment. Please check our website for further information.
-Your {{ $email }} has registered on our website. 
-@component('mail::button', ['url' => '{{config("app.url")}}'])
- {{config('app.name')}}
+    We have sent you your monthly payment. Please check our website for further information.
+    Your {{ $email }} has registered on our website.
+    {{-- prettier-ignore --}}
+
+    @component('mail::button', ['url' => '{{ config('app.url') }}'])
+    {{-- prettier-ignore-end --}}
+
+    {{ config('app.name') }}
 @endcomponent
 
 Thanks,<br>

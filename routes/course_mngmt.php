@@ -2,6 +2,7 @@
 
 use Eren\Lms\Controllers\CourseController;
 use Eren\Lms\Controllers\CourseEx3Controller;
+use Eren\Lms\Controllers\CourseExController;
 use Eren\Lms\Controllers\DashboardController;
 use Eren\Lms\Controllers\LandingPageController;
 use Eren\Lms\Controllers\PricingController;
@@ -21,6 +22,11 @@ Route::middleware(['web', 'auth', "lms-web"])->group(function () {
     Route::get('instructor/course/{course_id}/manage/curriculum', [DashboardController::class, 'course_curriculum'])
         ->name('courses_curriculum');
 
+    Route::post('set-all-videos-downlabable/{course}', [CourseExController::class, 'setVidDown'])->name('setVidDown');
+
+    Route::post('update-lecture-status/{media_id}', [VideoController::class, 'set_video_free'])->name('update-lecture-status');
+
+    Route::post('e/{course_id}/{media_id}/edit_video', [VideoController::class, 'edit_video'])->name('e_video');
 
     Route::get('instructor/course/{course}/pricing', [PricingController::class, 'pricing'])
         ->name('pricing');

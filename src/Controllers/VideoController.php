@@ -22,7 +22,7 @@ class VideoController extends Controller
     public function __construct() {
         $this->uploadData = new UploadData;
         $this->uploadData = $this->uploadData->enableVideoUploading();
-        $this->st_path = "storage";
+        $this->st_path = "storage/";
     }
 
     function validate_user($course_id){
@@ -236,6 +236,7 @@ class VideoController extends Controller
 
             $getID3 = new \getID3;
             $file = $getID3->analyze(public_path($this->st_path.$path1));
+            debug_logs($file);
 
             $time_mili = !empty($file) && !empty($file['playtime_seconds']) ? $file['playtime_seconds'] : 2;
 

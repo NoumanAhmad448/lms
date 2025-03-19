@@ -1,6 +1,5 @@
 @extends('lms::admin.admin_main')
 
-
 @section('content')
     <h1> General Setting </h1>
     <p> This Page is displaying the general setting of the website </p>
@@ -70,11 +69,6 @@
         </div>
     </div>
 @endsection
-
-
-
-
-
 
 @section('page-js')
     <script>

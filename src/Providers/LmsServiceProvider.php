@@ -103,6 +103,10 @@ class LmsServiceProvider extends ServiceProvider
         ], 'lms_migrations');
 
         $this->publishes([
+            __DIR__ . '/../../src/Console/Commands' => app_path('Console/Commands'),
+        ], 'lms_commands');
+
+        $this->publishes([
             __DIR__ . '/../View/Components' => app_path('View/Components'),
             __DIR__ . '/../../resources/css' => resource_path('vendor/lms/css'),
             __DIR__ . '/../../resources/js' => resource_path('vendor/lms/js'),

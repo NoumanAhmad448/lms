@@ -1,6 +1,5 @@
 @extends(config('setting.guest_blade'))
 
-
 @section('content')
     <div class="container my-4">
         <h1>
@@ -277,7 +276,6 @@
         </div>
     </div>
 
-
     </div>
     @if (isset($of_p_methods) && $of_p_methods && $of_p_methods->count())
         <div class="d-flex justify-content-between my-3">
@@ -290,8 +288,6 @@
         </div>
     @endif
     </div>
-
-
 
 @endsection
 
