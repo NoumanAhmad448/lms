@@ -2,6 +2,8 @@
 
 namespace Eren\Lms\Providers;
 
+use Eren\Lms\Contracts\VideoUploadContract;
+use Eren\Lms\Response\VideoUploadResponse;
 use Eren\Lms\Middleware\Admin;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
@@ -119,5 +121,8 @@ class LmsServiceProvider extends ServiceProvider
     public function register()
     {
         // Register bindings or services
+        $this->app->bind(VideoUploadContract::class, function ($app, $data) {
+            return new VideoUploadResponse($data['data']);
+        });
     }
 }
