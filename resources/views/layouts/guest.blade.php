@@ -141,7 +141,7 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
                                     href="{{ route('get-wishlist-course') }}">
                                     {{ __('lms::WishList') }}</a>
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item"
-                                    href="{{ route('profile.show') }}"> {{ __('lms::Setting') }}</a>
+                                    href="{{ route('profile.show') }}"> {{ __('lms::messages.Setting') }}</a>
                                 <div class="dropdown-divider"></div>
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item"
                                     href="{{ route('dashboard') }}">

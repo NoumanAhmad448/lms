@@ -2,6 +2,8 @@
 
 namespace Eren\Lms\Controllers;
 
+use Eren\Lms\Action\CategoriesAction;
+use Eren\Lms\Contracts\LandingPageContract;
 use Eren\Lms\Http\Requests\LandingPage;
 
 use Eren\Lms\Http\Requests\CourseImageUpload;
@@ -12,9 +14,9 @@ use Eren\Lms\Models\CourseImage;
 use Eren\Lms\Models\CourseVideo;
 use Exception;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
 use Intervention\Image\ImageManager;
 use Eren\Lms\Helpers\UploadData;
+use Illuminate\Routing\Pipeline;
 
 class LandingPageController extends Controller
 {
@@ -25,20 +27,13 @@ class LandingPageController extends Controller
     }
     public function landing_page(Course $course)
     {
-        try {
-            if ($course->user_id == Auth::id()) {
-                $categories = Categories::all();
-                return view('lms::courses.landing_page', compact('course', 'categories'));
-            } else {
-                abort(403);
-            }
-        } catch (\Throwable $th) {
-            if(config("app.env")){
-                dd($th->getMessage());
-            }else{
-                return back();
-            }
-        }
+        $data = ["course" => $course];
+
+        return (new Pipeline(app()))->send($data)->through(array_filter([
+            CategoriesAction::class,
+        ]))->then(function ($data){
+            return app(LandingPageContract::class, ["data" => $data]);
+        });
     }
     public function store_landing_page(LandingPage $request, $course)
     {
