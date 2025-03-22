@@ -2,6 +2,10 @@
 
 namespace Eren\Lms\Controllers;
 
+use Eren\Lms\Action\CoursesAction;
+use Eren\Lms\Action\CreateInstructorAction;
+use Eren\Lms\Action\InstructorAnnAction;
+use Eren\Lms\Contracts\DashboardIndexContract;
 use Illuminate\Http\Request;
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\CourseDelHistory;
@@ -14,8 +18,8 @@ use Eren\Lms\Models\Lecture;
 use Eren\Lms\Models\Media;
 use Eren\Lms\Models\Section;
 use Eren\Lms\Models\ResVideo;
-use Eren\Lms\Models\User;
 use Exception;
+use Illuminate\Routing\Pipeline;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Response;
@@ -32,23 +36,14 @@ class DashboardController extends Controller
 
     public function index()
     {
-        try {
-            if (!Auth::user()?->is_instructor) {
-                $user = User::findOrFail(Auth::id());
-                if ($user) {
-                    $user->is_instructor = 1;
-                    $user->save();
-                }
-            }
-            $ann = InstructorAnn::orderByDesc('created_at')->simplePaginate(3);
-            $courses = Course::with(['course_image'])->where('user_id', Auth::id())->whereNull('is_deleted')
-                ->select('id', 'user_id', 'course_title', 'status', 'slug', 'updated_at')->orderByDesc('created_at')->simplePaginate();
-            $title = __('lms::messages.dashboard');
-            return view('lms::dashboard', compact('courses', 'title', 'ann'));
-        } catch (Exception $th) {
-            debug_logs($th->getMessage());
-            return redirect()->route(config("lms.index_route") ?? 'index');
-        }
+        $data = [];
+        return (new Pipeline(app()))->send($data)->through(array_filter([
+            CreateInstructorAction::class,
+            InstructorAnnAction::class,
+            CoursesAction::class,
+        ]))->then(function ($data){
+            return app(DashboardIndexContract::class, ["data" => $data]);
+        });
     }
 
 

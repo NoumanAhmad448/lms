@@ -20,7 +20,26 @@ The `Eren\Lms` package is a Laravel-based Learning Management System (LMS) that 
    ```
    composer require eren/lms
    ```
+   and place these routes in your Laravel service provider e.g. ```RouteServiceProvider``` function => ```boot```
+   ```
+   // Tell Fortify to use your package's views
+        Fortify::loginView(function () {
+            return view('lms::auth.login');
+        });
 
+        Fortify::registerView(function () {
+            return view('lms::auth.register');
+        });
+
+        // You can also customize other views like password reset, email verification, etc.
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('lms::auth.forgot-password');
+        });
+
+        Fortify::resetPasswordView(function () {
+            return view('lms::auth.reset-password');
+        });
+      ```
 2. **Publish the package assets**:
    ```sh
    php artisan vendor:publish --tag=lms_config

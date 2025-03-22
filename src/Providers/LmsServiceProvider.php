@@ -2,17 +2,23 @@
 
 namespace Eren\Lms\Providers;
 
+use Eren\Lms\Contracts\DashboardIndexContract;
+use Eren\Lms\Contracts\LandingPageContract;
 use Eren\Lms\Contracts\VideoUploadContract;
 use Eren\Lms\Response\VideoUploadResponse;
 use Eren\Lms\Middleware\Admin;
+use Eren\Lms\Response\DashboardIndexResponse;
+use Eren\Lms\Response\LandingPageResponse;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 use Illuminate\Routing\Router;
+use Illuminate\Support\Facades\Route;
 
 class LmsServiceProvider extends ServiceProvider
 {
     public function boot(Router $router)
     {
+
         // Register a middleware group for your package
         $router->middlewareGroup('lms-web', [
             \App\Http\Middleware\EncryptCookies::class,
@@ -23,9 +29,24 @@ class LmsServiceProvider extends ServiceProvider
             \Illuminate\Routing\Middleware\SubstituteBindings::class,
         ]);
 
+        // Tell Fortify to use your package's views
         Fortify::loginView(function () {
-            return view('auth.login');
+            return view('lms::auth.login');
         });
+
+        Fortify::registerView(function () {
+            return view('lms::auth.register');
+        });
+
+        // You can also customize other views like password reset, email verification, etc.
+        Fortify::requestPasswordResetLinkView(function () {
+            return view('lms::auth.forgot-password');
+        });
+
+        Fortify::resetPasswordView(function () {
+            return view('lms::auth.reset-password');
+        });
+
         // Load routes
         $this->loadRoutesFrom(__DIR__ . '/../../routes/web.php');
 
@@ -117,12 +138,23 @@ class LmsServiceProvider extends ServiceProvider
             __DIR__ . '/../../config/lms.php' => config_path('lms.php'),
             __DIR__ . '/../../config/setting.php' => config_path('setting.php'),
         ], 'lms_auth_views');
+
+        if(config("setting.extra_middlewares")){
+            Route::middleware(config("setting.extra_middlewares"))
+                ->group(__DIR__ . '/../../routes/web.php');
+        }
     }
     public function register()
     {
         // Register bindings or services
         $this->app->bind(VideoUploadContract::class, function ($app, $data) {
             return new VideoUploadResponse($data['data']);
+        });
+        $this->app->bind(DashboardIndexContract::class, function ($app, $data) {
+            return new DashboardIndexResponse($data['data']);
+        });
+        $this->app->bind(LandingPageContract::class, function ($app, $data) {
+            return new LandingPageResponse($data['data']);
         });
     }
 }

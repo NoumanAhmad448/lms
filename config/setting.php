@@ -1,6 +1,7 @@
 <?php
 
 $site_settings = [
+        "extra_middlewares" => [],
         "course_status" => [
                 "draft" => "draft",
                 "published" => "published",
