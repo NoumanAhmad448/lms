@@ -211,7 +211,7 @@ class CourseEx3Controller extends Controller
     {
         try {
             $title = "public announcement";
-            $courses = Course::where('user_id', auth()->id())->where('status', '=', 'published')->select('slug', 'course_title')->get();
+            $courses = Course::where('user_id', auth()->id())->where('status', '=', Course::PUBLISHED_STATUS)->select('slug', 'course_title')->get();
             if (!$courses->count()) {
                 return back()->with('error', 'You do not have any course to send users announcement');
             }

@@ -2,6 +2,11 @@
 
 namespace Eren\Lms\Controllers;
 
+use Eren\Lms\Action\InstructorAction;
+use Eren\Lms\Action\OfflinePaymentAction;
+use Eren\Lms\Action\SettingAction;
+use Eren\Lms\Action\WithdrawPaymentAction;
+use Eren\Lms\Contracts\PaymentGatewayContract;
 use Eren\Lms\Models\InstructorPayment;
 use Eren\Lms\Models\OfflinePayment;
 use Eren\Lms\Models\Setting;
@@ -10,22 +15,23 @@ use Eren\Lms\Rules\IsScriptAttack;
 use Eren\Lms\Rules\ValidPhoneNumber;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Routing\Pipeline;
 use Illuminate\Support\Facades\Validator;
 
 class InstructorPaymentController extends Controller
 {
+
     public function paymentGateways()
     {
-        try {
-            $setting = InstructorPayment::where('user_id', auth()->id())->first();
-            $title = 'Payment_gateway';
-            $a_setting = Setting::first();
-            $offline_setting = OfflinePayment::select('b_is_enable')->first();
-            $min_bank_limit = WithdrawPayment::first();
-            return view('lms::instructor.payment-setting', compact('title', 'setting', 'a_setting', 'offline_setting', 'min_bank_limit'));
-        } catch (\Throwable $th) {
-            return back();
-        }
+        $data = [];
+        return (new Pipeline(app()))->send($data)->through(array_filter([
+            InstructorAction::class,
+            SettingAction::class,
+            OfflinePaymentAction::class,
+            WithdrawPaymentAction::class,
+        ]))->then(function ($data) {
+            return app(PaymentGatewayContract::class, ["data" => $data]);
+        });
     }
 
     public function storeBankPayment(Request $request)
@@ -40,7 +46,9 @@ class InstructorPaymentController extends Controller
                 'b_branch_addr' => ['required', 'string', new IsScriptAttack],
                 'b_iban' => ['required', 'string', new IsScriptAttack],
             ], [], [
-                'b_name' => 'bank name', 'b_swift_code' => 'swift code', 'b_account_name' => 'account name',
+                'b_name' => 'bank name',
+                'b_swift_code' => 'swift code',
+                'b_account_name' => 'account name',
                 'b_account_no' => 'Account number',
                 'b_branch_name' => 'branch name',
                 'b_branch_addr' => 'branch address',

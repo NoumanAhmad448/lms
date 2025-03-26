@@ -4,11 +4,13 @@ namespace Eren\Lms\Providers;
 
 use Eren\Lms\Contracts\DashboardIndexContract;
 use Eren\Lms\Contracts\LandingPageContract;
+use Eren\Lms\Contracts\PaymentGatewayContract;
 use Eren\Lms\Contracts\VideoUploadContract;
 use Eren\Lms\Response\VideoUploadResponse;
 use Eren\Lms\Middleware\Admin;
 use Eren\Lms\Response\DashboardIndexResponse;
 use Eren\Lms\Response\LandingPageResponse;
+use Eren\Lms\Response\PaymentGatewayResponse;
 use Illuminate\Support\ServiceProvider;
 use Laravel\Fortify\Fortify;
 use Illuminate\Routing\Router;
@@ -155,6 +157,9 @@ class LmsServiceProvider extends ServiceProvider
         });
         $this->app->bind(LandingPageContract::class, function ($app, $data) {
             return new LandingPageResponse($data['data']);
+        });
+        $this->app->bind(PaymentGatewayContract::class, function ($app, $data) {
+            return new PaymentGatewayResponse($data['data']);
         });
     }
 }

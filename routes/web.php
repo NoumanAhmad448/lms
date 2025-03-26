@@ -56,3 +56,4 @@ require __DIR__ . '/admin.php';
 require __DIR__ . '/dashboard.php';
 require __DIR__ . '/student.php';
 require __DIR__ . '/guest.php';
+require __DIR__ . '/payment.php';

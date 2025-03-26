@@ -94,15 +94,15 @@
                                         href="https://lms.com/page/privacy-policy">conditions</a>
                                 </label>
                             </div>
-
-                            <div class="form-group mt-3">
-                                {!! NoCaptcha::renderJs() !!}
-                                {!! NoCaptcha::display() !!}
-                                @error('g-recaptcha-response')
-                                    <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
-                                @enderror
-                            </div>
-
+                            @if (!app()->environment('testing'))
+                                <div class="form-group mt-3">
+                                    {!! NoCaptcha::renderJs() !!}
+                                    {!! NoCaptcha::display() !!}
+                                    @error('g-recaptcha-response')
+                                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                                    @enderror
+                                </div>
+                            @endif
                             <div class="flex items-center justify-end mt-4">
                                 <a class="underline text-sm text-gray-600" href="{{ route('login') }}">
                                     {{ __('lms::Already registered?') }}

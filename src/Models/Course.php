@@ -11,6 +11,7 @@ class Course extends Model
 {
     use HasFactory;
     use HasSlug;
+    public const PUBLISHED_STATUS = "published";
 
     protected $guarded = [];
 
