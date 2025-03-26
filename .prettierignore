@@ -1,9 +1,0 @@
-# Ignore node_modules and build directories
-node_modules/
-build/
-dist/
-
-# Ignore specific files
-package-lock.json
-yarn.lock
-.env
