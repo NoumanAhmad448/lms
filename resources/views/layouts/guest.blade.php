@@ -22,7 +22,6 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
         content="@if (isset($desc) && $desc !== '') {{ $desc }} @else {{ __('lms::description.default') }} @endif">
     <link rel="canonical" href="{{ url()->current() }}">
     @include('lms::lib.custom_lib')
-    <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-185115352-1"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -146,8 +145,6 @@ $ann = UserAnnModel::select('message')->orderByDesc('updated_at')->first();
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item"
                                     href="{{ route('dashboard') }}">
                                     {{ __('lms::custom_msgs.ins_dashboard') }}</a>
-                                {{-- <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item" href="{{ route('chat_w_i') }}">
-                                {{__('lms::Contact With Instructor')}}</a> --}}
                                 <a style="font-size: 0.9rem !important" class="pt-2  dropdown-item"
                                     href="{{ route('email_to_ins') }}">
                                     {{ __('lms::Contact With Instructor') }}</a>

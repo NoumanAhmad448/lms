@@ -2,7 +2,7 @@
   "plugins": ["@shufo/prettier-plugin-blade"],
   "overrides": [
     {
-      "files": "*.blade.php",
+      "files": "resources/views/**/*.blade.php",
       "options": {
         "parser": "blade"
       }
