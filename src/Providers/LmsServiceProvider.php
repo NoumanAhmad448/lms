@@ -6,6 +6,7 @@ use Eren\Lms\Contracts\DashboardIndexContract;
 use Eren\Lms\Contracts\LandingPageContract;
 use Eren\Lms\Contracts\PaymentGatewayContract;
 use Eren\Lms\Contracts\VideoUploadContract;
+use Eren\Lms\Database\Factories\CertificateFactory;
 use Eren\Lms\Response\VideoUploadResponse;
 use Eren\Lms\Middleware\Admin;
 use Eren\Lms\Response\DashboardIndexResponse;
@@ -160,6 +161,9 @@ class LmsServiceProvider extends ServiceProvider
         });
         $this->app->bind(PaymentGatewayContract::class, function ($app, $data) {
             return new PaymentGatewayResponse($data['data']);
+        });
+        $this->app->singleton(CertificateFactory::class, function ($app) {
+            return new CertificateFactory();
         });
     }
 }

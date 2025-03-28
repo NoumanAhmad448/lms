@@ -2,6 +2,7 @@
 
 namespace Eren\Lms\Controllers;
 
+use Eren\Lms\Models\Certificate;
 use Eren\Lms\Models\Comment;
 use Illuminate\Http\Request;
 use Eren\Lms\Models\Course;
@@ -10,8 +11,8 @@ use Eren\Lms\Models\RatingModal;
 use Eren\Lms\Models\User;
 use Eren\Lms\Rules\IsScriptAttack;
 use Exception;
-use Barryvdh\DomPDF\Facade\Pdf as PDF;
 use Eren\Lms\Classes\LmsCarbon;
+use Eren\Lms\Classes\PdfReader;
 
 class CourseExController extends Controller
 {
@@ -42,32 +43,18 @@ class CourseExController extends Controller
         }
     }
 
-    public function createPdf()
+    public function downloadCert($slug)
     {
         $cert_no = rand();
-        $date = LmsCarbon::now($toDateString = true);
-        $course_name = "";
-        $d = ['course' => $course_name, 'cert_no' => $cert_no, 'date' => $date, 'name' => auth()->user()->name];
-        return view('lms::course.certificate', $d);
-        return PDF::loadView()
-            ->setPaper('a4', 'landscape')->setWarnings(false)
-            ->download('certificate.pdf');
-    }
+        $course = Course::where("slug", $slug)->first();
+        if(!$course){
+            abort(404);
+        }
+        $certificate = Certificate::fetchOrCreateCertificate(auth()->id(), $course->id);
 
-    public function downloadCert($course_name)
-    {
-        $cert_no = rand();
-        $date = LmsCarbon::now($toDateString = true);
+        $d = ['course' => $course->name, 'cert_no' => $certificate->code];
 
-        $d = ['course' => $course_name, 'cert_no' => $cert_no, 'date' => $date, 'name' => auth()->user()->name];
-
-        $path = config("setting.cert_img_path");
-
-        $type = pathinfo($path, PATHINFO_EXTENSION);
-        $data = file_get_contents($path);
-        $img = 'data:image/' . $type . ';base64,' . base64_encode($data);
-        $d['img'] = $img;
-        return PDF::loadView("course.certificate", $d)->setPaper('a4', 'landscape')->setWarnings(false)->stream('certificate.pdf');
+        return PdfReader::getPdf($d);
     }
 
     public function comment($course_name)
