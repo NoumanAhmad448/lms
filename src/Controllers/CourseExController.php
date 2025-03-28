@@ -61,7 +61,7 @@ class CourseExController extends Controller
 
         $d = ['course' => $course_name, 'cert_no' => $cert_no, 'date' => $date, 'name' => auth()->user()->name];
 
-        $path = asset(config("setting.cert_img_path"));
+        $path = config("setting.cert_img_path");
 
         $type = pathinfo($path, PATHINFO_EXTENSION);
         $data = file_get_contents($path);
