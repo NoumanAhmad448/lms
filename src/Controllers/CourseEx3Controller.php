@@ -29,17 +29,14 @@ class CourseEx3Controller extends Controller
         try {
             $title = 'c_status';
             if (Auth::user()->id != $course->user_id) {
-                dump("course_user_id".$course->user_id);
-                dump("auth_user_id".auth()->id());
+                debug_logs("course_user_id" . $course->user_id);
+                debug_logs("auth_user_id" . auth()->id());
                 return back();
             }
             return view('lms::courses.change-course-status-setting', compact('title', 'course'));
         } catch (\Throwable $th) {
-            if (config("app.env")) {
-                debug_logs($th->getMessage());
-            } else {
-                return back();
-            }
+            debug_logs($th->getMessage());
+            return back();
         }
     }
 
@@ -54,11 +51,8 @@ class CourseEx3Controller extends Controller
             }
             abort(403);
         } catch (\Throwable $th) {
-            if (config("app.env")) {
-                debug_logs($th->getMessage());
-            } else {
-                return back();
-            }
+            debug_logs($th->getMessage());
+            return back();
         }
     }
 
@@ -71,11 +65,8 @@ class CourseEx3Controller extends Controller
                 return redirect()->route('dashboard')->with('status', 'Course ' . reduceCharIfAv($course->course_title, 10) . ' has deleted');
             }
         } catch (\Throwable $th) {
-            if (config("app.env")) {
-                debug_logs($th->getMessage());
-            } else {
-                return back();
-            }
+            debug_logs($th->getMessage());
+            return back();
         }
     }
 
@@ -98,11 +89,8 @@ class CourseEx3Controller extends Controller
 
             return back()->with('status', 'course url has been updated and it will not be updated in future');
         } catch (\Throwable $th) {
-            if (config("app.env")) {
-                debug_logs($th->getMessage());
-            } else {
-                return back();
-            }
+            debug_logs($th->getMessage());
+            return back();
         }
     }
 
@@ -140,8 +128,7 @@ class CourseEx3Controller extends Controller
                 'rated_by_students'
             ));
         } catch (\Throwable $th) {
-            if (config('app.debug'))
-                debug_logs($th->getMessage());
+            debug_logs($th->getMessage());
         }
     }
 
@@ -217,11 +204,8 @@ class CourseEx3Controller extends Controller
             }
             return view('lms::laoshi.public-announcement', compact('title', 'courses'));
         } catch (\Throwable $th) {
-            if (config("app.env")) {
-                debug_logs($th->getMessage());
-            } else {
-                return back();
-            }
+            debug_logs($th->getMessage());
+            return back();
         }
     }
     public function publicAnnPost(CourseAnnRequest $request)
@@ -283,9 +267,7 @@ class CourseEx3Controller extends Controller
 
             return view('lms::xuesheng.contact_with_ins', compact('title', 'c_titles'));
         } catch (\Throwable $th) {
-            if (config("app.debug")) {
-                debug_logs($th->getMessage());
-            }
+            debug_logs($th->getMessage());
         }
     }
     public function contactInsPost(Request $request)
@@ -304,11 +286,8 @@ class CourseEx3Controller extends Controller
                 ChatInfo::create(['user_id' => $s_user_id, 'ins_id' => $r_user_id]);
             }
         } catch (Exception $th) {
-            if (config("app.env")) {
-                debug_logs($th->getMessage());
-            } else {
-                return back()->with('error', 'something went wrong.');
-            }
+            debug_logs($th->getMessage());
+            return back()->with('error', 'something went wrong.');
         }
     }
 }
