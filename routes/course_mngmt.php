@@ -1,5 +1,6 @@
 <?php
 
+use Eren\Lms\Controllers\CertificateController;
 use Eren\Lms\Controllers\CourseController;
 use Eren\Lms\Controllers\CourseEx3Controller;
 use Eren\Lms\Controllers\CourseExController;
@@ -15,7 +16,12 @@ Route::middleware(['web', 'auth', "lms-web"])->group(function () {
     Route::post('instructor/course/{course}/upload-bulk-loader', [VideoController::class, 'uploadBulkLoader'])
         ->name('bulk_loader');
 
-    Route::get('download-certificate/{course_name}', [CourseExController::class, 'downloadCert'])->name('down-cert');
+    Route::get('download-certificate/{slug}', [CourseExController::class, 'downloadCert'])->name('down-cert');
+
+    // In your routes/web.php or routes/api.php (depending on your needs)
+
+    Route::get('/certificates/verify/{slug}/{code}', [CertificateController::class, "getCert"])->name('certificates.verify');
+    Route::get('/verification/{id}', [CertificateController::class , "getCertPdf"])->name('verification.get');
 
     Route::post('rating-course', [CourseExController::class, 'ratingCourse'])->name('rating-course');
 

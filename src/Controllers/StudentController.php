@@ -4,14 +4,13 @@ namespace Eren\Lms\Controllers;
 
 use Eren\Lms\Models\Course;
 use Eren\Lms\Models\WishList;
-use Illuminate\Http\Request;
 
 class StudentController extends Controller
 {
     public function wishlistCourse($slug)
     {
         try {
-            $c = Course::where('slug', $slug)->first();
+            $c = Course::where('slug', $slug)->where("status", Course::PUBLISHED_STATUS)->first();
             if (!$c) {
                 abort(404);
             }
@@ -22,6 +21,7 @@ class StudentController extends Controller
             WishList::create(['user_id' => $u_id, 'c_id' => $c->id]);
             return redirect()->route('get-wishlist-course');
         } catch (\Throwable $th) {
+            debug_logs($th->getMessage());
             return back();
         }
     }
@@ -33,11 +33,8 @@ class StudentController extends Controller
             $courses = auth()->user()->wishLists()->select('c_id')->orderByDesc('updated_at')->simplePaginate(15);
             return view('lms::student.wish-list', compact('title', 'courses'));
         } catch (\Throwable $th) {
-            if(config("app.debug")){
-                dd($th->getMessage());
-            }else{
-                return back();
-            }
+            debug_logs($th->getMessage());
+            return back();
         }
     }
     public function removeFromWishlist($slug)
@@ -54,6 +51,7 @@ class StudentController extends Controller
             $w->delete();
             return back();
         } catch (\Throwable $th) {
+            debug_logs($th->getMessage());
             return back();
         }
     }
