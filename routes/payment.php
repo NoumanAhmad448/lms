@@ -12,7 +12,12 @@ use Eren\Lms\Controllers\SayonaraController;
 use Eren\Lms\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['web', 'auth', "lms-web"])->group(function () {
+$route = Route::middleware(['web', 'auth', "lms-web"]);
+
+if (config("setting.enable_instructor_domain")) {
+    $route->domain(config("setting.instructor_domain"));
+}
+$route->group(function () {
 
     Route::post('instructor/bank-detail', [InstructorPaymentController::class, 'storeBankPayment'])->name('i_bank_payment');
     Route::post('instructor/paypal-detail', [InstructorPaymentController::class, 'storePaypalPayment'])->name('i_paypal_payment_withdraw');

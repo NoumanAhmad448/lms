@@ -8,7 +8,12 @@ use Eren\Lms\Controllers\PaymentController;
 use Illuminate\Support\Facades\Route;
 use Eren\Lms\Controllers\ProfileController;
 
-Route::prefix("Instructor")->middleware(['web', 'auth',"lms-web"])->group(function () {
+
+$route = Route::prefix("Instructor")->middleware(['web', 'auth',"lms-web"]);
+if (config("setting.enable_instructor_domain")) {
+    $route->domain(config("setting.instructor_domain"));
+}
+$route->group(function () {
 
     Route::get('/instructor-profile', [ProfileController::class, 'getProfile'])->name('i-profile');
     Route::post('instructor-profile', [ProfileController::class, 'saveProfile'])->name('i-profile-post');

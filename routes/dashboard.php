@@ -13,7 +13,12 @@ use Eren\Lms\Controllers\StudentController;
 use Eren\Lms\Controllers\VideoController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['web', 'auth', "lms-web"])->group(function () {
+$route = Route::middleware(['web', 'auth', "lms-web"]);
+
+if (config("setting.enable_instructor_domain")) {
+    $route->domain(config("setting.instructor_domain"));
+}
+$route->group(function () {
 
     Route::post('instructor/course/{course_id}/manage/lec_name', [DashboardController::class, 'lec_name_post'])
         ->name('lec_name_post');

@@ -6,7 +6,11 @@ use Eren\Lms\Controllers\CategoriesController;
 use Eren\Lms\Controllers\CourseController;
 use Eren\Lms\Controllers\SubCategories;
 
-Route::prefix("admin")->middleware(['web', "lms-web", 'admin'])->group(function () {
+$route = Route::prefix("admin")->middleware(['web', "lms-web", 'admin']);
+if (config("setting.enable_admin_domain")) {
+    $route->domain(config("setting.admin_domain"));
+}
+$route->group(function () {
 
     Route::get('/get-draft-courses', [AdminController::class, 'draftCourse'])->name('draft_course');
     Route::get('/get-published-courses', [AdminController::class, 'publishedCourse'])->name('p_courses');
@@ -24,11 +28,15 @@ Route::prefix("admin")->middleware(['web', "lms-web", 'admin'])->group(function 
 
     Route::get('categories', [CategoriesController::class, 'viewCategories'])->name('admin_view_categories');
     Route::get('main-categories', [CategoriesController::class, 'mainCategories'])->name('admin_main_categories');
+    Route::get('sub-categories', [CategoriesController::class, 'subCategories'])->name('admin_sub_categories');
 });
 
-Route::get('sub-categories', [CategoriesController::class, 'subCategories'])->name('admin_sub_categories');
 
-Route::prefix("ädmin")->middleware("admin")->group(function () {
+$route  = Route::prefix("ädmin")->middleware("admin");
+if (config("setting.enable_admin_domain")) {
+    $route->domain(config("setting.admin_domain"));
+}
+$route->group(function () {
 
 
     Route::get('admin/create-sub-categories', [SubCategories::class, 'createSubCategories'])->name('admin_create_sub_c');
