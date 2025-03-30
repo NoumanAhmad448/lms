@@ -2,6 +2,8 @@
 
 namespace Eren\Lms\Database\Factories;
 
+use Eren\Lms\Models\Course;
+use Eren\Lms\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,8 +22,8 @@ class CertificateFactory extends Factory
         return [
             "code" => $this->faker->unique()->word(),
             "download_count" => $this->faker->randomDigit(),
-            'user_id' => \App\Models\User::factory()->create()->id,
-            'course_id' => \App\Models\Course::factory()->create(['status' => config("setting.course_status.published")])->id,
+            'user_id' => User::factory()->create()->id,
+            'course_id' => Course::factory()->create(['status' => Course::PUBLISHED_STATUS])->id,
             "created_at" => dbDate(now()),
             "updated_at" => dbDate(now())
         ];
