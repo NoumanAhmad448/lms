@@ -10,7 +10,7 @@ use Eren\Lms\Controllers\InstructorAuthController;
 use Eren\Lms\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['web'])->group(function () {
+Route::domain(config("app.url"))->middleware(['web'])->group(function () {
 
 
     Route::get('/', [HomeController1::class, 'index'])->name('index');

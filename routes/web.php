@@ -10,14 +10,19 @@ use Eren\Lms\Controllers\InstructorAuthController;
 use Eren\Lms\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['web', 'auth'])->group(function () {
+
+$route = Route::middleware(['web', 'auth']);
+if (config("setting.enable_instructor_domain")) {
+    $route->domain(config("setting.instructor_domain"));
+}
+$route->group(function () {
     Route::get(
         '/dashboard',
         [DashboardController::class, 'index']
     )->name('dashboard');
 });
 
-Route::middleware(['web'])->group(function () {
+Route::domain(config("app.url"))->middleware(['web'])->group(function () {
     Route::get('show-all-courses', [CourseEx3Controller::class, 'showAllCourses'])->name('show-all-courses');
 
     Route::get('/', [HomeController1::class, 'index'])->name('index');
