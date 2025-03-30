@@ -70,16 +70,9 @@ use Eren\Lms\Models\Media;
                         </ul>
                     @endforeach
                 @endif
-                {{-- <form action="{{route('getCerti')}}" method="get"> --}}
-                {{-- <form action="{{route('down-cert', ['course_name' => $course->course_title])}}" method="get">
-                @csrf
-                <input type="hidden" name="c_name" value="{{ $course->course_title ?? '' }}" />
-                <button type="submit" class="btn btn-website btn-lg mt-5 ml-4"> Get Your Certificate </button>
-            </form> --}}
                 @if ($course?->course_title)
-                    <a href="{{ route('down-cert', ['course_name' => $course?->course_title]) }}"
-                        class="btn btn-website btn-lg mt-5 ml-4" target="_blank" style="width: 230px">
-                        {{-- <img src="https://media.giphy.com/media/4p1JhLCYEOEJa/giphy.gif" width="50" height="50"/> --}}
+                    <a href="{{ route('down-cert', ['slug' => $course?->slug]) }}" class="btn btn-website btn-lg mt-5 ml-4"
+                        target="_blank" style="width: 230px">
                         Get Your Certificate
                     </a>
                     <a title="Commenting on course will show the detail in course page"

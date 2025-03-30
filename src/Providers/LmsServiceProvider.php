@@ -142,7 +142,7 @@ class LmsServiceProvider extends ServiceProvider
             __DIR__ . '/../../config/setting.php' => config_path('setting.php'),
         ], 'lms_auth_views');
 
-        if(config("setting.extra_middlewares")){
+        if (config("setting.extra_middlewares")) {
             Route::middleware(config("setting.extra_middlewares"))
                 ->group(__DIR__ . '/../../routes/web.php');
         }
@@ -161,9 +161,6 @@ class LmsServiceProvider extends ServiceProvider
         });
         $this->app->bind(PaymentGatewayContract::class, function ($app, $data) {
             return new PaymentGatewayResponse($data['data']);
-        });
-        $this->app->singleton(CertificateFactory::class, function ($app) {
-            return new CertificateFactory();
         });
     }
 }
